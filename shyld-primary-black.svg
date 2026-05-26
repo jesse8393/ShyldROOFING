@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 96" width="960" height="192">
+  <defs>
+    <linearGradient id="shieldFill" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#c9933e" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#a07422" stop-opacity="0.08"/>
+    </linearGradient>
+  </defs>
+
+  <!-- SHIELD: same size as before -->
+  <path d="M44 12 L72 18 L72 48 Q72 72 44 84 Q16 72 16 48 L16 18 Z" fill="none" stroke="#c9933e" stroke-width="2"/>
+  <path d="M44 22 L65 26 L65 48 Q65 66 44 76 Q23 66 23 48 L23 26 Z" fill="url(#shieldFill)"/>
+
+  <!-- SHYLD wordmark, dialed down -->
+  <text x="96" y="50" font-family="'Palatino Linotype','Book Antiqua',Palatino,Georgia,serif" font-size="38" letter-spacing="11" fill="#0a0a0a">SHYLD</text>
+
+  <!-- Double gold rule -->
+  <line x1="96" y1="60" x2="380" y2="60" stroke="#c9933e" stroke-width="1"/>
+  <line x1="96" y1="63.5" x2="380" y2="63.5" stroke="#c9933e" stroke-width="0.4" opacity="0.4"/>
+
+  <!-- ROOFING tagline -->
+  <text x="96" y="82" font-family="'Palatino Linotype','Book Antiqua',Palatino,Georgia,serif" font-size="11" letter-spacing="15" fill="#0a0a0a" opacity="0.55">ROOFING</text>
+</svg>
