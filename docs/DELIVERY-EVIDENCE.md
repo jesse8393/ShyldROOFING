@@ -73,7 +73,34 @@ leads. The site reuses one `request_id` across retries of a failed or timed out 
 a confirmed acceptance (site form test `timeout is not shown as success and retry reuses the same request id`).
 The database half depends on the unapplied migration above.
 
-## Blockers to a live verification
+## Live verification of the fixed function on a Vercel preview
+
+The PR branch deployed as preview `dpl_bP97KSNWjNx9viErmbpN1qEEd1xJ`, protected by Vercel Authentication. Using a
+temporary Vercel share link, four requests were sent at 02:17:58 to 02:18:00 UTC with the test number
+`+16155550100`. The preview uses the same Supabase table, Resend account, and notify address as production, so
+each request produced a real row and a real email; the rows were deleted afterward. `SMS_AUTOMATION_ENABLED` is
+not set on the project, so no text could be sent by any path.
+
+| Request | Response | Vercel log line |
+| --- | --- | --- |
+| A, `sms_consent: no` | `ok, dbSaved, emailSent, smsSent false, smsSkipped no_consent` | `db=saved consent_stored=false email=sent sms=skipped:no_consent consent=false` |
+| B, `sms_consent: yes` with timestamp and version | `ok, dbSaved, emailSent, smsSent false, smsSkipped automation_disabled` | `... sms=skipped:automation_disabled consent=true` |
+| B again, same `request_id` | `ok, duplicate true, dbSaved false, emailSent false, smsSkipped duplicate` | `intake duplicate request_id=preview-test-B-2026-09-29 (memory) no email, no sms` |
+| C, `sms_consent: maybe`, `sms_opt_in: yes please` | `ok, smsSkipped no_consent` | `... sms=skipped:no_consent consent=false` |
+
+Supabase held exactly three rows afterward (A, B, C), none for the retry. Resend shows three emails, all
+delivered, one per accepted request and none for the retry. Each log line also carried the warning
+`stored base fields only; run the consent migration` with PostgREST code `PGRST204` for the missing `request_id`
+column, which confirms the migration has not been applied and consent is not yet stored in the table. That
+warning also revealed that the fallback insert dropped attribution fields; the branch was updated so the
+fallback keeps them (19 unit tests pass), and that update has not been re run on the preview.
+
+Inbox check: all three preview emails (A, B, C) were found in the inbox of `jesse@parkerconstructioncompany.com`.
+Test A arrived first (thread `1a0eabb5a12ce25b`); tests B and C appeared a few minutes later (threads
+`1a0eaf466e17647e` and `1a0eaf468a95db38`). No email arrived for the retried request, which matches the
+Resend records. The three preview rows were deleted from the leads table after the check.
+
+## Blockers to a live verification of production
 
 1. Merge and deploy the `shyld-ai-agents` PR (Vercel deploys `main` to production automatically).
 2. Apply the migration in the Supabase SQL editor.
