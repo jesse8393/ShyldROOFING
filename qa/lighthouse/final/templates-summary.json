@@ -1,0 +1,326 @@
+{
+  "date": "2026-09-29T01:21:52.200Z",
+  "base": "http://localhost:4321",
+  "results": [
+    {
+      "route": "/roof-replacement",
+      "preset": "mobile",
+      "runs": 1,
+      "lighthouse": "13.5.0",
+      "median": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "medianMetrics": {
+        "lcp_ms": 1660,
+        "cls": 0,
+        "tbt_ms": 0,
+        "fcp_ms": 1038,
+        "speed_index_ms": 1038,
+        "transfer_kb": 117
+      }
+    },
+    {
+      "route": "/roof-replacement",
+      "preset": "desktop",
+      "runs": 1,
+      "lighthouse": "13.5.0",
+      "median": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "medianMetrics": {
+        "lcp_ms": 470,
+        "cls": 0,
+        "tbt_ms": 0,
+        "fcp_ms": 308,
+        "speed_index_ms": 315,
+        "transfer_kb": 117
+      }
+    },
+    {
+      "route": "/roofing-franklin",
+      "preset": "mobile",
+      "runs": 1,
+      "lighthouse": "13.5.0",
+      "median": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "medianMetrics": {
+        "lcp_ms": 1818,
+        "cls": 0,
+        "tbt_ms": 0,
+        "fcp_ms": 1040,
+        "speed_index_ms": 1040,
+        "transfer_kb": 116
+      }
+    },
+    {
+      "route": "/roofing-franklin",
+      "preset": "desktop",
+      "runs": 1,
+      "lighthouse": "13.5.0",
+      "median": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "medianMetrics": {
+        "lcp_ms": 431,
+        "cls": 0,
+        "tbt_ms": 0,
+        "fcp_ms": 274,
+        "speed_index_ms": 294,
+        "transfer_kb": 128
+      }
+    },
+    {
+      "route": "/projects",
+      "preset": "mobile",
+      "runs": 1,
+      "lighthouse": "13.5.0",
+      "median": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "medianMetrics": {
+        "lcp_ms": 1810,
+        "cls": 0,
+        "tbt_ms": 0,
+        "fcp_ms": 1027,
+        "speed_index_ms": 1027,
+        "transfer_kb": 160
+      }
+    },
+    {
+      "route": "/projects",
+      "preset": "desktop",
+      "runs": 1,
+      "lighthouse": "13.5.0",
+      "median": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "medianMetrics": {
+        "lcp_ms": 429,
+        "cls": 0,
+        "tbt_ms": 0,
+        "fcp_ms": 271,
+        "speed_index_ms": 287,
+        "transfer_kb": 218
+      }
+    },
+    {
+      "route": "/about",
+      "preset": "mobile",
+      "runs": 1,
+      "lighthouse": "13.5.0",
+      "median": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "medianMetrics": {
+        "lcp_ms": 1664,
+        "cls": 0,
+        "tbt_ms": 0,
+        "fcp_ms": 1063,
+        "speed_index_ms": 1063,
+        "transfer_kb": 105
+      }
+    },
+    {
+      "route": "/about",
+      "preset": "desktop",
+      "runs": 1,
+      "lighthouse": "13.5.0",
+      "median": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "medianMetrics": {
+        "lcp_ms": 409,
+        "cls": 0,
+        "tbt_ms": 0,
+        "fcp_ms": 272,
+        "speed_index_ms": 276,
+        "transfer_kb": 121
+      }
+    },
+    {
+      "route": "/contact",
+      "preset": "mobile",
+      "runs": 1,
+      "lighthouse": "13.5.0",
+      "median": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "medianMetrics": {
+        "lcp_ms": 1326,
+        "cls": 0,
+        "tbt_ms": 0,
+        "fcp_ms": 1051,
+        "speed_index_ms": 1051,
+        "transfer_kb": 59
+      }
+    },
+    {
+      "route": "/contact",
+      "preset": "desktop",
+      "runs": 1,
+      "lighthouse": "13.5.0",
+      "median": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "medianMetrics": {
+        "lcp_ms": 343,
+        "cls": 0,
+        "tbt_ms": 0,
+        "fcp_ms": 289,
+        "speed_index_ms": 289,
+        "transfer_kb": 60
+      }
+    },
+    {
+      "route": "/text-us",
+      "preset": "mobile",
+      "runs": 1,
+      "lighthouse": "13.5.0",
+      "median": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "medianMetrics": {
+        "lcp_ms": 1361,
+        "cls": 0,
+        "tbt_ms": 0,
+        "fcp_ms": 1036,
+        "speed_index_ms": 1036,
+        "transfer_kb": 59
+      }
+    },
+    {
+      "route": "/text-us",
+      "preset": "desktop",
+      "runs": 1,
+      "lighthouse": "13.5.0",
+      "median": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "medianMetrics": {
+        "lcp_ms": 346,
+        "cls": 0,
+        "tbt_ms": 0,
+        "fcp_ms": 283,
+        "speed_index_ms": 283,
+        "transfer_kb": 59
+      }
+    },
+    {
+      "route": "/roof-replacement-cost-middle-tennessee",
+      "preset": "mobile",
+      "runs": 1,
+      "lighthouse": "13.5.0",
+      "median": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "medianMetrics": {
+        "lcp_ms": 1314,
+        "cls": 0,
+        "tbt_ms": 0,
+        "fcp_ms": 1038,
+        "speed_index_ms": 1038,
+        "transfer_kb": 60
+      }
+    },
+    {
+      "route": "/roof-replacement-cost-middle-tennessee",
+      "preset": "desktop",
+      "runs": 1,
+      "lighthouse": "13.5.0",
+      "median": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "medianMetrics": {
+        "lcp_ms": 358,
+        "cls": 0,
+        "tbt_ms": 0,
+        "fcp_ms": 297,
+        "speed_index_ms": 302,
+        "transfer_kb": 60
+      }
+    },
+    {
+      "route": "/privacy",
+      "preset": "mobile",
+      "runs": 1,
+      "lighthouse": "13.5.0",
+      "median": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "medianMetrics": {
+        "lcp_ms": 1272,
+        "cls": 0,
+        "tbt_ms": 0,
+        "fcp_ms": 894,
+        "speed_index_ms": 894,
+        "transfer_kb": 56
+      }
+    },
+    {
+      "route": "/privacy",
+      "preset": "desktop",
+      "runs": 1,
+      "lighthouse": "13.5.0",
+      "median": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "medianMetrics": {
+        "lcp_ms": 328,
+        "cls": 0,
+        "tbt_ms": 0,
+        "fcp_ms": 242,
+        "speed_index_ms": 242,
+        "transfer_kb": 56
+      }
+    }
+  ]
+}

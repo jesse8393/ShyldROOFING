@@ -25,7 +25,7 @@ for (const route of routes) {
 }
 
 // Horizontal overflow at phone widths
-for (const w of [360, 390, 430]) {
+for (const w of [360, 390, 430, 768, 1024, 1440]) {
   const ctx = await browser.newContext({ viewport: { width: w, height: 780 } });
   const page = await ctx.newPage();
   for (const route of routes) {
@@ -38,7 +38,7 @@ for (const w of [360, 390, 430]) {
   }
   await ctx.close();
 }
-console.log('overflow check done for 360, 390, 430');
+console.log('overflow check done for 360, 390, 430, 768, 1024, 1440');
 
 // 200 percent browser zoom equivalent: a 1440px window zoomed to 200% is a 720 CSS px viewport at 2x.
 {

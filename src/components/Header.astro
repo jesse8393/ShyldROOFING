@@ -216,7 +216,7 @@ const current = Astro.url.pathname.replace(/\.html$/, '');
     display: grid;
     gap: 0.2rem;
   }
-  @media (min-width: 37.5em) {
+  @media (min-width: 37.5em) and (max-width: 62.4375em), (min-width: 75em) {
     .phone span {
       display: inline;
     }
@@ -229,6 +229,10 @@ const current = Astro.url.pathname.replace(/\.html$/, '');
       display: inline-flex;
       min-height: 2.9rem;
       padding-block: 0.6rem;
+      white-space: nowrap;
+    }
+    .phone span {
+      display: none;
     }
     .menu-btn,
     .mobile-menu {
