@@ -10,6 +10,8 @@ export interface Project {
   alt: string;
   service: 'roof-replacement' | 'metal-roofing' | 'siding' | 'gutters';
   body: string[];
+  /** Optional second photo of the same job. Key matches the images map in src/pages/projects.astro */
+  second?: { key: string; alt: string };
 }
 
 export const projects: Project[] = [
@@ -44,6 +46,41 @@ export const projects: Project[] = [
     body: [
       'A simple hip roof done properly: clean hip caps on every corner, a continuous ridge vent along the top, new pipe boots, and the flashing around the stone chimney redone. Roofs like this are common across Middle Tennessee and are usually finished in a day.',
       'The second photo shows the same house from the front with the gutters back on and the shingle pattern running straight and even across the long slope.',
+    ],
+    second: { key: 'blue-ranch-front', alt: 'Front aerial view of the same blue brick ranch with the new charcoal hip roof, gutters reinstalled, and evergreens along the entry' },
+  },
+  {
+    slug: 'charcoal-shingles-brick-ranch',
+    title: 'Charcoal shingles on a long brick ranch',
+    summary: 'Hip ends, three ridge vent runs, and a brick chimney, straight down and from the side',
+    alt: 'Straight down aerial photo of a long brick ranch home with new charcoal architectural shingles, hip ends, three sections of ridge vent, a brick chimney, and a white metal patio cover at the back',
+    service: 'roof-replacement',
+    body: [
+      'A long, low ranch with hips at both ends and a stepped ridge. The overhead view shows what a straight install looks like: courses aligned across the whole length, hip caps meeting cleanly, and ridge vent run in three sections to match the roof shape.',
+      'The chimney was reflashed and the existing white metal patio cover at the rear was left in place and tied into the new drip edge. The angled view shows the same roof with the afternoon shadows across it.',
+    ],
+    second: { key: 'charcoal-ranch-angle', alt: 'Angled aerial view of the same brick ranch with new charcoal shingles, a brick chimney, and the white metal patio cover beside the driveway' },
+  },
+  {
+    slug: 'brown-shingles-brick-dormers',
+    title: 'Brown dimensional shingles on a brick home with dormers',
+    summary: 'Two story brick home with two front dormers and a metal porch cover, overhead and from the side',
+    alt: 'Straight down aerial photo of a brick home with red shutters, two front dormers, a brick chimney, new brown dimensional shingles, and a white metal carport roof',
+    service: 'roof-replacement',
+    body: [
+      'Brown and rust toned shingles to suit the brick and red shutters. The two dormers each add four sidewall flashing lines and a small valley, and the chimney sits right where the rear wing meets the main roof.',
+      'The side view shows the same house with the metal cover over the porch, which was flashed to the new shingles rather than replaced.',
+    ],
+    second: { key: 'brown-dormers-angle', alt: 'Angled aerial view of the same brick home showing the brown shingle roof, dormers, chimney, and metal porch cover' },
+  },
+  {
+    slug: 'weathered-wood-shingles-brick-ranch',
+    title: 'Weathered wood shingles on a brick ranch with a covered porch',
+    summary: 'Single story brick home with a gabled front porch and carport, aerial after completion',
+    alt: 'Aerial photo of a single story brick ranch with new weathered wood colored architectural shingles, a gabled front porch with white columns, a carport, and a white metal cover at the back',
+    service: 'roof-replacement',
+    body: [
+      'A lighter, weathered wood shingle color on a brick ranch, with the gabled porch roof and the main hip roof shingled as one job so the color matches everywhere. Ridge vent runs the length of the main ridge.',
     ],
   },
   {
