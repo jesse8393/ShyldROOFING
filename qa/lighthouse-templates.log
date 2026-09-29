@@ -1,0 +1,3 @@
+/roof-replacement mobile run 1: perf 100 a11y 100 bp 100 seo 100 | LCP 1660ms CLS 0.000 TBT 0ms bytes 117KB | failing: largest-contentful-paint (99), forced-reflow-insight (0), image-delivery-insight (0), network-dependency-tree-insight (0)
+/roof-replacement desktop run 1: perf 100 a11y 100 bp 100 seo 100 | LCP 470ms CLS 0.000 TBT 0ms bytes 117KB | failing: forced-reflow-insight (0), network-dependency-tree-insight (0)
+/roofing-franklin mobile run 1: perf 100 a11y 100 bp 100 seo 100 | LCP 1818ms CLS 0.000 TBT 0ms bytes 116KB | failing: largest-contentful-paint (98), forced-reflow-insight (0), image-delivery-insight (0), network-dependency-tree-insight (0)

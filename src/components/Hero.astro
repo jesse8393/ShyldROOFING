@@ -13,8 +13,8 @@ const alt = 'Aerial view of a charcoal standing seam metal roof on a two story h
 ---
 
 <Fragment slot="head">
-  <link rel="preload" as="image" type="image/avif" media="(max-width: 56.1875em)" imagesrcset={tallAvif.srcSet.attribute} imagesizes="100vw" />
-  <link rel="preload" as="image" type="image/avif" media="(min-width: 56.25em)" imagesrcset={wideAvif.srcSet.attribute} imagesizes="(min-width: 82.5em) 1240px, 100vw" />
+  <link rel="preload" as="image" type="image/avif" fetchpriority="high" media="(max-width: 56.1875em)" imagesrcset={tallAvif.srcSet.attribute} imagesizes="100vw" />
+  <link rel="preload" as="image" type="image/avif" fetchpriority="high" media="(min-width: 56.25em)" imagesrcset={wideAvif.srcSet.attribute} imagesizes="(min-width: 82.5em) 1240px, 100vw" />
 </Fragment>
 
 <section class="hero" aria-labelledby="hero-heading">
