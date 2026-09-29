@@ -231,21 +231,12 @@ button {
   color: var(--on-ink-muted);
 }
 .eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
+  display: block;
   margin-bottom: 1rem;
   font-size: 0.85rem;
   font-weight: 600;
   letter-spacing: 0.02em;
   color: var(--gold-deep);
-}
-.eyebrow::before {
-  content: '';
-  width: 1.5rem;
-  height: 2px;
-  background: var(--gold);
-  border-radius: 2px;
 }
 .section-ink .eyebrow {
   color: var(--gold);

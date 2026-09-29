@@ -74,21 +74,15 @@ console.log('overflow check done for 360, 390, 430, 768, 1024, 1440');
   await ctx.close();
 }
 
-// Reduced motion: layers illustration fully visible without animation
+// Reduced motion: no element is left hidden by the scroll accents
 {
   const ctx = await browser.newContext({ viewport: { width: 1280, height: 900 }, reducedMotion: 'reduce' });
   const page = await ctx.newPage();
   await page.goto(base + '/', { waitUntil: 'networkidle' });
-  await page.evaluate(() => document.querySelector('[data-layers]').scrollIntoView());
-  await page.waitForTimeout(500);
-  const opacities = await page.$$eval('[data-layers] .l', (els) => els.map((el) => getComputedStyle(el).opacity));
-  const allVisible = opacities.every((o) => Number(o) === 1);
-  const animating = await page.$$eval('[data-layers] .l', (els) => els.some((el) => getComputedStyle(el).animationName !== 'none'));
-  console.log(`reduced motion: layers ${allVisible && !animating ? 'static and visible' : 'PROBLEM ' + opacities.join(',') + ' animating=' + animating}`);
-  if (!allVisible || animating) problems++;
   const riseHidden = await page.$$eval('.rise', (els) => els.filter((el) => Number(getComputedStyle(el).opacity) < 1).length);
-  console.log(`reduced motion: ${riseHidden} .rise elements hidden (expect 0)`);
-  if (riseHidden) problems++;
+  const animating = await page.$$eval('.rise', (els) => els.filter((el) => getComputedStyle(el).animationName !== 'none').length);
+  console.log(`reduced motion: ${riseHidden} hidden and ${animating} animating .rise elements (expect 0)`);
+  if (riseHidden || animating) problems++;
   await ctx.close();
 }
 
@@ -97,7 +91,7 @@ console.log('overflow check done for 360, 390, 430, 768, 1024, 1440');
   const ctx = await browser.newContext({ viewport: { width: 1280, height: 900 }, javaScriptEnabled: false });
   const page = await ctx.newPage();
   await page.goto(base + '/', { waitUntil: 'networkidle' });
-  const hidden = await page.$$eval('.rise, [data-layers] .l', (els) => els.filter((el) => Number(getComputedStyle(el).opacity) < 1).length);
+  const hidden = await page.$$eval('.rise', (els) => els.filter((el) => Number(getComputedStyle(el).opacity) < 1).length);
   const formVisible = await page.isVisible('#inspection form');
   console.log(`no JavaScript: ${hidden} hidden elements (expect 0), form visible ${formVisible}`);
   if (hidden || !formVisible) problems++;

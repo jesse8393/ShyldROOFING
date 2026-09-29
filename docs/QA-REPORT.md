@@ -86,7 +86,7 @@ the equivalent of 200 percent browser zoom; mobile menu opens with Enter, moves 
 and returns focus; reduced motion leaves every element fully visible and static; the page and forms work with
 JavaScript disabled.
 
-Manual review performed by reading the rendered pages: visible focus rings on every control, skip link, one
+Manual review performed by reading the rendered pages (the roof layer diagram mentioned in older notes was later replaced with a job photo): visible focus rings on every control, skip link, one
 primary heading per page, landmarks (header, nav, main, footer), labels on every field with required and
 optional marked in text, error messages tied to fields with `aria-describedby`, live region for submission
 status, 44 px minimum touch targets on buttons, links, and menu items, and the sticky mobile bar hides while a
@@ -123,3 +123,17 @@ heroes, and area page hero now use the new job photos. The raw reports in `qa/li
 Mobile performance runs scored 99, 99, and 99 with LCP between 1.81 and 1.96 seconds. Page weight dropped
 because the new hero source is smaller than the metal roof aerial. Crawl and accessibility checks were re run
 and pass.
+
+## Addendum: after replacing the roof diagram with a job photo
+
+Decorative gold rules were removed, dash shaped list marks became dots, the animated roof layer diagram was replaced
+with the mid installation farmhouse photo beside the same six layer explanations, and the proof heading became
+"Roofing projects, photographed onsite." Same conditions, three runs each. Raw reports in `qa/lighthouse/final/`.
+
+| Preset | Performance | Accessibility | Best practices | SEO | LCP | CLS | TBT | Transfer |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Mobile | 99 | 100 | 100 | 100 | 1.96 s | 0 | 0 ms | 202 KB |
+| Desktop | 100 | 100 | 100 | 100 | 0.51 s | 0 | 0 ms | 209 KB |
+
+Crawl, type check, form tests, and accessibility checks were re run and pass. The reduced motion check now
+verifies that no scroll accent leaves content hidden, since the diagram animation no longer exists.
