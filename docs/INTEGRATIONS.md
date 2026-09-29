@@ -24,7 +24,8 @@ What the service does with a request:
 5. Sends a first touch text through Twilio if `TWILIO_*` variables are set.
 6. Returns `{ ok: true, ... }` on success or `{ error }` with `4xx`/`5xx`.
 
-The site shows the success message only when the response is `2xx` **and** `ok === true`.
+The site shows the success message only when the response is `2xx` **and** `ok === true`. The deployed function
+emails `jesse@parkerconstructioncompany.com` (the `NOTIFY_EMAIL` environment value), not the address in the code default.
 
 ### Fields the site sends
 
@@ -43,16 +44,21 @@ The site shows the success message only when the response is `2xx` **and** `ok =
 | `utm_source`, `utm_medium`, `utm_campaign`, `utm_term`, `utm_content`, `gclid`, `gbraid`, `wbraid` | stored | Captured from the URL and kept in storage for the session |
 | `website_url` | honeypot | Always empty for humans |
 
-### Required changes in `shyld-ai-agents` (not in this repository)
+### Changes in `shyld-ai-agents` (branch `claude/intake-consent-enforcement`, not yet deployed)
 
-These are needed to meet the brief fully. The site already sends the data.
+A pull request on the intake repository makes the function enforce consent instead of documenting it:
 
-1. Read `body.notes` and store it in `leads.notes`. Then remove the `(notes: ...)` suffix from `service` in `src/scripts/inquiry-form.ts`.
-2. Add columns `sms_consent boolean`, `sms_consent_promotional boolean`, `sms_consent_at timestamptz`,
-   `sms_consent_version text`, and store them. Honour `sms_consent = false` by skipping the Twilio first touch text.
-3. Add `request_id text unique` and return `ok: true` without inserting when a duplicate arrives (idempotency).
-4. Add basic rate limiting per IP (Vercel Firewall or a small in function check).
-5. Optionally add `https://preview host` to `ALLOWED_ORIGINS` while previewing.
+1. Reads `notes` into `leads.notes` and stores `sms_consent`, `sms_consent_promotional`, `sms_consent_at`,
+   `sms_consent_version`, and `request_id`. Migration: `supabase/migrations/20260929_consent_and_idempotency.sql`.
+2. Sends the Twilio first touch text only with explicit affirmative consent, `SMS_AUTOMATION_ENABLED=true`
+   (new kill switch, default off), and Twilio credentials. Missing, declined, or malformed consent blocks it.
+3. Treats a repeated `request_id` as already received (memory on a warm instance, unique index in the database)
+   and sends no second email or text.
+4. Returns `dbSaved`, `emailSent`, `emailSkipped`, `smsSent`, `smsSkipped`, and `duplicate` so a caller can tell
+   skipped from failed, and logs one line per request without personal data.
+
+Once that function is live, remove the `(notes: ...)` suffix on `service` in `src/scripts/inquiry-form.ts`.
+Evidence for each delivery outcome is in `DELIVERY-EVIDENCE.md`.
 
 ### Verifying delivery
 
