@@ -182,3 +182,25 @@ Steps:
 
 `SMS_AUTOMATION_ENABLED` remains unset through all three releases. Enabling it is a separate decision after
 release 2 verification and after the Twilio configuration is confirmed by name.
+
+## Execution log, 2026-09-29
+
+* Release 1 applied at 12:18 UTC as migration `20260929121829 consent_and_idempotency`. Backup of the two
+  existing rows and the schema was taken first and kept outside the repository. Verified: rows intact, five
+  columns, unique index, policy unchanged, anon insert on new columns, duplicate `request_id` returns 409
+  through PostgREST, old function still accepted a lead. Test rows deleted.
+* Release 2 merged as `f028e0f`; production deployment `dpl_AUL2HaFadiDKe23MXEZSirfAerW5` (previous, for rollback:
+  `dpl_FwjBZoD4uqpT5xYBk3CfXXHVXwyD`). Production tests A, B, C, D, immediate retry, retry after 11 minutes
+  (database path), and two simultaneous requests all behaved as specified. Consent stored, notes stored,
+  four delivered emails, none for duplicates, all in the inbox. SMS: `automation_disabled` on affirmative
+  consent, `no_consent` otherwise. Test rows deleted; the table holds the two original leads.
+* Release 3 not published. Owner chose a dedicated SHYLD sending domain. `shyldroofing.com` was created in
+  Resend (id `2334759b-1d5f-45dc-b52a-ad928d94be7e`) and its four records were added at Hostinger with
+  `overwrite=false`: TXT `resend._domainkey`, MX and TXT on `send`, CNAME `rsend`. Root A, AAAA, MX, SPF,
+  DMARC, mailbox DKIM, www, ftp, autoconfig, autodiscover, and nameservers are unchanged. All four resolve at
+  Cloudflare and Google resolvers. Resend still reports `pending` after two verification triggers.
+* Blocked: the Vercel connector cannot read or write environment variables (403 on list and create), so
+  `NOTIFY_EMAIL=shyldroofing@gmail.com` cannot be set from this session. `NOTIFY_FROM` is handled by the
+  code default in `jesse8393/shyld-ai-agents` PR #3 (`68be5a2`), which must merge only after the domain is
+  verified and `NOTIFY_EMAIL` is set.
+* Not changed: FieldHorse configuration, nameservers, root MX, `SMS_AUTOMATION_ENABLED` (still unset).
