@@ -1,0 +1,114 @@
+---
+import { Picture } from 'astro:assets';
+import { services } from '../data/business';
+import detail from '../assets/photos/crops/metal-detail.jpg';
+---
+
+<section class="services section section-white" id="services" aria-labelledby="services-heading">
+  <div class="container">
+    <div class="layout">
+      <div class="intro rise">
+        <p class="eyebrow">What we do</p>
+        <h2 id="services-heading">Roofing first. The rest of the exterior done with the roof in mind.</h2>
+        <p class="lede">Most calls start with a leak, a storm, or a roof that is simply old. We tell you what we find, what it means, and what your options cost before anyone picks up a tool.</p>
+        <div class="frame photo">
+          <Picture src={detail} widths={[480, 720, 960]} sizes="(min-width: 56.25em) 34vw, 100vw" formats={['avif', 'webp']} alt="Close view of standing seam metal roof panels and a chimney with matching metal flashing" loading="lazy" />
+        </div>
+      </div>
+
+      <ul class="list rise">
+        {
+          services.map((s) => (
+            <li>
+              <a href={`/${s.slug}`} data-track="service">
+                <span class="name">{s.name}</span>
+                <span class="desc">{s.short}</span>
+                <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</section>
+
+<style>
+  .layout {
+    display: grid;
+    gap: 2.5rem;
+  }
+  .intro .lede {
+    margin-top: 1.25rem;
+  }
+  .photo {
+    display: none;
+  }
+  .list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border-top: 1px solid var(--line);
+  }
+  .list a {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      'name arrow'
+      'desc arrow';
+    gap: 0.2rem 1rem;
+    align-items: center;
+    padding: 1.35rem 0.25rem;
+    border-bottom: 1px solid var(--line);
+    text-decoration: none;
+    color: inherit;
+    transition: padding-left var(--dur-base) var(--ease-out);
+  }
+  .list a:hover {
+    padding-left: 0.75rem;
+  }
+  .name {
+    grid-area: name;
+    font-family: var(--font-display);
+    font-size: var(--text-h3);
+    line-height: 1.15;
+  }
+  .list a:hover .name {
+    color: var(--gold-deep);
+  }
+  .desc {
+    grid-area: desc;
+    color: var(--muted);
+    max-width: 48ch;
+  }
+  .list svg {
+    grid-area: arrow;
+    width: 1.4rem;
+    height: 1.4rem;
+    color: var(--gold-deep);
+    transition: transform var(--dur-base) var(--ease-out);
+  }
+  .list a:hover svg {
+    transform: translateX(4px);
+  }
+  @media (min-width: 56.25em) {
+    .layout {
+      grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+      gap: clamp(2.5rem, 6vw, 6rem);
+      align-items: start;
+    }
+    .intro {
+      position: sticky;
+      top: calc(var(--header-h) + 2rem);
+    }
+    .photo {
+      display: block;
+      margin-top: 2rem;
+      aspect-ratio: 1 / 1;
+      max-width: 23.75em;
+    }
+    .list a {
+      padding-block: 1.6rem;
+    }
+  }
+</style>

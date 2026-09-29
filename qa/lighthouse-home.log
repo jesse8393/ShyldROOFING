@@ -1,0 +1,1 @@
+/ mobile run 1: perf 99 a11y 100 bp 100 seo 100 | LCP 1810ms CLS 0.000 TBT 0ms bytes 296KB | failing: first-contentful-paint (98), largest-contentful-paint (98), speed-index (98), forced-reflow-insight (0), image-delivery-insight (50), lcp-discovery-insight (0), network-dependency-tree-insight (0)

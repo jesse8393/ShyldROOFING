@@ -1,0 +1,172 @@
+---
+import { business, services, areas } from '../data/business';
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer" data-hide-mobile-bar>
+  <div class="container">
+    <div class="top">
+      <div class="brand">
+        <img src="/brand/shyld-primary-white.svg" alt="SHYLD Roofing" width="240" height="48" loading="lazy" decoding="async" />
+        <p class="tagline">Roof replacements, repairs, metal roofing, siding, and gutters for homeowners across Middle Tennessee.</p>
+        <address>
+          <a class="big" href={business.phone.tel} data-cta="footer_call">{business.phone.display}</a>
+          <a href={business.phone.sms} data-cta="footer_text">Text {business.phone.display}</a>
+          <a href={`mailto:${business.email}`}>{business.email}</a>
+          <span>{business.address.locality}, {business.address.region}</span>
+        </address>
+        <ul class="hours">
+          {business.hours.map((h) => <li>{h.days}: {h.open} to {h.close}</li>)}
+        </ul>
+      </div>
+
+      <nav class="col" aria-labelledby="f-services">
+        <h2 id="f-services">Services</h2>
+        <ul>
+          {services.map((s) => <li><a href={`/${s.slug}`}>{s.name}</a></li>)}
+        </ul>
+      </nav>
+
+      <nav class="col" aria-labelledby="f-areas">
+        <h2 id="f-areas">Service areas</h2>
+        <ul class="areas">
+          {areas.map((a) => <li><a href={`/roofing-${a.slug}`}>{a.name}</a></li>)}
+          <li><a href="/service-areas">All areas</a></li>
+        </ul>
+      </nav>
+
+      <nav class="col" aria-labelledby="f-company">
+        <h2 id="f-company">Company</h2>
+        <ul>
+          <li><a href="/projects">Projects</a></li>
+          <li><a href="/about">About SHYLD</a></li>
+          <li><a href="/contact">Contact and inspections</a></li>
+          <li><a href="/roof-replacement-cost-middle-tennessee">Roof replacement cost guide</a></li>
+          <li><a href="/roof-storm-damage-insurance-tennessee">Storm damage and insurance</a></li>
+          <li><a href="/text-us">Text message sign up</a></li>
+          <li><a href="/privacy">Privacy policy</a></li>
+          <li><a href="/terms">Terms of service</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="bottom">
+      <p>&copy; {year} {business.name}. All rights reserved.</p>
+      <p>{business.legalNote}</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--ink);
+    color: var(--on-ink);
+    padding-block: clamp(3.5rem, 7vw, 6rem) 2rem;
+  }
+  .top {
+    display: grid;
+    gap: 2.5rem 2rem;
+  }
+  .brand img {
+    height: 44px;
+    width: auto;
+  }
+  .tagline {
+    margin-top: 1.25rem;
+    max-width: 34ch;
+    color: var(--on-ink-muted);
+  }
+  address {
+    display: grid;
+    gap: 0.35rem;
+    margin-top: 1.5rem;
+    font-style: normal;
+  }
+  address a {
+    color: var(--on-ink);
+    text-decoration: none;
+    width: fit-content;
+    min-height: 2rem;
+    display: inline-flex;
+    align-items: center;
+  }
+  address a:hover {
+    color: var(--gold);
+  }
+  address .big {
+    font-family: var(--font-display);
+    font-size: var(--text-h3);
+    color: var(--gold);
+  }
+  address span {
+    color: var(--on-ink-muted);
+  }
+  .hours {
+    margin: 1rem 0 0;
+    padding: 0;
+    list-style: none;
+    color: var(--on-ink-muted);
+    font-size: var(--text-sm);
+  }
+  .col h2 {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+  .col ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 0.15rem;
+  }
+  .col a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.25rem;
+    color: var(--on-ink-muted);
+    text-decoration: none;
+  }
+  .col a:hover {
+    color: var(--gold);
+  }
+  .areas {
+    columns: 2;
+    column-gap: 1.5rem;
+  }
+  .areas li {
+    break-inside: avoid;
+  }
+  .bottom {
+    margin-top: clamp(2.5rem, 5vw, 4rem);
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--on-ink-line);
+    display: grid;
+    gap: 0.5rem;
+    font-size: var(--text-sm);
+    color: var(--on-ink-muted);
+  }
+  @media (min-width: 45em) {
+    .top {
+      grid-template-columns: 1.6fr 1fr 1fr 1fr;
+    }
+    .areas {
+      columns: 1;
+    }
+  }
+  @media (max-width: 44.9375em) {
+    .top {
+      grid-template-columns: 1fr 1fr;
+    }
+    .brand {
+      grid-column: 1 / -1;
+    }
+    .col:last-child {
+      grid-column: 1 / -1;
+    }
+  }
+</style>

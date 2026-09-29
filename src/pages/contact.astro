@@ -1,0 +1,29 @@
+---
+import Base from '../layouts/Base.astro';
+import ContactSection from '../components/ContactSection.astro';
+import { business } from '../data/business';
+---
+
+<Base
+  title="Contact SHYLD Roofing | Request a Free Roof Inspection"
+  description="Request a free roof inspection from SHYLD Roofing, or call and text (615) 295 8974. Based in Murfreesboro, serving Middle Tennessee, Monday to Saturday."
+  path="/contact"
+  crumbs={[{ name: 'Contact', path: '/contact' }]}
+>
+  <header class="page-head">
+    <div class="container">
+      <ol class="crumbs" aria-label="Breadcrumb"><li><a href="/">Home</a></li><li aria-current="page">Contact</li></ol>
+      <p class="eyebrow">Contact</p>
+      <h1>Call, text, or send the form. A person answers either way.</h1>
+      <p class="lede">The fastest route is the phone at <a href={business.phone.tel} data-cta="contact_page_call">{business.phone.display}</a>. The form below reaches the same people and gets a reply during business hours.</p>
+    </div>
+  </header>
+  <ContactSection heading="Request a free inspection." intro="Tell us about the roof and how to reach you. We will contact you to set a time. If the roof is fine, that is what we will say." formFirst />
+  <section class="section-sm section-white">
+    <div class="container prose">
+      <h2>What happens after you send it</h2>
+      <p>Your request goes straight to SHYLD. We reply by phone or text during business hours to find a time that works, then come out, get on the roof, and photograph it. You get the photos and a plain explanation of what we found, followed by a written proposal if work is needed.</p>
+      <p>Sending the form does not book an appointment by itself and does not commit you to anything. If you would rather text, use <a href={business.phone.sms} data-cta="contact_page_text">{business.phone.display}</a>. Details on how we use your number are in our <a href="/privacy">privacy policy</a>.</p>
+    </div>
+  </section>
+</Base>

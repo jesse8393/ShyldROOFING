@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.astro/
+.env
+.env.*
+!.env.example
+qa/screenshots/*.png
+qa/lighthouse/*.json
+!qa/screenshots/final/
+!qa/lighthouse/final/

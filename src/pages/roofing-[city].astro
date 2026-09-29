@@ -1,0 +1,257 @@
+---
+import { Picture } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import Faq from '../components/Faq.astro';
+import ContactSection from '../components/ContactSection.astro';
+import { areas, business, services } from '../data/business';
+import { locationContent } from '../data/location-content';
+import shingles from '../assets/photos/shingle-replacement-aerial.jpg';
+import metal from '../assets/photos/crops/metal-detail.jpg';
+
+export function getStaticPaths() {
+  return areas.map((a) => ({ params: { city: a.slug } }));
+}
+
+const { city } = Astro.params;
+const c = locationContent[city as keyof typeof locationContent];
+const path = `/roofing-${c.slug}`;
+const nearby = c.nearby.map((slug) => areas.find((a) => a.slug === slug)!).filter(Boolean);
+
+const schema = [
+  {
+    '@type': 'Service',
+    '@id': `${business.url}${path}#service`,
+    name: `Roofing services in ${c.name}, TN`,
+    serviceType: 'Roofing',
+    provider: { '@id': `${business.url}/#business` },
+    areaServed: { '@type': 'City', name: c.name, containedInPlace: { '@type': 'State', name: 'Tennessee' } },
+    url: `${business.url}${path}`,
+  },
+];
+---
+
+<Base title={c.title} description={c.description} path={path} schema={schema} crumbs={[{ name: 'Service areas', path: '/service-areas' }, { name: c.name, path }]}>
+  <article>
+    <header class="page-head">
+      <div class="container">
+        <ol class="crumbs" aria-label="Breadcrumb">
+          <li><a href="/">Home</a></li>
+          <li><a href="/service-areas">Service areas</a></li>
+          <li aria-current="page">{c.name}</li>
+        </ol>
+        <div class="head-grid">
+          <div>
+            <p class="eyebrow">{c.name}, {c.county}</p>
+            <h1>{c.h1}</h1>
+            <p class="lede">{c.intro}</p>
+            <div class="actions">
+              <a class="btn btn-primary" href="#inspection" data-cta="city_inspection">Request a Free Inspection</a>
+              <a class="btn btn-secondary" href={business.phone.tel} data-cta="city_call">Call {business.phone.display}</a>
+            </div>
+          </div>
+          <div class="frame photo">
+            <Picture src={shingles} widths={[640, 960, 1280]} sizes="(min-width: 62.5em) 50vw, 100vw" formats={['avif', 'webp']} alt="Aerial view of a newly replaced architectural shingle roof from a SHYLD Roofing job in Middle Tennessee" loading="eager" fetchpriority="high" />
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="section-sm section-white" aria-labelledby="local-heading">
+      <div class="container two">
+        <div class="col-head rise">
+          <p class="eyebrow">Working in {c.name}</p>
+          <h2 id="local-heading">What we see on {c.name} roofs</h2>
+        </div>
+        <div class="prose rise">
+          {c.local.map((p) => <p>{p}</p>)}
+        </div>
+      </div>
+    </section>
+
+    <section class="section-sm" aria-labelledby="needs-heading">
+      <div class="container">
+        <div class="section-head rise">
+          <div>
+            <p class="eyebrow">Common needs</p>
+            <h2 id="needs-heading">What {c.name} homeowners usually call about</h2>
+          </div>
+        </div>
+        <div class="cards rise">
+          {
+            c.needs.map((n) => (
+              <div class="card">
+                <h3>{n.name}</h3>
+                <p>{n.text}</p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section class="section-sm section-ink" aria-labelledby="svc-heading">
+      <div class="container two">
+        <div class="col-head rise">
+          <p class="eyebrow">Services</p>
+          <h2 id="svc-heading">Everything we do, available in {c.name}</h2>
+          <div class="frame metal">
+            <Picture src={metal} widths={[480, 720]} sizes="(min-width: 55em) 30vw, 100vw" formats={['avif', 'webp']} alt="Close view of standing seam metal roof panels" loading="lazy" />
+          </div>
+        </div>
+        <ul class="svc-list rise">
+          {
+            services.map((s) => (
+              <li>
+                <a href={`/${s.slug}`} data-track="service">
+                  <span class="name">{s.name}</span>
+                  <span class="desc">{s.short}</span>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </section>
+
+    <Faq items={c.faqs} heading={`Questions from ${c.name}`} id="faq" />
+
+    <section class="section-sm" aria-labelledby="nearby-heading">
+      <div class="container two">
+        <div class="col-head rise">
+          <h2 id="nearby-heading">Nearby areas</h2>
+        </div>
+        <ul class="nearby rise">
+          {nearby.map((a) => <li><a href={`/roofing-${a.slug}`}>{a.name}</a></li>)}
+          <li><a href="/service-areas">All service areas</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <ContactSection heading={`Request a free inspection in ${c.name}.`} intro="Tell us where the house is and what you have noticed. We will call or text to set a time." city={c.name} />
+  </article>
+</Base>
+
+<style>
+  .head-grid {
+    display: grid;
+    gap: 2rem;
+  }
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1.75rem;
+  }
+  .photo {
+    aspect-ratio: 4 / 3;
+  }
+  .photo :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  @media (min-width: 62.5em) {
+    .head-grid {
+      grid-template-columns: minmax(0, 6fr) minmax(0, 6fr);
+      gap: clamp(2rem, 5vw, 5rem);
+      align-items: center;
+    }
+    .photo {
+      aspect-ratio: 5 / 4;
+    }
+  }
+  .two {
+    display: grid;
+    gap: 1.5rem 3rem;
+  }
+  @media (min-width: 55em) {
+    .two {
+      grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+    }
+  }
+  .cards {
+    display: grid;
+    gap: 1.25rem;
+  }
+  .card {
+    padding: 1.75rem;
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-media);
+  }
+  .card h3 {
+    font-size: var(--text-lg);
+  }
+  .card p {
+    margin-top: 0.6rem;
+    color: var(--ink-soft);
+  }
+  @media (min-width: 45em) {
+    .cards {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+  .metal {
+    display: none;
+    margin-top: 1.5rem;
+    aspect-ratio: 1 / 1;
+    max-width: 20em;
+  }
+  .metal :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  @media (min-width: 55em) {
+    .metal {
+      display: block;
+    }
+  }
+  .svc-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border-top: 1px solid var(--on-ink-line);
+  }
+  .svc-list a {
+    display: grid;
+    gap: 0.15rem;
+    padding: 1.1rem 0;
+    border-bottom: 1px solid var(--on-ink-line);
+    text-decoration: none;
+    color: var(--on-ink);
+  }
+  .svc-list .name {
+    font-family: var(--font-display);
+    font-size: var(--text-lg);
+  }
+  .svc-list a:hover .name {
+    color: var(--gold);
+  }
+  .svc-list .desc {
+    color: var(--on-ink-muted);
+    font-size: var(--text-sm);
+  }
+  .nearby {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+  }
+  .nearby a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.75rem;
+    padding: 0.4rem 1rem;
+    border: 1px solid var(--line-strong);
+    border-radius: 999px;
+    background: var(--white);
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .nearby a:hover {
+    border-color: var(--gold);
+  }
+</style>

@@ -1,0 +1,209 @@
+---
+import { Picture } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import ContactSection from '../components/ContactSection.astro';
+import { business, areas } from '../data/business';
+import metal from '../assets/photos/standing-seam-metal-aerial.jpg';
+import siding from '../assets/photos/crops/siding-4x3.jpg';
+---
+
+<Base
+  title="About SHYLD Roofing | Owner Led Roofing in Middle Tennessee"
+  description="SHYLD Roofing is a Murfreesboro based, owner led roofing company serving Middle Tennessee. Here is who we are, how we work, and what we will and will not promise."
+  path="/about"
+  crumbs={[{ name: 'About', path: '/about' }]}
+>
+  <header class="page-head">
+    <div class="container">
+      <ol class="crumbs" aria-label="Breadcrumb"><li><a href="/">Home</a></li><li aria-current="page">About</li></ol>
+      <div class="head-grid">
+        <div>
+          <p class="eyebrow">About SHYLD</p>
+          <h1>A small roofing company that would rather be judged by its roofs.</h1>
+          <p class="lede">SHYLD Roofing is owner led and based in {business.address.locality}. {business.founderFirstName} handles inspections and proposals personally, which is why the answers you get are specific to your roof rather than a script.</p>
+        </div>
+        <div class="frame photo">
+          <Picture src={metal} widths={[640, 960, 1280]} sizes="(min-width: 62.5em) 50vw, 100vw" formats={['avif', 'webp']} alt="Aerial view of a standing seam metal roof installed by SHYLD Roofing on a steep pitched home" loading="eager" fetchpriority="high" />
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="section-sm section-white">
+    <div class="container two">
+      <div class="col-head rise"><h2>How we work</h2></div>
+      <div class="prose rise">
+        <p>Every job starts with someone on the roof taking photos. Not a drone from the street, not an estimate from satellite images. We want to see the flashing, the boots, the valleys, and the deck, because that is where roofs fail and where cheap proposals hide their shortcuts.</p>
+        <p>The proposal you receive lists materials by name, the layers of the system, what is excluded, the price, and the warranty terms. You can hand it to another roofer and compare line by line. We would rather lose a job to an honest comparison than win one with a vague number.</p>
+        <p>On the job, the yard is protected before the first shingle comes off, the site is cleaned daily, and we walk the finished roof with you before the final invoice.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-sm">
+    <div class="container two">
+      <div class="col-head rise"><h2>What we do</h2></div>
+      <div class="prose rise">
+        <p>Roof replacement, roof repair, and metal roofing are the core of the business. Siding and gutters are done with the roof in mind, because most exterior water problems start where those systems meet.</p>
+        <p>We work across Middle Tennessee, from Franklin and Brentwood in Williamson County to Lebanon and Mt. Juliet in Wilson County, with Rutherford County around our Murfreesboro base in between. The full list is on the <a href="/service-areas">service areas page</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-sm section-ink">
+    <div class="container two">
+      <div class="col-head rise">
+        <h2>What we will and will not promise</h2>
+        <div class="frame photo-sm">
+          <Picture src={siding} widths={[480, 720]} sizes="(min-width: 55em) 30vw, 100vw" formats={['avif', 'webp']} alt="Crew installing board and batten siding on a new home" loading="lazy" />
+        </div>
+      </div>
+      <div class="promises rise">
+        <div>
+          <h3>We will</h3>
+          <ul>
+            <li>Inspect at no charge and give you the photos.</li>
+            <li>Tell you when a repair is the smarter spend.</li>
+            <li>Put every material and every exclusion in writing.</li>
+            <li>Back the installation with a written workmanship warranty.</li>
+            <li>Answer the phone ourselves.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>We will not</h3>
+          <ul>
+            <li>Promise what your insurance carrier will approve.</li>
+            <li>Waive or absorb deductibles. It is illegal in Tennessee.</li>
+            <li>Quote a firm price over the phone without seeing the roof.</li>
+            <li>Invent reviews, years in business, or roof counts to look bigger than we are.</li>
+            <li>Pressure you to sign on the day of the inspection.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-sm section-white">
+    <div class="container two">
+      <div class="col-head rise"><h2>The business</h2></div>
+      <dl class="rows facts rise">
+        <div><dt>Trade name</dt><dd>SHYLD Roofing</dd></div>
+        <div><dt>Legal entity</dt><dd>{business.legalNote}</dd></div>
+        <div><dt>Based in</dt><dd>{business.address.locality}, Tennessee {business.address.postalCode}</dd></div>
+        <div><dt>Phone</dt><dd><a href={business.phone.tel}>{business.phone.display}</a></dd></div>
+        <div><dt>Email</dt><dd><a href={`mailto:${business.email}`}>{business.email}</a></dd></div>
+        <div><dt>Hours</dt><dd>{business.hours.map((h) => <span>{h.days}, {h.open} to {h.close}</span>)}</dd></div>
+        <div><dt>Licensing and insurance</dt><dd>Licensed and insured in Tennessee. Current certificates are available on request before any work begins.</dd></div>
+        <div><dt>Service area</dt><dd>{areas.map((a) => a.name).join(', ')}, and surrounding communities.</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <ContactSection heading="Talk to the person who will be on your roof." intro="Send a few details or call. Either way you will hear from someone who can actually answer your questions." />
+</Base>
+
+<style>
+  .head-grid {
+    display: grid;
+    gap: 2rem;
+  }
+  .photo {
+    aspect-ratio: 4 / 3;
+  }
+  .photo :global(img),
+  .photo-sm :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  @media (min-width: 62.5em) {
+    .head-grid {
+      grid-template-columns: minmax(0, 6fr) minmax(0, 6fr);
+      gap: clamp(2rem, 5vw, 5rem);
+      align-items: center;
+    }
+    .photo {
+      aspect-ratio: 5 / 4;
+    }
+  }
+  .two {
+    display: grid;
+    gap: 1.5rem 3rem;
+  }
+  @media (min-width: 55em) {
+    .two {
+      grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+    }
+  }
+  .photo-sm {
+    display: none;
+    margin-top: 1.5rem;
+    aspect-ratio: 4 / 3;
+    max-width: 21.25em;
+  }
+  @media (min-width: 55em) {
+    .photo-sm {
+      display: block;
+    }
+  }
+  .promises {
+    display: grid;
+    gap: 2rem;
+  }
+  .promises h3 {
+    font-size: var(--text-lg);
+    color: var(--gold);
+  }
+  .promises ul {
+    margin: 0.75rem 0 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 0.6rem;
+    color: var(--on-ink-muted);
+  }
+  .promises li {
+    padding-left: 1.25rem;
+    position: relative;
+  }
+  .promises li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.75em;
+    width: 0.6rem;
+    height: 2px;
+    background: var(--gold);
+  }
+  @media (min-width: 45em) {
+    .promises {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  .facts {
+    margin: 0;
+  }
+  .facts > div {
+    display: grid;
+    gap: 0.25rem 1.5rem;
+  }
+  .facts dt {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--muted);
+  }
+  .facts dd {
+    margin: 0;
+    display: grid;
+    gap: 0.15rem;
+    color: var(--ink-soft);
+  }
+  .facts a {
+    font-weight: 600;
+  }
+  @media (min-width: 40em) {
+    .facts > div {
+      grid-template-columns: 12rem 1fr;
+    }
+  }
+</style>

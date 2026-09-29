@@ -1,0 +1,71 @@
+---
+const items = [
+  {
+    name: 'Licensed and insured',
+    text: 'SHYLD Roofing operates as a licensed and insured Tennessee contractor. Ask for current certificates before work begins and we will send them.',
+  },
+  {
+    name: 'A written workmanship warranty',
+    text: 'Our workmanship warranty is part of every proposal, with its term stated in writing alongside the manufacturer warranty for the products installed.',
+  },
+  {
+    name: 'Inspections with photos, at no charge',
+    text: 'You get the pictures we take and an honest read of what they show. A free inspection is not a sales appointment.',
+  },
+  {
+    name: 'Answers before money changes hands',
+    text: 'Repair or replace, shingle or metal, now or next year. We will tell you what we would do on our own house and why.',
+  },
+];
+---
+
+<section class="trust section section-white" aria-labelledby="trust-heading">
+  <div class="container">
+    <div class="section-head rise">
+      <div>
+        <p class="eyebrow">What you can count on</p>
+        <h2 id="trust-heading">We are a growing local company, so we would rather show our work than talk about it.</h2>
+      </div>
+      <p class="lede">Public reviews will appear here as customers post them. Until then, this is the standard every job is held to.</p>
+    </div>
+    <ul class="items rise">
+      {
+        items.map((i) => (
+          <li>
+            <h3>{i.name}</h3>
+            <p>{i.text}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
+
+<style>
+  .items {
+    display: grid;
+    gap: 1.25rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .items li {
+    padding: 1.75rem;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-media);
+  }
+  .items h3 {
+    font-size: var(--text-lg);
+  }
+  .items p {
+    margin-top: 0.7rem;
+    color: var(--ink-soft);
+  }
+  @media (min-width: 45em) {
+    .items {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.5rem;
+    }
+  }
+</style>

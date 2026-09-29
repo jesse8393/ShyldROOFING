@@ -1,0 +1,80 @@
+---
+import { areas, business } from '../data/business';
+---
+
+<section class="areas section" aria-labelledby="areas-heading">
+  <div class="container">
+    <div class="layout">
+      <div class="copy rise">
+        <p class="eyebrow">Where we work</p>
+        <h2 id="areas-heading">Middle Tennessee, from Franklin to Lebanon.</h2>
+        <p class="lede">SHYLD is based in {business.address.locality} and works across Williamson, Wilson, Rutherford, Davidson, and Bedford counties. If your town is not listed, call and ask. We will tell you honestly whether it is in our range.</p>
+        <a class="arrow-link" href="/service-areas">All service areas <svg aria-hidden="true" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+      </div>
+      <ul class="list rise">
+        {
+          areas.map((a) => (
+            <li>
+              <a href={`/roofing-${a.slug}`}>
+                <span class="name">{a.name}</span>
+                <span class="county">{a.county}</span>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</section>
+
+<style>
+  .layout {
+    display: grid;
+    gap: 2.5rem;
+  }
+  .copy .lede {
+    margin: 1.25rem 0 1.5rem;
+  }
+  .list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.5rem;
+  }
+  .list a {
+    display: grid;
+    gap: 0.1rem;
+    min-height: 3.25rem;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-control);
+    background: var(--white);
+    text-decoration: none;
+    color: inherit;
+    transition: border-color var(--dur-fast) var(--ease-out), transform var(--dur-fast) var(--ease-out);
+  }
+  .list a:hover {
+    border-color: var(--gold);
+    transform: translateY(-1px);
+  }
+  .name {
+    font-weight: 600;
+  }
+  .county {
+    font-size: var(--text-sm);
+    color: var(--muted);
+  }
+  @media (min-width: 56.25em) {
+    .layout {
+      grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+      gap: clamp(2.5rem, 6vw, 6rem);
+      align-items: start;
+    }
+    .list {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.75rem;
+    }
+  }
+</style>
