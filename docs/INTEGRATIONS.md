@@ -84,3 +84,30 @@ today, so the events go nowhere until one is added. Events:
 
 No names, phone numbers, emails, or addresses are ever pushed. To activate, add a GTM container snippet to
 `src/layouts/Base.astro` and create GA4 tags for the events above. Mark `inspection_accepted` as a conversion.
+
+
+## Email delivery configuration, launch scope (2026-09-29)
+
+Launch scope is email notifications only. No CRM, no SMS automation, no sequences. Automated SMS stays off
+(`SMS_AUTOMATION_ENABLED` unset). Lead storage and the consent and duplicate safeguards stay as deployed.
+
+Each notification carries the homeowner's name, phone (as text and call links), requested service, city or
+address, and, when given, email and notes. It also shows the consent answer for the record.
+
+Sender: `SHYLD Roofing <leads@shyldroofing.com>` on the Resend verified domain `shyldroofing.com`
+(records at Hostinger: TXT `resend._domainkey`, MX and TXT on `send`, CNAME `rsend`). The code default lives
+in `jesse8393/shyld-ai-agents` PR #3 and applies once merged. `NOTIFY_FROM` in the environment overrides it.
+
+Recipient: `shyldroofing@gmail.com`. The code default already says so, but the Vercel environment value
+`NOTIFY_EMAIL` overrides it and currently points elsewhere. The connector used here cannot read or write
+Vercel environment variables (403), so this is a manual step in the Vercel dashboard:
+
+1. Open vercel.com, team `jesse8393s-projects`, project `shyld-ai-agents`, Settings, Environment Variables.
+2. Find `NOTIFY_EMAIL`. Edit its Production value to `shyldroofing@gmail.com`. Save.
+3. Optional: add `NOTIFY_FROM` with value `SHYLD Roofing <leads@shyldroofing.com>` for Production. Not required
+   once PR #3 is merged.
+4. Do not create or change `SMS_AUTOMATION_ENABLED` or any `TWILIO_*` value.
+5. Environment changes apply on the next deployment. Merging PR #3 triggers that deployment.
+
+Order that keeps every send deliverable: Resend domain verified first, then `NOTIFY_EMAIL` set, then PR #3
+merged, then one controlled inquiry, then the website publish.
