@@ -36,8 +36,8 @@ emails `jesse@parkerconstructioncompany.com` (the `NOTIFY_EMAIL` environment val
 | `email` | `email` | Optional |
 | `address` | `address` | The site asks for **city** and sends it here so it shows in the notification email |
 | `city` | `city` | Also sent separately |
-| `service` | `service`, `intent` | When notes are present the site appends `(notes: ...)` so they reach the email. Remove once `notes` is mapped |
-| `notes` | not stored | `leads.notes` column exists but the function does not read this key yet |
+| `service` | `service`, `intent` | Sent as chosen. The intake branch stores notes separately, so the site no longer appends them here |
+| `notes` | `notes` | Stored by the intake branch. The currently deployed function ignores this key, so the website ships after the intake |
 | `sms_consent` (`yes`/`no`), `sms_consent_promotional`, `sms_consent_at`, `sms_consent_version` | not stored | See required changes |
 | `request_id` | not stored | Client generated UUID, reused on retries |
 | `form_id`, `source`, `source_url`, `landing_page`, `page_path`, `page_type`, `cta_position` | stored where columns exist | Attribution |
@@ -57,7 +57,7 @@ A pull request on the intake repository makes the function enforce consent inste
 4. Returns `dbSaved`, `emailSent`, `emailSkipped`, `smsSent`, `smsSkipped`, and `duplicate` so a caller can tell
    skipped from failed, and logs one line per request without personal data.
 
-Once that function is live, remove the `(notes: ...)` suffix on `service` in `src/scripts/inquiry-form.ts`.
+The `(notes: ...)` suffix on `service` has been removed from `src/scripts/inquiry-form.ts`; the website must ship after the intake function so notes are not lost.
 Evidence for each delivery outcome is in `DELIVERY-EVIDENCE.md`.
 
 ### Verifying delivery

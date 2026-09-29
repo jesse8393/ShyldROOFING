@@ -132,8 +132,7 @@ function setup(form: HTMLFormElement) {
       // The intake service stores a single "address" field. City is what we ask for.
       address: get('city'),
       city: get('city') || ctx.city,
-      // Notes travel inside the service field until the intake service adds a notes column.
-      service: notes ? `${service} (notes: ${notes})` : service,
+      service,
       notes,
       sms_opt_in: consent,
       sms_consent: consent ? 'yes' : 'no',

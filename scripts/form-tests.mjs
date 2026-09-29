@@ -54,7 +54,7 @@ await scenario('accepted request shows confirmation only after ok response', asy
   const p = posts[0];
   if (p.full_name !== 'Test Homeowner' || p.phone !== '(615) 555-0142') throw new Error('name/phone not sent');
   if (p.address !== 'Franklin' || p.city !== 'Franklin') throw new Error('city not mapped to address');
-  if (!p.service.startsWith('Roof Repair') || !p.service.includes('Leak near chimney')) throw new Error('service/notes mapping wrong: ' + p.service);
+  if (p.service !== 'Roof Repair' || p.notes !== 'Leak near chimney') throw new Error('service/notes mapping wrong: ' + p.service + ' / ' + p.notes);
   if (p.sms_consent !== 'yes' || p.sms_opt_in !== true || !p.sms_consent_at || !p.sms_consent_version) throw new Error('consent fields missing');
   if (!p.request_id || p.website_url !== '') throw new Error('request id or honeypot wrong');
   const layer = await page.evaluate(() => window.dataLayer.map((e) => e.event));
