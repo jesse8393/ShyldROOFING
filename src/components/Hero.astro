@@ -1,15 +1,15 @@
 ---
 import { getImage } from 'astro:assets';
 import { business, nav } from '../data/business';
-import wide from '../assets/photos/crops/hero-wide.jpg';
-import tall from '../assets/photos/crops/hero-tall.jpg';
+import wide from '../assets/photos/crops/hero2-wide.jpg';
+import tall from '../assets/photos/crops/hero2-tall.jpg';
 
-const wideAvif = await getImage({ src: wide, widths: [960, 1280, 1600, 1920], format: 'avif', quality: 55 });
-const wideWebp = await getImage({ src: wide, widths: [960, 1280, 1600, 1920], format: 'webp', quality: 74 });
-const tallAvif = await getImage({ src: tall, widths: [480, 640, 800, 960], format: 'avif', quality: 52 });
-const tallWebp = await getImage({ src: tall, widths: [480, 640, 800, 960], format: 'webp', quality: 72 });
-const fallback = await getImage({ src: wide, width: 1280, format: 'jpeg', quality: 78 });
-const alt = 'Aerial view of a charcoal standing seam metal roof on a two story home, photographed on a SHYLD job';
+const wideAvif = await getImage({ src: wide, widths: [660, 960, 1320], format: 'avif', quality: 58 });
+const wideWebp = await getImage({ src: wide, widths: [660, 960, 1320], format: 'webp', quality: 76 });
+const tallAvif = await getImage({ src: tall, widths: [480, 640, 781], format: 'avif', quality: 55 });
+const tallWebp = await getImage({ src: tall, widths: [480, 640, 781], format: 'webp', quality: 74 });
+const fallback = await getImage({ src: wide, width: 1320, format: 'jpeg', quality: 78 });
+const alt = 'Aerial view of a white board and batten home with a new charcoal architectural shingle roof, photographed on a SHYLD job';
 ---
 
 <Fragment slot="head">
@@ -49,7 +49,7 @@ const alt = 'Aerial view of a charcoal standing seam metal roof on a two story h
             loading="eager"
           />
         </picture>
-        <figcaption class="tag">Standing seam metal roof, aerial photo from a SHYLD job</figcaption>
+        <figcaption class="tag">Shingle replacement, aerial photo from a SHYLD job</figcaption>
       </figure>
     </div>
   </div>
@@ -76,7 +76,7 @@ const alt = 'Aerial view of a charcoal standing seam metal roof on a two story h
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: 55% 50%;
+    object-position: 50% 50%;
   }
   .tag {
     position: absolute;
@@ -141,7 +141,7 @@ const alt = 'Aerial view of a charcoal standing seam metal roof on a two story h
       box-shadow: var(--shadow-soft);
     }
     .photo img {
-      object-position: 50% 45%;
+      object-position: 50% 40%;
     }
     .tag {
       left: auto;

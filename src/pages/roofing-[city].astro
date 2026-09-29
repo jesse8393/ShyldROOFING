@@ -5,7 +5,7 @@ import Faq from '../components/Faq.astro';
 import ContactSection from '../components/ContactSection.astro';
 import { areas, business, services } from '../data/business';
 import { locationContent } from '../data/location-content';
-import shingles from '../assets/photos/shingle-replacement-aerial.jpg';
+import shingles from '../assets/photos/home-charcoal-shingles-aerial.jpg';
 import metal from '../assets/photos/crops/metal-detail.jpg';
 
 export function getStaticPaths() {
@@ -50,7 +50,7 @@ const schema = [
             </div>
           </div>
           <div class="frame photo">
-            <Picture src={shingles} widths={[640, 960, 1280]} sizes="(min-width: 62.5em) 50vw, 100vw" formats={['avif', 'webp']} alt="Aerial view of a newly replaced architectural shingle roof from a SHYLD Roofing job in Middle Tennessee" loading="eager" fetchpriority="high" />
+            <Picture src={shingles} widths={[640, 960, 1320]} sizes="(min-width: 62.5em) 50vw, 100vw" formats={['avif', 'webp']} alt="Aerial view of a white board and batten home with a new charcoal shingle roof from a SHYLD Roofing job in Middle Tennessee" loading="eager" fetchpriority="high" />
           </div>
         </div>
       </div>

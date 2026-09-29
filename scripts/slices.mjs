@@ -7,6 +7,6 @@ const n = Math.ceil(meta.height / h);
 for (let i = 0; i < n; i++) {
   const top = i * h;
   const height = Math.min(h, meta.height - top);
-  await sharp(file).extract({ left: 0, top, width: meta.width, height }).toFile(file.replace('.jpg', `-s${i + 1}.png`));
+  await sharp(file).extract({ left: 0, top, width: meta.width, height }).toFile(file.replace(/\.(png|jpg)$/, `-s${i + 1}.png`));
 }
 console.log(n, 'slices');

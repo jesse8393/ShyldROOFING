@@ -40,7 +40,7 @@ await writeFile('public/favicon.ico', Buffer.concat([header, png32]));
 await mkdir('public/og', { recursive: true });
 const logo = await readFile('public/brand/shyld-primary-white.svg');
 const logoPng = await sharp(logo).resize({ width: 360 }).png().toBuffer();
-await sharp('src/assets/photos/standing-seam-metal-aerial.jpg')
+await sharp('src/assets/photos/home-charcoal-shingles-aerial.jpg')
   .resize(1200, 630, { fit: 'cover', position: 'attention' })
   .composite([
     { input: Buffer.from('<svg width="1200" height="630"><rect x="0" y="470" width="1200" height="160" fill="#171817" fill-opacity="0.82"/></svg>'), top: 0, left: 0 },

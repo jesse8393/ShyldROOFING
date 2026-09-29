@@ -7,6 +7,11 @@ import metal from '../assets/photos/standing-seam-metal-aerial.jpg';
 import metalDetail from '../assets/photos/crops/metal-detail.jpg';
 import siding from '../assets/photos/board-and-batten-siding.jpg';
 import gutters from '../assets/photos/crops/gutters-wide.jpg';
+import charcoalHome from '../assets/photos/home-charcoal-shingles-aerial.jpg';
+import farmhouse from '../assets/photos/farmhouse-replacement-in-progress.jpg';
+import blueRanch from '../assets/photos/blue-brick-ranch-hip-roof-aerial.jpg';
+import blueRanchFront from '../assets/photos/blue-brick-ranch-front-aerial.jpg';
+import hipDetail from '../assets/photos/crops/hip-roof-detail.jpg';
 
 export interface ServiceContent {
   slug: ServiceSlug;
@@ -46,9 +51,9 @@ export const serviceContent: Record<ServiceSlug, ServiceContent> = {
     intro:
       'When repairs stop making sense, a full replacement is the honest answer. We tear the old roof off to the deck, fix what we find, and install a complete system you can see itemized in your proposal.',
     hero: {
-      image: shingles,
-      alt: 'Aerial view of new charcoal architectural shingles across a multi building residential property replaced by SHYLD Roofing',
-      caption: 'Architectural shingle replacement across a multi building property, photographed after completion',
+      image: charcoalHome,
+      alt: 'Aerial view of a white board and batten home with a new charcoal architectural shingle roof, several gables, and a brick chimney, replaced by SHYLD Roofing',
+      caption: 'Charcoal architectural shingle replacement on a board and batten home, photographed after completion',
     },
     fit: {
       heading: 'When replacement is the right call',
@@ -120,8 +125,8 @@ export const serviceContent: Record<ServiceSlug, ServiceContent> = {
       { label: 'Roof repair', href: '/roof-repair' },
     ],
     formService: 'Roof Replacement',
-    projectSlug: 'architectural-shingle-replacement',
-    detail: { image: shingleDetail, alt: 'Close view of new architectural shingles, dormers, and ridge lines on a replaced roof' },
+    projectSlug: 'charcoal-shingles-board-and-batten-home',
+    detail: { image: farmhouse, alt: 'Crew installing shingles over synthetic underlayment on a two story farmhouse, photographed from above' },
   },
 
   'roof-repair': {
@@ -134,9 +139,9 @@ export const serviceContent: Record<ServiceSlug, ServiceContent> = {
     intro:
       'A stain on the ceiling rarely sits under the leak. We trace water back to where it gets in, fix that, and leave you with photos of the before and after. If the roof is too far gone for a repair to be worth your money, we say so.',
     hero: {
-      image: shingleDetail,
-      alt: 'Close view of architectural shingles, dormers, valleys, and pipe flashing on a residential roof',
-      caption: 'Valleys, dormers, and pipe penetrations are where most repairs happen',
+      image: hipDetail,
+      alt: 'Close aerial view of a hip roof with charcoal architectural shingles, hip caps, pipe boots, and a continuous ridge vent',
+      caption: 'Hips, ridges, pipe boots, and chimneys are where most repairs happen',
     },
     fit: {
       heading: 'Repairs we handle',
@@ -193,7 +198,8 @@ export const serviceContent: Record<ServiceSlug, ServiceContent> = {
       { label: 'Gutters', href: '/gutters' },
     ],
     formService: 'Roof Repair',
-    detail: { image: shingles, alt: 'Aerial view of a shingle roof with multiple gables and valleys' },
+    projectSlug: 'blue-brick-ranch-hip-roof',
+    detail: { image: shingleDetail, alt: 'Close view of architectural shingles, dormers, valleys, and pipe flashing on a residential roof' },
   },
 
   'metal-roofing': {
@@ -282,9 +288,9 @@ export const serviceContent: Record<ServiceSlug, ServiceContent> = {
     intro:
       'Hail bruises and wind creases are invisible from the driveway. We inspect, photograph, and explain what we find in plain terms. You decide whether to file a claim, and we work with your adjuster if you do.',
     hero: {
-      image: shingles,
-      alt: 'Aerial view of a shingle roof with dormers and ridge lines after replacement',
-      caption: 'Roof replacement after storm damage, aerial photo from a SHYLD job',
+      image: blueRanchFront,
+      alt: 'Aerial view of a single story blue brick home with a new charcoal shingle roof and a stone chimney after replacement',
+      caption: 'Replacement on a single story brick home, aerial photo from a SHYLD job',
     },
     fit: {
       heading: 'Call after a storm if you notice',
@@ -340,7 +346,8 @@ export const serviceContent: Record<ServiceSlug, ServiceContent> = {
       { label: 'Roof replacement', href: '/roof-replacement' },
     ],
     formService: 'Storm Damage Assessment',
-    detail: { image: shingleDetail, alt: 'Close view of architectural shingles near a valley and dormer' },
+    projectSlug: 'shingle-and-flat-roof-addition',
+    detail: { image: blueRanch, alt: 'Aerial view of a hip roof with new shingles, a stone chimney, and a continuous ridge vent' },
   },
 
   siding: {

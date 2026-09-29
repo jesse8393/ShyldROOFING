@@ -1,12 +1,12 @@
 ---
 import { Picture } from 'astro:assets';
-import shingles from '../assets/photos/shingle-replacement-aerial.jpg';
-import siding from '../assets/photos/crops/siding-4x3.jpg';
-import gutters from '../assets/photos/crops/gutters-wide.jpg';
+import shingles from '../assets/photos/home-charcoal-shingles-aerial.jpg';
+import siding from '../assets/photos/standing-seam-metal-aerial.jpg';
+import gutters from '../assets/photos/farmhouse-replacement-in-progress.jpg';
 import { projects } from '../data/projects';
-const feature = projects.find((p) => p.slug === 'architectural-shingle-replacement')!;
-const sidingP = projects.find((p) => p.slug === 'board-and-batten-siding')!;
-const guttersP = projects.find((p) => p.slug === 'seamless-gutters')!;
+const feature = projects.find((p) => p.slug === 'charcoal-shingles-board-and-batten-home')!;
+const sidingP = projects.find((p) => p.slug === 'standing-seam-metal-roof')!;
+const guttersP = projects.find((p) => p.slug === 'farmhouse-roof-replacement-in-progress')!;
 ---
 
 <section class="proof section" aria-labelledby="proof-heading">
@@ -22,7 +22,7 @@ const guttersP = projects.find((p) => p.slug === 'seamless-gutters')!;
     <div class="grid-proof">
       <a class="card feature rise" href={`/projects#${feature.slug}`} data-track="project">
         <span class="frame">
-          <Picture src={shingles} widths={[640, 960, 1280, 1600]} sizes="(min-width: 62.5em) 62vw, 100vw" formats={['avif', 'webp']} alt={feature.alt} loading="lazy" />
+          <Picture src={shingles} widths={[640, 960, 1320]} sizes="(min-width: 62.5em) 62vw, 100vw" formats={['avif', 'webp']} alt={feature.alt} loading="lazy" />
         </span>
         <span class="meta">
           <span class="name">{feature.title}</span>

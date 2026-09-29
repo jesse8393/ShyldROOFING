@@ -98,6 +98,9 @@ recommended before launch.
 
 ## Known limitations
 
+* Five job photos arrived after the audits above and were added to the homepage hero, projects, and service and
+  area pages. The homepage was re audited afterwards; see the addendum at the end of this file.
+
 * After the audits above, three CSS only changes were made and verified with the crawl, accessibility, and
   overflow checks but not re audited with Lighthouse: the hero photo width at 1024 px, the header phone label
   between 1000 and 1200 px, and the hero caption width. None of them changes what loads.
@@ -106,3 +109,17 @@ recommended before launch.
 * The sticky header script produces a small forced reflow warning. It does not affect scores.
 * Google rich results eligibility is not claimed. Structured data is valid JSON-LD but was not run through
   Google's tester from this session.
+
+## Addendum: homepage after the second photo batch
+
+Same conditions as above, September 29, 2026, three runs each. The homepage hero, project proof, service page
+heroes, and area page hero now use the new job photos. The raw reports in `qa/lighthouse/final/` are from these runs.
+
+| Preset | Performance | Accessibility | Best practices | SEO | LCP | CLS | TBT | Transfer |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Mobile | 99 | 100 | 100 | 100 | 1.96 s | 0 | 0 ms | 204 KB |
+| Desktop | 100 | 100 | 100 | 100 | 0.51 s | 0 | 0 ms | 210 KB |
+
+Mobile performance runs scored 99, 99, and 99 with LCP between 1.81 and 1.96 seconds. Page weight dropped
+because the new hero source is smaller than the metal roof aerial. Crawl and accessibility checks were re run
+and pass.

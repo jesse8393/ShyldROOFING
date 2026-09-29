@@ -8,7 +8,16 @@ import shingles from '../assets/photos/shingle-replacement-aerial.jpg';
 import metal from '../assets/photos/standing-seam-metal-aerial.jpg';
 import siding from '../assets/photos/board-and-batten-siding.jpg';
 import gutters from '../assets/photos/seamless-gutters-brick-home.jpg';
+import charcoalHome from '../assets/photos/home-charcoal-shingles-aerial.jpg';
+import farmhouse from '../assets/photos/farmhouse-replacement-in-progress.jpg';
+import blueRanch from '../assets/photos/blue-brick-ranch-hip-roof-aerial.jpg';
+import blueRanchFront from '../assets/photos/blue-brick-ranch-front-aerial.jpg';
+import addition from '../assets/photos/shingle-and-flat-roof-addition-aerial.jpg';
 const images: Record<string, typeof shingles> = {
+  'charcoal-shingles-board-and-batten-home': charcoalHome,
+  'farmhouse-roof-replacement-in-progress': farmhouse,
+  'blue-brick-ranch-hip-roof': blueRanch,
+  'shingle-and-flat-roof-addition': addition,
   'architectural-shingle-replacement': shingles,
   'standing-seam-metal-roof': metal,
   'board-and-batten-siding': siding,
@@ -68,6 +77,10 @@ const images: Record<string, typeof shingles> = {
     gap: 1.5rem;
     scroll-margin-top: calc(var(--header-h) + 1rem);
   }
+  .frames {
+    display: grid;
+    gap: 1rem;
+  }
   .project .frame {
     aspect-ratio: 4 / 3;
   }
@@ -89,7 +102,7 @@ const images: Record<string, typeof shingles> = {
       gap: clamp(2rem, 5vw, 4rem);
       align-items: center;
     }
-    .project:nth-child(even) .frame {
+    .project:nth-child(even) .frames {
       order: 2;
     }
   }
