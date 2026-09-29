@@ -25,6 +25,7 @@ export const projects: Project[] = [
       'A full replacement on a home with a lot going on up top: a main gable, a cross gable over the porch, a dormer, and a rear addition with its own ridge and a brick chimney. Every one of those intersections is a valley or a wall transition that needs metal flashing and ice and water barrier underneath.',
       'The dark shingle against the white siding and black trim is a look many homeowners in Middle Tennessee ask for right now. It also shows off the ridge lines cleanly from the street.',
     ],
+    second: { key: 'charcoal-home-angle', alt: 'Second aerial angle of the white board and batten home showing the dormer, the cross gable over the porch, and the rear addition with its brick chimney' },
   },
   {
     slug: 'farmhouse-roof-replacement-in-progress',
@@ -81,6 +82,19 @@ export const projects: Project[] = [
     service: 'roof-replacement',
     body: [
       'A lighter, weathered wood shingle color on a brick ranch, with the gabled porch roof and the main hip roof shingled as one job so the color matches everywhere. Ridge vent runs the length of the main ridge.',
+      'The straight down view shows the hip and gable intersections, two ridge vent runs, and the white metal cover over the rear patio that the new roof drains onto.',
+    ],
+    second: { key: 'weathered-wood-overhead', alt: 'Straight down aerial view of the same brick ranch showing the weathered wood shingles, hip and gable intersections, ridge vents, carport, and rear metal patio cover' },
+  },
+  {
+    slug: 'contemporary-home-skylights',
+    title: 'Low slope shingles and skylights on a contemporary home',
+    summary: 'Diagonal wood sided home with two skylights and stepped roof levels, aerial after completion',
+    alt: 'Aerial photo of a contemporary home with diagonal wood siding, a low slope shingle roof with two skylights, stepped upper roof sections, and a wooded hillside behind',
+    service: 'roof-replacement',
+    body: [
+      'A contemporary home with several roof levels that step up the hillside, a low slope main section, and two skylights. Low slopes need ice and water barrier across the whole deck rather than just the eaves, and each skylight is reflashed with a new curb kit so the new shingles seal to it.',
+      'The stepped upper sections drain onto the lower roof, so the wall flashing where they meet gets the same attention as the skylights.',
     ],
   },
   {
