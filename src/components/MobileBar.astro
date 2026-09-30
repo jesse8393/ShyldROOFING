@@ -1,0 +1,76 @@
+---
+import { business, nav } from '../data/business';
+---
+
+<div class="mobile-bar" data-mobile-bar aria-label="Quick contact">
+  <a class="call" href={business.phone.tel} data-cta="mobile_sticky_call">
+    <svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>
+    Call
+  </a>
+  <a class="request" href={nav.cta.href} data-cta="mobile_sticky_inspection">Request a Free Inspection</a>
+</div>
+
+<style>
+  .mobile-bar {
+    position: fixed;
+    inset: auto 0 0 0;
+    z-index: 40;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1px;
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+    background: var(--ink);
+    border-top: 1px solid var(--on-ink-line);
+    transition:
+      transform var(--dur-base) var(--ease-out),
+      opacity var(--dur-base) var(--ease-out);
+  }
+  .mobile-bar.is-hidden {
+    transform: translateY(110%);
+    opacity: 0;
+    pointer-events: none;
+  }
+  .mobile-bar a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: var(--mobile-bar-h);
+    padding: 0.5rem 1.25rem;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .call {
+    color: var(--on-ink);
+    background: var(--ink);
+  }
+  .request {
+    color: var(--ink);
+    background: var(--gold);
+  }
+  @media (min-width: 48em) {
+    .mobile-bar {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  // Slide the bar away while a form or the footer is on screen so it never covers fields.
+  const bar = document.querySelector<HTMLElement>('[data-mobile-bar]');
+  const blockers = document.querySelectorAll('[data-hide-mobile-bar]');
+  if (bar && blockers.length && 'IntersectionObserver' in window) {
+    const visible = new Set<Element>();
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) {
+          if (e.isIntersecting) visible.add(e.target);
+          else visible.delete(e.target);
+        }
+        bar.classList.toggle('is-hidden', visible.size > 0);
+      },
+      { threshold: 0.05 },
+    );
+    blockers.forEach((el) => io.observe(el));
+  }
+</script>

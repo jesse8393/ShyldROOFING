@@ -1,0 +1,71 @@
+---
+import Base from '../layouts/Base.astro';
+import { services, areas, business } from '../data/business';
+---
+
+<Base title="Page not found | SHYLD Roofing" description="That page does not exist on shyldroofing.com. Find services, service areas, and contact details for SHYLD Roofing." path="/404" noindex hideMobileBar>
+  <section class="section">
+    <div class="container">
+      <p class="eyebrow">Page not found</p>
+      <h1>That page is not here.</h1>
+      <p class="lede">The address may have changed when the site was rebuilt. Try one of these, or call <a href={business.phone.tel}>{business.phone.display}</a>.</p>
+      <div class="cols">
+        <div>
+          <h2>Services</h2>
+          <ul>{services.map((s) => <li><a href={`/${s.slug}`}>{s.name}</a></li>)}</ul>
+        </div>
+        <div>
+          <h2>Service areas</h2>
+          <ul>{areas.map((a) => <li><a href={`/roofing-${a.slug}`}>{a.name}</a></li>)}</ul>
+        </div>
+        <div>
+          <h2>Company</h2>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/projects">Projects</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .lede {
+    margin-top: 1rem;
+    max-width: 50ch;
+  }
+  .cols {
+    display: grid;
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+  .cols h2 {
+    font-size: var(--text-lg);
+    margin-bottom: 0.75rem;
+  }
+  .cols ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 0.25rem;
+  }
+  .cols a {
+    display: inline-flex;
+    min-height: 2.25rem;
+    align-items: center;
+    text-decoration: none;
+    color: var(--ink-soft);
+  }
+  .cols a:hover {
+    color: var(--gold-deep);
+  }
+  @media (min-width: 45em) {
+    .cols {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+</style>

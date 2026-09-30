@@ -1,0 +1,29 @@
+---
+import Base from '../layouts/Base.astro';
+import body from '../data/legal/privacy.html?raw';
+---
+
+<Base title="Privacy Policy | SHYLD Roofing" description="How SHYLD Roofing collects, uses, and protects your information, including the SMS text message program, opt out instructions, and your choices." path="/privacy" crumbs={[{ name: 'Privacy policy', path: '/privacy' }]} hideMobileBar>
+  <header class="page-head">
+    <div class="container">
+      <ol class="crumbs" aria-label="Breadcrumb"><li><a href="/">Home</a></li><li aria-current="page">Privacy policy</li></ol>
+      <p class="eyebrow">Legal</p>
+      <h1>Privacy Policy</h1>
+      <p class="muted">Last updated April 27, 2026</p>
+    </div>
+  </header>
+  <section class="section-sm section-white">
+    <div class="container">
+      <div class="prose legal" set:html={body} />
+    </div>
+  </section>
+</Base>
+
+<style is:global>
+  .legal h2 {
+    margin-top: 2em;
+  }
+  .legal .contact {
+    line-height: 1.8;
+  }
+</style>

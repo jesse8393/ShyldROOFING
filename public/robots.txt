@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Disallow: /preview/
+Disallow: /too-late/
+Disallow: /website/
+Disallow: /zip/
+Disallow: /wp-admin/
+Disallow: /wp-includes/
+
+Sitemap: https://shyldroofing.com/sitemap.xml
