@@ -3,21 +3,27 @@ import { getImage } from 'astro:assets';
 import { business, nav } from '../data/business';
 import wide from '../assets/photos/crops/hero2-wide.jpg';
 import tall from '../assets/photos/crops/hero2-tall.jpg';
+import full from '../assets/photos/home-charcoal-shingles-aerial.jpg';
 
-const wideAvif = await getImage({ src: wide, widths: [660, 960, 1320], format: 'avif', quality: 68 });
-const wideWebp = await getImage({ src: wide, widths: [660, 960, 1320], format: 'webp', quality: 82 });
+// Hero composition. 'split' puts the copy beside the photo; 'overlay' keeps a smaller card over the photo.
+const layout = (process.env.HERO_LAYOUT || 'split') === 'overlay' ? 'overlay' : 'split';
+const desk = layout === 'split' ? full : wide;
+const deskSizes = layout === 'split' ? '(min-width: 82.5em) 720px, 58vw' : '(min-width: 82.5em) 1240px, 100vw';
+
+const wideAvif = await getImage({ src: desk, widths: [660, 960, 1320], format: 'avif', quality: 68 });
+const wideWebp = await getImage({ src: desk, widths: [660, 960, 1320], format: 'webp', quality: 82 });
 const tallAvif = await getImage({ src: tall, widths: [480, 640, 781], format: 'avif', quality: 68 });
 const tallWebp = await getImage({ src: tall, widths: [480, 640, 781], format: 'webp', quality: 82 });
-const fallback = await getImage({ src: wide, width: 1320, format: 'jpeg', quality: 84 });
+const fallback = await getImage({ src: desk, width: 1320, format: 'jpeg', quality: 84 });
 const alt = 'Aerial view of a white board and batten home with a new charcoal architectural shingle roof, photographed on a SHYLD job';
 ---
 
 <Fragment slot="head">
   <link rel="preload" as="image" type="image/avif" fetchpriority="high" media="(max-width: 56.1875em)" imagesrcset={tallAvif.srcSet.attribute} imagesizes="100vw" />
-  <link rel="preload" as="image" type="image/avif" fetchpriority="high" media="(min-width: 56.25em)" imagesrcset={wideAvif.srcSet.attribute} imagesizes="(min-width: 82.5em) 1240px, 100vw" />
+  <link rel="preload" as="image" type="image/avif" fetchpriority="high" media="(min-width: 56.25em)" imagesrcset={wideAvif.srcSet.attribute} imagesizes={deskSizes} />
 </Fragment>
 
-<section class="hero" aria-labelledby="hero-heading">
+<section class:list={['hero', `hero--${layout}`]} aria-labelledby="hero-heading">
   <div class="container">
     <div class="stage">
       <div class="panel">
@@ -37,12 +43,12 @@ const alt = 'Aerial view of a white board and batten home with a new charcoal ar
         <picture>
           <source media="(max-width: 56.1875em)" type="image/avif" srcset={tallAvif.srcSet.attribute} sizes="100vw" />
           <source media="(max-width: 56.1875em)" type="image/webp" srcset={tallWebp.srcSet.attribute} sizes="100vw" />
-          <source type="image/avif" srcset={wideAvif.srcSet.attribute} sizes="(min-width: 82.5em) 1240px, 100vw" />
-          <source type="image/webp" srcset={wideWebp.srcSet.attribute} sizes="(min-width: 82.5em) 1240px, 100vw" />
+          <source type="image/avif" srcset={wideAvif.srcSet.attribute} sizes={deskSizes} />
+          <source type="image/webp" srcset={wideWebp.srcSet.attribute} sizes={deskSizes} />
           <img
             src={fallback.src}
-            width={wide.width}
-            height={wide.height}
+            width={desk.width}
+            height={desk.height}
             alt={alt}
             fetchpriority="high"
             decoding="async"
@@ -120,24 +126,7 @@ const alt = 'Aerial view of a white board and batten home with a new charcoal ar
     }
   }
   @media (min-width: 56.25em) {
-    .hero {
-      padding-bottom: 4.5rem;
-    }
-    .stage {
-      display: grid;
-      grid-template-columns: 1fr;
-      grid-template-rows: 1fr;
-    }
-    .panel,
     .photo {
-      grid-area: 1 / 1;
-    }
-    .photo {
-      width: 100%;
-      max-width: 100%;
-      aspect-ratio: 16 / 7;
-      min-height: 520px;
-      max-height: 720px;
       box-shadow: var(--shadow-soft);
     }
     .photo img {
@@ -145,27 +134,68 @@ const alt = 'Aerial view of a white board and batten home with a new charcoal ar
     }
     .tag {
       left: auto;
-      right: 1.25rem;
-      bottom: 1.25rem;
-      max-width: min(34%, 22rem);
+      right: 1rem;
+      bottom: 1rem;
       text-align: right;
     }
-    .panel {
+
+    /* Side by side: copy on the page, photo uncovered. */
+    .hero--split {
+      padding-block: clamp(1.5rem, 3vw, 3rem) clamp(2.5rem, 5vw, 4rem);
+    }
+    .hero--split .stage {
+      grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+      gap: clamp(2rem, 4vw, 4rem);
+      align-items: center;
+    }
+    .hero--split .panel {
+      order: 1;
+      padding: 0;
+    }
+    .hero--split .photo {
+      order: 2;
+      aspect-ratio: 5 / 4;
+      max-height: 640px;
+      width: 100%;
+    }
+    .hero--split .photo img {
+      object-position: 55% 45%;
+    }
+
+    /* Smaller card over the photo, kept to the lower left corner. */
+    .hero--overlay {
+      padding-bottom: 2.5rem;
+    }
+    .hero--overlay .stage {
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr;
+    }
+    .hero--overlay .panel,
+    .hero--overlay .photo {
+      grid-area: 1 / 1;
+    }
+    .hero--overlay .photo {
+      aspect-ratio: 16 / 7;
+      min-height: 520px;
+      max-height: 720px;
+    }
+    .hero--overlay .panel {
       position: relative;
       z-index: 2;
       align-self: end;
       justify-self: start;
-      width: min(600px, 62%);
-      margin: 0 0 -4.5rem clamp(1.25rem, 4vw, 3.5rem);
-      padding: clamp(1.75rem, 3vw, 2.75rem);
+      width: min(430px, 38%);
+      margin: 0 0 -2.5rem clamp(1rem, 2.5vw, 2rem);
+      padding: clamp(1.25rem, 2vw, 1.75rem);
       background: var(--white);
       border-radius: var(--radius-media);
       box-shadow: var(--shadow-soft);
     }
-  }
-  @media (min-width: 75em) {
-    .panel {
-      width: min(620px, 52%);
+    .hero--overlay .lede {
+      font-size: var(--text-md);
+    }
+    .hero--overlay .phone-line {
+      display: none;
     }
   }
 </style>

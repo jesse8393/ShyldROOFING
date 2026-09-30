@@ -47,7 +47,7 @@ export const serviceContent: Record<ServiceSlug, ServiceContent> = {
     title: 'Roof Replacement in Middle Tennessee | SHYLD Roofing',
     description:
       'Full tear off roof replacement with shingles or metal, a written proposal that names every layer, and a workmanship warranty. Free inspections.',
-    h1: 'Roof replacement, done once, in writing.',
+    h1: 'Roof replacement, done once and done in writing.',
     intro:
       'When repairs stop making sense, a full replacement is the honest answer. We tear the old roof off to the deck, fix what we find, and install a complete system you can see itemized in your proposal.',
     hero: {

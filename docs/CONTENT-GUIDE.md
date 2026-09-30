@@ -32,8 +32,9 @@ Everything editable lives in `src/data`. Layouts and components do not need to c
 
 ## Writing rules
 
-Typography: Fraunces (`--font-display`) is reserved for h1 and h2 only. Every other heading, title, and label
-uses Plus Jakarta Sans at weight 600 (`--font-body`). Hero and headline text is upright, never italic.
+Typography: one family, Plus Jakarta Sans. h1 and h2 use weight 650 with slight negative tracking; every other
+heading, title, and label uses weight 600. Headline text is upright, never italic. Write headlines for meaning
+first; do not cut words only to save a line.
 
 No dashes in visible copy. No fake reviews, counts, years, or awards. No response time promises.
 No insurance deadline statements. Say what SHYLD actually does. Update the matching date in `contentDates`

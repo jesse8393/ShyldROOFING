@@ -30,7 +30,7 @@ export const locationContent: Record<AreaSlug, LocationContent> = {
     title: 'Roofing Contractor in Franklin, TN | SHYLD Roofing',
     description:
       'Roof replacement, repair, and metal roofing for Franklin, TN homeowners in Westhaven, Fieldstone Farms, Cool Springs, and the historic district. Free inspections.',
-    h1: 'Roofing in Franklin, dormers and all.',
+    h1: 'Roofing in Franklin, from downtown to Westhaven.',
     intro:
       'Franklin homes ask more of a roofer. Steep pitches, dormers, standing seam accents, and neighborhoods with review committees that care how a roof looks. We work here often and we are glad to.',
     local: [
@@ -120,7 +120,7 @@ export const locationContent: Record<AreaSlug, LocationContent> = {
     title: 'Roofing Contractor in Smyrna, TN | SHYLD Roofing',
     description:
       'Roof replacement and repair for Smyrna, TN homeowners from a crew based in nearby Murfreesboro. Free inspections with photos and written proposals.',
-    h1: 'Roofing in Smyrna, minutes from our base.',
+    h1: 'Roofing in Smyrna, a short drive from our base.',
     intro:
       'Smyrna sits between Murfreesboro and Nashville along Interstate 24, with neighborhoods that have grown up around the Nissan plant, the airport, and Sam Ridley Parkway. We are minutes away.',
     local: [
@@ -149,7 +149,7 @@ export const locationContent: Record<AreaSlug, LocationContent> = {
     title: 'Roofing Contractor in La Vergne, TN | SHYLD Roofing',
     description:
       'Roof repair, replacement, siding, and gutters for La Vergne homeowners near Percy Priest Lake. Free inspections with photos from a Rutherford County roofing company.',
-    h1: 'Roofing in La Vergne, lake to Interstate 24.',
+    h1: 'Roofing in La Vergne, along the lake and Interstate 24.',
     intro:
       'La Vergne homes near Percy Priest Lake and along Murfreesboro Road see plenty of wind off the water and the usual Middle Tennessee hail. We inspect, repair, and replace roofs here from our base a few exits down the interstate.',
     local: [
@@ -208,7 +208,7 @@ export const locationContent: Record<AreaSlug, LocationContent> = {
     title: 'Roofing Contractor in Brentwood, TN | SHYLD Roofing',
     description:
       'Roof replacement, repair, and standing seam metal for Brentwood, TN homes. Careful work on large, complex roofs with written proposals and a workmanship warranty.',
-    h1: 'Roofing in Brentwood, where roofs run large.',
+    h1: 'Roofing for Brentwood homes with large, complex roofs.',
     intro:
       'Brentwood houses tend to be large, with steep pitches, multiple hips, and details that show from the street. The work has to be done carefully and it has to look right. That is the kind of job we like.',
     local: [
@@ -238,7 +238,7 @@ export const locationContent: Record<AreaSlug, LocationContent> = {
     title: 'Roofing Contractor in Nolensville, TN | SHYLD Roofing',
     description:
       'Roof replacement, repair, and metal roofing for Nolensville homeowners in Bent Creek, Burkitt Place, and along Nolensville Road. Free inspections with photos.',
-    h1: 'Roofing in Nolensville, Bent Creek to Burkitt.',
+    h1: 'Roofing in Nolensville, from Bent Creek to Burkitt Place.',
     intro:
       'Nolensville has gone from a crossroads to a full town in about fifteen years, and the first wave of roofs from that growth is now due for attention. We are close by and here often.',
     local: [
@@ -268,7 +268,7 @@ export const locationContent: Record<AreaSlug, LocationContent> = {
     title: 'Roofing Contractor in Spring Hill, TN | SHYLD Roofing',
     description:
       'Roof repair, replacement, and metal roofing for Spring Hill homeowners on both the Williamson and Maury County sides. Free inspections with photos.',
-    h1: 'Roofing in Spring Hill, Maury and Williamson.',
+    h1: 'Roofing in Spring Hill, on both sides of the county line.',
     intro:
       'Spring Hill straddles Williamson and Maury Counties and has grown as fast as anywhere in Tennessee. Whole neighborhoods were roofed within a few years of each other, which means whole neighborhoods reach replacement age together.',
     local: [
@@ -298,7 +298,7 @@ export const locationContent: Record<AreaSlug, LocationContent> = {
     title: 'Roofing Contractor in Mt. Juliet, TN | SHYLD Roofing',
     description:
       'Roof replacement, repair, siding, and gutters for Mt. Juliet homeowners near Providence and Old Hickory Lake. Free inspections with photos from a local company.',
-    h1: 'Roofing in Mt. Juliet, Providence to the lake.',
+    h1: 'Roofing in Mt. Juliet, from Providence to the lake.',
     intro:
       'Mt. Juliet grew around Providence and Interstate 40 and now stretches toward Old Hickory Lake and Lebanon. Its roofs are mostly under twenty five years old, which makes the next few years busy ones for inspections and first replacements.',
     local: [

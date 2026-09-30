@@ -8,14 +8,6 @@
   src: url('/fonts/plus-jakarta-sans-variable.woff2') format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
-@font-face {
-  font-family: 'Fraunces';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url('/fonts/fraunces-500.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
 
 :root {
   --paper: #f7f4ee;
@@ -36,15 +28,15 @@
   --success: #2f6b3a;
 
   --font-body: 'Plus Jakarta Sans', 'Segoe UI', system-ui, -apple-system, sans-serif;
-  --font-display: 'Fraunces', 'Palatino Linotype', 'Book Antiqua', Palatino, Georgia, serif;
+  --font-display: var(--font-body);
   --text-sm: 0.9rem;
   --text-base: 1rem;
   --text-md: clamp(1.05rem, 1rem + 0.25vw, 1.15rem);
   --text-lg: clamp(1.15rem, 1.05rem + 0.5vw, 1.4rem);
-  --text-h3: clamp(1.25rem, 1.15rem + 0.5vw, 1.55rem);
-  --text-h2: clamp(1.8rem, 1.45rem + 1.7vw, 2.8rem);
-  --text-h1: clamp(2.25rem, 1.65rem + 2.7vw, 4rem);
-  --leading-tight: 1.06;
+  --text-h3: clamp(1.2rem, 1.1rem + 0.45vw, 1.45rem);
+  --text-h2: clamp(1.65rem, 1.35rem + 1.3vw, 2.4rem);
+  --text-h1: clamp(2.05rem, 1.55rem + 2.1vw, 3.3rem);
+  --leading-tight: 1.12;
   --leading-body: 1.6;
   --measure: 64ch;
 
@@ -118,12 +110,15 @@ h4 {
   color: var(--ink);
   text-wrap: balance;
 }
-/* Fraunces is reserved for major headings. Everything below h2 is Jakarta 600. */
+/* One family throughout. Headings are Plus Jakarta Sans, set firm but not heavy. */
 h1,
 h2 {
   font-family: var(--font-display);
-  font-weight: 500;
-  letter-spacing: -0.012em;
+  font-weight: 650;
+  letter-spacing: -0.025em;
+}
+h1 {
+  line-height: 1.08;
 }
 h1 {
   font-size: var(--text-h1);
@@ -385,8 +380,7 @@ button {
 }
 .prose h2 {
   margin: 2.25em 0 0.6em;
-  font-family: var(--font-display);
-  font-size: clamp(1.4rem, 1.25rem + 0.7vw, 1.85rem);
+  font-size: clamp(1.35rem, 1.2rem + 0.6vw, 1.7rem);
 }
 .prose h3 {
   margin: 1.75em 0 0.5em;
