@@ -13,7 +13,7 @@ continues the launch.
 | Delivery proof | Labelled test 2026-09-30 00:09 UTC, recorded in `docs/DELIVERY-EVIDENCE.md`: row stored, Resend delivered, received in that inbox (thread `1a0efa4d6e801737`). Row deleted. |
 | Sender | Still `onboarding@resend.dev`. Resend domain `shyldroofing.com` pending on the DKIM record. PR #3 in `shyld-ai-agents` switches the sender; do not merge until Resend shows verified and `NOTIFY_EMAIL` has been decided. |
 | SMS automation | Off. `SMS_AUTOMATION_ENABLED` unset. Leave it. |
-| Website | Not published. Build ready at commit `97b286c` of `claude/shyld-rebuild` in `jesse8393/ShyldROOFING`. Later commits on that branch changed only docs and scripts. |
+| Website | Published 2026-09-30 about 01:07 UTC from `site-97b286c.zip` (build of commit `97b286c`). Verification in `docs/DELIVERY-EVIDENCE.md`. Nothing deleted on the server. |
 | Blockers | Hostinger connector needs reauthorization at claude.ai connectors. Vercel environment writes return 403. |
 
 ## Files to keep
@@ -154,7 +154,8 @@ Two real submissions through the published site, then delete the rows.
    `scripts/release/intake-production-tests.sh` carry source `release-test` and phones `+1000000001x`.
 5. Automated version: `node scripts/release/live-forms.mjs` after `npm ci` and `npx playwright install chromium`
    (or set `CHROME_PATH` to a Chromium binary). It submits exactly the names and phones above and prints each
-   intake JSON response plus whether the success panel appeared.
+   intake JSON response plus whether the success panel appeared. Run it from a normal machine: inside the Claude
+   cloud sandbox the browser cannot verify the outbound proxy certificate and the platform refuses workarounds.
 
 ## If anything fails
 
