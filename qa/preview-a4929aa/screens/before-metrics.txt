@@ -1,0 +1,8 @@
+desktop home {"h1":"Roofing worth coming home to.","font":"Fraunces","size":"64px","weight":"500","lines":2,"overflow":0,"photoVisibleAboveFold":"52%"}
+desktop about {"h1":"Meet Jesse and SHYLD.","font":"Fraunces","size":"64px","weight":"500","lines":1,"overflow":0,"photoVisibleAboveFold":"21%"}
+desktop contact {"h1":"Call, text, or send the form.","font":"Fraunces","size":"64px","weight":"500","lines":1,"overflow":0,"photoVisibleAboveFold":null}
+desktop city-franklin {"h1":"Roofing in Franklin, dormers and all.","font":"Fraunces","size":"64px","weight":"500","lines":2,"overflow":0,"photoVisibleAboveFold":"21%"}
+mobile home {"h1":"Roofing worth coming home to.","font":"Fraunces","size":"36.93px","weight":"500","lines":2,"overflow":0,"photoVisibleAboveFold":"30%"}
+mobile about {"h1":"Meet Jesse and SHYLD.","font":"Fraunces","size":"36.93px","weight":"500","lines":1,"overflow":0,"photoVisibleAboveFold":"29%"}
+mobile contact {"h1":"Call, text, or send the form.","font":"Fraunces","size":"36.93px","weight":"500","lines":2,"overflow":0,"photoVisibleAboveFold":null}
+mobile city-franklin {"h1":"Roofing in Franklin, dormers and all.","font":"Fraunces","size":"36.93px","weight":"500","lines":2,"overflow":0,"photoVisibleAboveFold":"22%"}

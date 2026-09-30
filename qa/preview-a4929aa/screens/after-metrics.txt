@@ -1,0 +1,8 @@
+desktop home {"h1":"Roofing worth coming home to.","font":"\"Plus Jakarta Sans\"","size":"52.8px","weight":"650","lines":2,"overflow":0,"photoVisibleAboveFold":"29%"}
+desktop about {"h1":"Meet Jesse and SHYLD.","font":"\"Plus Jakarta Sans\"","size":"52.8px","weight":"650","lines":1,"overflow":0,"photoVisibleAboveFold":"21%"}
+desktop contact {"h1":"Call, text, or send the form.","font":"\"Plus Jakarta Sans\"","size":"52.8px","weight":"650","lines":1,"overflow":0,"photoVisibleAboveFold":null}
+desktop city-franklin {"h1":"Roof repair and replacement in Franklin.","font":"\"Plus Jakarta Sans\"","size":"52.8px","weight":"650","lines":2,"overflow":0,"photoVisibleAboveFold":"21%"}
+mobile home {"h1":"Roofing worth coming home to.","font":"\"Plus Jakarta Sans\"","size":"32.99px","weight":"650","lines":2,"overflow":0,"photoVisibleAboveFold":"31%"}
+mobile about {"h1":"Meet Jesse and SHYLD.","font":"\"Plus Jakarta Sans\"","size":"32.99px","weight":"650","lines":1,"overflow":0,"photoVisibleAboveFold":"29%"}
+mobile contact {"h1":"Call, text, or send the form.","font":"\"Plus Jakarta Sans\"","size":"32.99px","weight":"650","lines":2,"overflow":0,"photoVisibleAboveFold":null}
+mobile city-franklin {"h1":"Roof repair and replacement in Franklin.","font":"\"Plus Jakarta Sans\"","size":"32.99px","weight":"650","lines":3,"overflow":0,"photoVisibleAboveFold":"22%"}
