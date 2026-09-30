@@ -28,8 +28,11 @@ with `CHECKSUMS.txt` (sha256). The owner also received the same files as chat do
   files split in three (part 1 holds the root files and the small folders, parts 2 and 3 hold `assets/`), for
   uploads that refuse the single 31 MiB file. Extracted together they equal the full archive.
 * `rollback-live-site-2026-09-29.zip`: the site that was live before launch, 44 files: the 28 old pages under
-  their server names (26 sitemap pages plus `roofing-manchester.html` and `roofing-tullahoma.html`), the old
-  photos and logos, `shyld-track.js`, `.htaccess`, `robots.txt`, `sitemap.xml`, and `google1e3d794f007288d9.html`.
+  their server names (26 sitemap pages plus `roofing-manchester.html` and `roofing-tullahoma.html`), the six old
+  photos (`gutters-photo.jpg`, `metal-roofing-photo.jpg`, `roof-repair-photo.jpg`, `roof-replacement-photo.jpg`,
+  `siding-photo.jpg`, `silhouette-hero.png`), the five old logos (`primary-logo-dark-no-tagline.svg`,
+  `shield-emblem.svg`, `shyld-primary-black.svg`, `shyld-primary-white.svg`, `shyld-shield-black.svg`),
+  `shyld-track.js`, `.htaccess`, `robots.txt`, `sitemap.xml`, and `google1e3d794f007288d9.html`.
   Page links were left as served (not rewritten). It was captured over HTTP, so anything the pages do not
   reference (for example `shyld-pseo.css`, `shield-fix.js`, `default.php`, the `.bak` files) is not in it; those
   files stay on the server because this launch deletes nothing.
@@ -49,7 +52,8 @@ hidden `.htaccess` is included; check with `unzip -l ../site-<commit>.zip | grep
    ignore missing flag the three part files you did not download print FAILED; that is only noise.
 2. In hPanel File Manager, download the current `.htaccess`, `robots.txt`, `sitemap.xml`, and
    `google1e3d794f007288d9.html` from `public_html` to your computer. If `.htaccess` is not listed, first enable
-   hidden files (Upload step 2). Optional: in hPanel, Files, Backups, create a fresh backup of the site.
+   hidden files (Upload step 2). Optional: create a fresh backup of the site in hPanel (expected under Files,
+   Backups). The hPanel wording in this step is from memory; see the note at the top of the Upload section.
 3. Do not continue until the rollback archive is on your computer and its checksum said OK.
 
 ## Upload through Hostinger hPanel File Manager
