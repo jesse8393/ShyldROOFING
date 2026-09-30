@@ -1,0 +1,9 @@
+Medians:
+/ mobile: perf 99 a11y 100 bp 100 seo 100 | LCP 2108ms CLS 0 TBT 0ms 236KB
+/ desktop: perf 100 a11y 100 bp 100 seo 100 | LCP 505ms CLS 0 TBT 0ms 207KB
+/about mobile: perf 100 a11y 100 bp 100 seo 100 | LCP 1657ms CLS 0 TBT 0ms 87KB
+/about desktop: perf 100 a11y 100 bp 100 seo 100 | LCP 390ms CLS 0 TBT 0ms 103KB
+/contact mobile: perf 100 a11y 100 bp 100 seo 100 | LCP 1211ms CLS 0 TBT 0ms 42KB
+/contact desktop: perf 100 a11y 100 bp 100 seo 100 | LCP 331ms CLS 0 TBT 0ms 43KB
+/roofing-franklin mobile: perf 100 a11y 100 bp 100 seo 100 | LCP 1509ms CLS 0 TBT 0ms 80KB
+/roofing-franklin desktop: perf 100 a11y 100 bp 100 seo 100 | LCP 372ms CLS 0 TBT 0ms 92KB
