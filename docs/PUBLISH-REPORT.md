@@ -215,7 +215,7 @@ Gmail inbox of jesse@parkerconstructioncompany.com:
 * Contact form email: received, thread `1a0efe15de57973d`, dated 2026-09-30T01:15:18Z, labels INBOX, UNREAD.
   Body shows the name, sms and tel links for +10000000041, Needs: Free Roof Inspection, Notes with the launch
   test stamp, City Murfreesboro, "Text consent: No", request_id c94ff6d8..., Source: shyldroofing.com form.
-* Text us email: Resend reports it delivered at 01:15:25 (Gmail's mail server accepted it, Resend id 01a0efe1-7496-762d-9701-cb23b1a11be6, message id <010001a0efe175c1-25ca66fd-2d65-4652-bbbb-3f58e9822c38-000000@email.amazonses.com>). Gmail API searches at 01:16, 01:17, 01:18 and again at 01:33 (subject, phone, `in:anywhere` which covers spam and trash, and the exact `rfc822msgid`) did not return it, and the contact form thread holds only its own message, so it was not threaded there. Eighteen minutes after acceptance this is no longer indexing lag. Inbox receipt of the second email is therefore confirmed at the delivery level (Resend) but NOT by a Gmail read. The first launch test email and the 00:09 pre publish email from the same sender did arrive. Recommended owner check: Google Workspace Admin console, Email Log Search for the message id above, to see whether it was quarantined or dropped by a rule; and whether a Gmail filter or the Workspace spam policy treats a second message from onboarding@resend.dev within seconds as suspicious. Third check at 02:06 UTC, fifty minutes after acceptance: still absent from the Gmail API (`rfc822msgid` search and `in:anywhere` from the sender). Treat this as a delivery discrepancy to investigate in the Google Workspace Admin console, Email Log Search, using the message id above.
+* Text us email: CORRECTION. The owner confirmed this email arrived in the Gmail Spam folder (Gmail message id 1a0efe178d5c0dda). Earlier lines in this report called it missing; that was wrong. The Gmail connector used by this session cannot read the Spam folder, which is why every API search came back empty. Delivery worked. Inbox placement does not: the sender is still onboarding@resend.dev, and Gmail filed the consented text us notification as spam while the contact form notification went to Inbox. Fix after launch: verify the shyldroofing.com domain in Resend (DKIM) and switch the sender, and meanwhile mark the message Not spam and add a filter for onboarding@resend.dev.
 
 ## Settings left alone
 
@@ -228,5 +228,42 @@ Gmail inbox of jesse@parkerconstructioncompany.com:
 
 Resend DKIM verification, then the sender switch and NOTIFY_EMAIL decision (PR #3 in `shyld-ai-agents`);
 Search Console sitemap resubmit; the server cleanup list in `docs/HANDOFF-PUBLISH.md`; `docs/UNRESOLVED-FACTS.md`.
+
+
+## Second publish, refinement build (2026-09-30)
+
+Owner authorized publishing the refinements. Deployed commit d2623c5 on claude/shyld-rebuild, which contains the
+refinement commit c274758 (typography, headlines, positioning copy, contact layout, sharper photos). Fresh build,
+not the earlier archive: site-d2623c5.zip, 295 files, sha256 5773354eef2fe4e94b043eee9967e66d58acb2324561852837805319869a7a46.
+
+Backup before upload: every live file that the upload would overwrite was downloaded (166 files plus .htaccess),
+zipped as backup-live-20260930T105620Z.zip, sha256 fa4db74966c9dd01c188bf62389b3ff00752da24e9799af4faa3d6e67d52f0d9.
+All 31 live pages matched the 97b286c build byte for byte, so the full 97b286c build is also a valid rollback set.
+
+Upload 11:01 to 11:04 UTC, assets first then pages: uploaded=295 failed=0 (offset confirmed per file). Nothing deleted.
+
+Verification 11:04 to 11:30 UTC:
+
+| Check | Result |
+| --- | --- |
+| Live files matching the build by sha256 | 294 of 294, .htaccess read through connector unchanged |
+| Home, About, Contact | 200; h1s "Roofing worth coming home to.", "Meet Jesse and SHYLD.", "Call, text, or send the form." |
+| Typography | h1 Fraunces 64px at 1440; Fraunces italic no longer referenced |
+| Contact form top edge | 325px desktop (was 693), 283px phone (was 579) |
+| Redirects | /roof-repair.html 301, /roofing-manchester 301 to /service-areas, www to apex, 404 page 404 |
+| Google verification file, WordPress files | 200 and present, untouched |
+| Sitemap | 30 URLs |
+| Crawl of live site | 30 pages, 246 assets, no problems |
+| /contact form | saved, email sent, SMS skipped (no consent), success panel shown |
+| /text-us form | saved, email sent, SMS skipped (automation_disabled), success panel shown |
+| Resend | both delivered 11:27:03 and 11:27:09 to jesse@parkerconstructioncompany.com |
+| Gmail placement | contact form email in INBOX (message 1a0f2116ee187c35); text us email not visible to the connector, so presumably Spam again, owner to confirm |
+| Test rows | both deleted from public.leads |
+
+Rollback: not needed. Unchanged: NOTIFY_EMAIL routing, SMS automation off, DNS, Vercel, Resend, Supabase schema.
+
+Still open: home hero photo remains soft; its original is likely among three Drive files over 7 MB that the
+connector cannot download (dji_fly_20260514_162152_127, dji_fly_20260514_162134_126, dji_fly_20250709_105318_5).
+Inbox placement for the text us notification (see correction above).
 
 PUBLISH_OK
