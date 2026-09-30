@@ -215,7 +215,7 @@ Gmail inbox of jesse@parkerconstructioncompany.com:
 * Contact form email: received, thread `1a0efe15de57973d`, dated 2026-09-30T01:15:18Z, labels INBOX, UNREAD.
   Body shows the name, sms and tel links for +10000000041, Needs: Free Roof Inspection, Notes with the launch
   test stamp, City Murfreesboro, "Text consent: No", request_id c94ff6d8..., Source: shyldroofing.com form.
-* Text us email: CORRECTION. The owner confirmed this email arrived in the Gmail Spam folder (Gmail message id 1a0efe178d5c0dda). Earlier lines in this report called it missing; that was wrong. The Gmail connector used by this session cannot read the Spam folder, which is why every API search came back empty. Delivery worked. Inbox placement does not: the sender is still onboarding@resend.dev, and Gmail filed the consented text us notification as spam while the contact form notification went to Inbox. Fix after launch: verify the shyldroofing.com domain in Resend (DKIM) and switch the sender, and meanwhile mark the message Not spam and add a filter for onboarding@resend.dev.
+* Text us email: CORRECTION. Verified facts only. Resend recorded the message as delivered at 01:15:25. Gmail API searches from this session (subject, phone number, `in:anywhere`, and the exact `rfc822msgid`) at 01:16, 01:17, 01:18, 01:33 and 02:06 returned no result. A direct thread read of Gmail message id 1a0efe178d5c0dda returned "The caller does not have permission". The owner reports that the message is in the Gmail Spam folder under that id. This session did not establish why its searches did not return the message; earlier wording that called it missing, and later wording that said the connector cannot read Spam, both went beyond the evidence and are withdrawn. Inbox placement for these notifications needs attention. Verifying the shyldroofing.com domain in Resend and sending from it may improve deliverability, but it cannot guarantee Inbox placement.
 
 ## Settings left alone
 
@@ -257,13 +257,13 @@ Verification 11:04 to 11:30 UTC:
 | /contact form | saved, email sent, SMS skipped (no consent), success panel shown |
 | /text-us form | saved, email sent, SMS skipped (automation_disabled), success panel shown |
 | Resend | both delivered 11:27:03 and 11:27:09 to jesse@parkerconstructioncompany.com |
-| Gmail placement | contact form email in INBOX (message 1a0f2116ee187c35); text us email not visible to the connector, so presumably Spam again, owner to confirm |
+| Gmail placement | contact form email found in INBOX (message 1a0f2116ee187c35); the text us email was not returned by this session's Gmail searches, placement not verified by this session |
 | Test rows | both deleted from public.leads |
 
 Rollback: not needed. Unchanged: NOTIFY_EMAIL routing, SMS automation off, DNS, Vercel, Resend, Supabase schema.
 
 Still open: home hero photo remains soft; its original is likely among three Drive files over 7 MB that the
 connector cannot download (dji_fly_20260514_162152_127, dji_fly_20260514_162134_126, dji_fly_20250709_105318_5).
-Inbox placement for the text us notification (see correction above).
+Inbox placement for the text us notification (see correction above). A branded sender may help but cannot guarantee Inbox placement.
 
 PUBLISH_OK
