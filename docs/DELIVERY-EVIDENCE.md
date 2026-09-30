@@ -124,3 +124,46 @@ name `LAUNCH TEST pre publish delivery check`, email, city Murfreesboro, notes, 
 
 The owner accepted this inbox for launch. The switch to `shyldroofing@gmail.com` and the verified sender follow
 after launch (`docs/HANDOFF-PUBLISH.md`).
+
+
+## Publication, 2026-09-30
+
+Upload path: the site owner authorized the production deployment in writing. A sibling session created from this
+one, with the Hostinger connector loaded, uploaded the build (archive `site-97b286c.zip`, sha256
+`990013dd...52fcf`, 295 files) file by file into `public_html` through the Hostinger upload URL. Its interim
+status read "294 files deployed, .htaccess confirmed" while it ran its own validation; its report branch
+`claude/publish-report` holds the details it publishes. Nothing was deleted on the server. WordPress files and
+`google1e3d794f007288d9.html` remain in place (checked below).
+
+Independent verification from this session, 01:08 to 01:16 UTC, against `https://shyldroofing.com`:
+
+| Check | Observed |
+| --- | --- |
+| Home page | 200, title `SHYLD Roofing | Roofing Contractor in Middle Tennessee` |
+| `/about`, `/contact`, `/projects`, `/text-us`, `/roof-repair`, `/roofing-franklin` | 200 |
+| `/roof-repair.html`, `/roof-repair/`, `/index.html` | 301 to the clean URL |
+| `/roofing-manchester` | 301 to `/service-areas` |
+| `/does-not-exist` | 404 |
+| `/sitemap.xml` | 30 `<loc>` entries; `robots.txt` points at it |
+| `google1e3d794f007288d9.html` | 200, no redirect, verification content intact |
+| `http://www.shyldroofing.com/` | ends at `https://shyldroofing.com/` |
+| `wp-login.php` | 200 (WordPress files untouched) |
+| Home page images (`/assets/*.avif`, `*.jpg`) | 200 with image content types |
+| Scripts, fonts, brand SVGs, icons, manifest, og image | 200 |
+| `.htaccess` fetched directly | 403 (hidden file not served, as intended) |
+| Full crawl (`BASE=https://shyldroofing.com npm run crawl`) | Crawled 30 pages, checked 245 assets. No problems found. |
+| Deployed `InquiryForm` script | byte identical to the built file |
+| Live contact form inputs | `inspection-name`, `inspection-phone`, `inspection-consent` present |
+| Live text us form inputs | `su-consent-care` (`sms_consent`), `su-consent-promo` (`sms_consent_promotional`) present |
+| Contact details on the live pages | phone (615) 295 8974 and `shyldroofing@gmail.com` present |
+| Form target on the live pages | `https://shyld-ai-agents.vercel.app/api/form-intake` |
+
+Live form submissions through a browser were not run from this session. The sandbox's browser cannot verify
+the outbound proxy certificate, and the two ways around that (ignoring certificate errors, or carrying browser
+traffic through curl) were refused by the platform's permission layer, which was respected. The form path is
+proven end to end by the pre publish delivery check above (same endpoint, same payload shape the live script
+sends) and by the eleven browser form tests in `docs/QA-REPORT.md`. The owner's own submission through the live
+site, followed by the row and inbox checks in `docs/HANDOFF-PUBLISH.md`, closes that gap.
+
+Notification routing at publication: `jesse@parkerconstructioncompany.com`. SMS automation unset. Sender still
+`onboarding@resend.dev` pending the Resend DKIM check; PR #3 unmerged.
