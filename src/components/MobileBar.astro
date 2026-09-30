@@ -61,13 +61,28 @@ import { business, nav } from '../data/business';
   const blockers = document.querySelectorAll('[data-hide-mobile-bar]');
   if (bar && blockers.length && 'IntersectionObserver' in window) {
     const visible = new Set<Element>();
+    // A hidden bar is also removed from keyboard focus and the accessibility tree.
+    // If a bar link has focus when the bar would hide, it stays visible until focus moves on.
+    let wantHidden = false;
+    const apply = () => {
+      const hide = wantHidden && !bar.contains(document.activeElement);
+      bar.classList.toggle('is-hidden', hide);
+      bar.inert = hide;
+      if (hide) bar.setAttribute('aria-hidden', 'true');
+      else bar.removeAttribute('aria-hidden');
+    };
+    const setHidden = (h: boolean) => {
+      wantHidden = h;
+      apply();
+    };
+    bar.addEventListener('focusout', () => setTimeout(apply, 0));
     const io = new IntersectionObserver(
       (entries) => {
         for (const e of entries) {
           if (e.isIntersecting) visible.add(e.target);
           else visible.delete(e.target);
         }
-        bar.classList.toggle('is-hidden', visible.size > 0);
+        setHidden(visible.size > 0);
       },
       { threshold: 0.05 },
     );

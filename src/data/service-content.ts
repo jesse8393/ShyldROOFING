@@ -47,9 +47,9 @@ export const serviceContent: Record<ServiceSlug, ServiceContent> = {
     title: 'Roof Replacement in Middle Tennessee | SHYLD Roofing',
     description:
       'Full tear off roof replacement with shingles or metal, a written proposal that names every layer, and a workmanship warranty. Free inspections.',
-    h1: 'Roof replacement, done once and done in writing.',
+    h1: 'Roof replacement. Clear written proposals.',
     intro:
-      'When repairs stop making sense, a full replacement is the honest answer. We tear the old roof off to the deck, fix what we find, and install a complete system you can see itemized in your proposal.',
+      'When repairs no longer make sense, we tear the old roof off to the deck, fix what we find, and install a complete system you can see itemized in your proposal.',
     hero: {
       image: charcoalHome,
       alt: 'Aerial view of a white board and batten home with a new charcoal architectural shingle roof, several gables, and a brick chimney, replaced by SHYLD Roofing',
@@ -134,7 +134,7 @@ export const serviceContent: Record<ServiceSlug, ServiceContent> = {
     name: 'Roof Repair',
     title: 'Roof Repair in Middle Tennessee | SHYLD Roofing',
     description:
-      'Roof leak and storm damage repair across Middle Tennessee. We find the real source, fix it properly, and say honestly if a repair is worth it.',
+      'Roof leak and storm damage repair across Middle Tennessee. We find the real source, fix it properly, and tell you whether a repair is worth it.',
     h1: 'Roof repairs that find the real problem.',
     intro:
       'A stain on the ceiling rarely sits under the leak. We trace water back to where it gets in, fix that, and leave you with photos of the before and after. If the roof is too far gone for a repair to be worth your money, we say so.',
@@ -177,7 +177,7 @@ export const serviceContent: Record<ServiceSlug, ServiceContent> = {
       'Chasing leaks caused by gutters, siding, or windows, though we will tell you when the water is coming from one of those.',
     ],
     warranty:
-      'Repairs carry our written workmanship warranty on the work performed, stated on your invoice. We are honest about limits: a repair on a roof near the end of its life is warranted for the repair, not for the rest of the roof.',
+      'Repairs carry our written workmanship warranty on the work performed, stated on your invoice. One limit to know: a repair on a roof near the end of its life is warranted for the repair, not for the rest of the roof.',
     faqs: [
       {
         q: 'How soon can you come out for a leak?',
@@ -207,7 +207,7 @@ export const serviceContent: Record<ServiceSlug, ServiceContent> = {
     name: 'Metal Roofing',
     title: 'Metal Roofing in Middle Tennessee | SHYLD Roofing',
     description:
-      'Standing seam and exposed fastener metal roofing across Middle Tennessee. Panels formed to length, and honest advice on whether metal fits your home.',
+      'Standing seam and exposed fastener metal roofing across Middle Tennessee. Panels formed to length, and clear advice on whether metal fits your home.',
     h1: 'Metal roofs for homes you plan to keep.',
     intro:
       'A well installed metal roof outlasts two or three shingle roofs. It costs more up front, sheds rain and hail differently, and changes how a house looks. We help you decide whether it fits your home and budget, then install it properly.',
@@ -261,7 +261,7 @@ export const serviceContent: Record<ServiceSlug, ServiceContent> = {
       },
       {
         q: 'How much more does metal cost than shingles?',
-        a: '<p>Meaningfully more, and the gap depends on panel type, gauge, and roof complexity. We do not publish ranges because they mislead. An inspection produces a real number for your roof, and we are glad to price both options side by side.</p>',
+        a: '<p>Meaningfully more, and the gap depends on panel type, gauge, and roof complexity. An inspection produces a price for your roof, and we can price both options side by side so you can compare them directly.</p>',
       },
       {
         q: 'Can it go over existing shingles?',
@@ -305,7 +305,7 @@ export const serviceContent: Record<ServiceSlug, ServiceContent> = {
     inspection: [
       'We walk every slope and mark hail hits and wind creases so they show in the photos.',
       'We check soft metals, vents, boots, and gutters, which insurers use to judge hail size.',
-      'We document the age and condition of the roof honestly. Old wear is not storm damage and we do not call it that.',
+      'We also record the roof’s age and general wear, so the summary separates storm damage from ordinary aging.',
       'You receive the photo set and a written summary you can keep or share with your carrier.',
     ],
     options: [
@@ -467,7 +467,7 @@ export const serviceContent: Record<ServiceSlug, ServiceContent> = {
     faqs: [
       {
         q: 'Do I need gutter guards?',
-        a: '<p>If you have trees over the roof, guards save you a lot of ladder time. If you do not, plain gutters cleaned once or twice a year are fine. We are honest about which situation you are in.</p>',
+        a: '<p>If you have trees over the roof, guards save you a lot of ladder time. If you do not, plain gutters cleaned once or twice a year are fine. We will tell you which applies to your roof.</p>',
       },
       {
         q: 'Should gutters go on before or after a new roof?',

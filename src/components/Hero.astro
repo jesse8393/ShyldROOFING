@@ -8,7 +8,8 @@ import full from '../assets/photos/home-charcoal-shingles-aerial.jpg';
 // Hero composition. 'split' puts the copy beside the photo; 'overlay' keeps a smaller card over the photo.
 const layout = (process.env.HERO_LAYOUT || 'split') === 'overlay' ? 'overlay' : 'split';
 const desk = layout === 'split' ? full : wide;
-const deskSizes = layout === 'split' ? '(min-width: 82.5em) 720px, 58vw' : '(min-width: 82.5em) 1240px, 100vw';
+// The split frame is 5:4 and the photo is about 16:9, so object-fit cover needs roughly 1.4 times the frame width.
+const deskSizes = layout === 'split' ? '(min-width: 82.5em) 990px, 82vw' : '(min-width: 82.5em) 1240px, 100vw';
 
 const wideAvif = await getImage({ src: desk, widths: [660, 960, 1320], format: 'avif', quality: 68 });
 const wideWebp = await getImage({ src: desk, widths: [660, 960, 1320], format: 'webp', quality: 82 });
@@ -160,6 +161,11 @@ const alt = 'Aerial view of a white board and batten home with a new charcoal ar
     }
     .hero--split .photo img {
       object-position: 55% 45%;
+    }
+    .hero--split .tag {
+      left: 1rem;
+      right: auto;
+      text-align: left;
     }
 
     /* Smaller card over the photo, kept to the lower left corner. */

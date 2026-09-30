@@ -20,7 +20,7 @@ import siding from '../assets/photos/crops/siding-4x3.jpg';
         <div>
           <p class="eyebrow">About</p>
           <h1>Meet {business.founderFirstName} and SHYLD.</h1>
-          <p class="lede">{business.founderFirstName}, the owner, inspects your roof and writes your proposal himself, then backs the work with a written workmanship warranty. Every answer is about your roof, not a script.</p>
+          <p class="lede">{business.founderFirstName}, the owner, inspects your roof and writes your proposal himself, then backs the work with a written workmanship warranty.</p>
         </div>
         <div class="frame photo">
           <Picture src={metal} widths={[640, 960, 1280, 1600]} sizes="(min-width: 62.5em) 50vw, 100vw" formats={['avif', 'webp']} alt="Aerial view of a standing seam metal roof installed by SHYLD Roofing on a steep pitched home" loading="eager" fetchpriority="high" />
@@ -33,8 +33,8 @@ import siding from '../assets/photos/crops/siding-4x3.jpg';
     <div class="container two">
       <div class="col-head rise"><h2>How we work</h2></div>
       <div class="prose rise">
-        <p>Every job starts with someone on the roof taking photos. Not a drone from the street, not an estimate from satellite images. We want to see the flashing, the boots, the valleys, and the deck, because that is where roofs fail and where cheap proposals hide their shortcuts.</p>
-        <p>The proposal you receive lists materials by name, the layers of the system, what is excluded, the price, and the warranty terms. You can hand it to another roofer and compare line by line. We would rather lose a job to an honest comparison than win one with a vague number.</p>
+        <p>Every job starts with someone on the roof taking photos of the flashing, the pipe boots, the valleys, and the deck, because those are the places roofs usually fail. You see what we see before any price is discussed.</p>
+        <p>The proposal you receive lists materials by name, the layers of the system, what is excluded, the price, and the warranty terms. Because every item is named, you can compare it line by line with any other proposal you receive.</p>
         <p>On the job, the yard is protected before the first shingle comes off, the site is cleaned daily, and we walk the finished roof with you before the final invoice.</p>
       </div>
     </div>
@@ -75,7 +75,6 @@ import siding from '../assets/photos/crops/siding-4x3.jpg';
             <li>Promise what your insurance carrier will approve.</li>
             <li>Waive or absorb deductibles. It is illegal in Tennessee.</li>
             <li>Quote a firm price over the phone without seeing the roof.</li>
-            <li>Invent reviews, years in business, or roof counts.</li>
             <li>Pressure you to sign on the day of the inspection.</li>
           </ul>
         </div>
@@ -93,7 +92,6 @@ import siding from '../assets/photos/crops/siding-4x3.jpg';
         <div><dt>Phone</dt><dd><a href={business.phone.tel}>{business.phone.display}</a></dd></div>
         <div><dt>Email</dt><dd><a href={`mailto:${business.email}`}>{business.email}</a></dd></div>
         <div><dt>Hours</dt><dd>{business.hours.map((h) => <span>{h.days}, {h.open} to {h.close}</span>)}</dd></div>
-        <div><dt>Licensing and insurance</dt><dd>Licensed and insured in Tennessee. Current certificates are available on request before any work begins.</dd></div>
         <div><dt>Service area</dt><dd>{areas.map((a) => a.name).join(', ')}, and surrounding communities.</dd></div>
       </dl>
     </div>

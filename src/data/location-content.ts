@@ -30,12 +30,12 @@ export const locationContent: Record<AreaSlug, LocationContent> = {
     title: 'Roofing Contractor in Franklin, TN | SHYLD Roofing',
     description:
       'Roof replacement, repair, and metal roofing for Franklin, TN homeowners in Westhaven, Fieldstone Farms, Cool Springs, and the historic district. Free inspections.',
-    h1: 'Roofing in Franklin, from downtown to Westhaven.',
+    h1: 'Roof repair and replacement in Franklin.',
     intro:
-      'Franklin homes ask more of a roofer. Steep pitches, dormers, standing seam accents, and neighborhoods with review committees that care how a roof looks. We work here often and we are glad to.',
+      'Franklin homes ask more of a roofer. Steep pitches, dormers, standing seam accents, and neighborhoods with review committees that care how a roof looks.',
     local: [
       'Franklin’s housing runs from pre war homes near Main Street and the historic district to large planned neighborhoods like Westhaven, Fieldstone Farms, and McKay’s Mill, with Cool Springs and Berry Farms growing quickly on the edges. Each brings its own roof: slate look shingles and metal porch roofs downtown, complex hip and gable layouts with multiple valleys in the newer subdivisions.',
-      'Many Franklin neighborhoods have architectural review requirements for exterior changes, including roof color. We have worked within those before and can supply the product and color documentation an approval typically asks for.',
+      'Many Franklin neighborhoods have architectural review requirements for exterior changes, including roof color. We can supply the manufacturer product sheets and color samples an approval typically asks for.',
       'Williamson County sees the same spring and summer storms as the rest of Middle Tennessee. Because so many Franklin roofs have complicated shapes, wind damage tends to show up at the transitions first, in the valleys and around dormers.',
     ],
     needs: [
@@ -60,13 +60,13 @@ export const locationContent: Record<AreaSlug, LocationContent> = {
     title: 'Roofing Contractor in Lebanon, TN | SHYLD Roofing',
     description:
       'Roof replacement, repair, metal roofing, siding, and gutters for Lebanon and Wilson County homeowners. Free inspections with photos and written proposals.',
-    h1: 'Roofing in Lebanon and across Wilson County.',
+    h1: 'Roof repair and replacement in Lebanon.',
     intro:
       'Lebanon mixes older homes around the square with fast growing subdivisions along Highway 109 and out toward Mt. Juliet. Roofs here range from simple gables on ranch homes to metal on farm properties, and we handle both.',
     local: [
       'The area around the Lebanon square and Cumberland University has some of the older housing in Wilson County, where roofs may hide multiple layers or original decking that needs attention during a replacement. Newer development along Highway 109, near the Nashville Superspeedway, and toward Hartmann Drive is dominated by ten to twenty year old architectural shingle roofs now reaching the age where hail and heat start to show.',
       'Wilson County has open land and long roof lines on rural properties, where metal roofing is a practical choice for barns, shops, and homes alike. We install standing seam and exposed fastener panels on both.',
-      'Lebanon sits in the path of storms that track northeast out of Rutherford County. When a storm hits, we inspect and document damage honestly, including when a roof has simply aged out.',
+      'Lebanon sits in the path of storms that track northeast out of Rutherford County. When a storm hits, we inspect and photograph the damage, and we note when a roof has simply aged out.',
     ],
     needs: [
       { name: 'Aging subdivision roofs', text: 'Roofs installed during the 2000s growth are reaching replacement age. We inspect, show you photos, and tell you whether to repair or replace.' },
@@ -90,7 +90,7 @@ export const locationContent: Record<AreaSlug, LocationContent> = {
     title: 'Roofing Contractor in Murfreesboro, TN | SHYLD Roofing',
     description:
       'SHYLD Roofing is based in Murfreesboro. Roof replacement, repair, metal roofing, siding, and gutters for Rutherford County homeowners. Free inspections with photos.',
-    h1: 'Roofing in Murfreesboro, where SHYLD is based.',
+    h1: 'Roof repair and replacement in Murfreesboro.',
     intro:
       'Our home base. From the historic homes near the square and MTSU to the subdivisions off Veterans Parkway, Blackman, and Barfield, we know these roofs because we drive past them every day.',
     local: [
@@ -101,7 +101,7 @@ export const locationContent: Record<AreaSlug, LocationContent> = {
     needs: [
       { name: 'First replacements in newer neighborhoods', text: 'Many homes are at the age where the original builder grade roof is done. We show you what we find before recommending anything.' },
       { name: 'Additions and layered roofs', text: 'Older homes often have roofs added over roofs. A replacement takes everything down to the deck and fixes the flashing where additions meet.' },
-      { name: 'Storm documentation', text: 'Honest inspection after hail, with photos you own regardless of whether you file a claim.' },
+      { name: 'Storm documentation', text: 'Inspection after hail, with photos you keep whether or not you file a claim.' },
     ],
     nearby: ['smyrna', 'la-vergne', 'christiana', 'rockvale', 'eagleville'],
     faqs: [
@@ -120,16 +120,16 @@ export const locationContent: Record<AreaSlug, LocationContent> = {
     title: 'Roofing Contractor in Smyrna, TN | SHYLD Roofing',
     description:
       'Roof replacement and repair for Smyrna, TN homeowners from a crew based in nearby Murfreesboro. Free inspections with photos and written proposals.',
-    h1: 'Roofing in Smyrna, a short drive from our base.',
+    h1: 'Roof repair and replacement in Smyrna.',
     intro:
       'Smyrna sits between Murfreesboro and Nashville along Interstate 24, with neighborhoods that have grown up around the Nissan plant, the airport, and Sam Ridley Parkway. We are minutes away.',
     local: [
       'Much of Smyrna’s housing was built in two waves, older ranch and split level homes near the town center and Lowry Street, and larger subdivisions from the 1990s onward around Stewartsboro, Rocky Fork, and Sam Ridley Parkway. The newer homes are reaching first replacement age; the older ones often need flashing and ventilation brought up to current practice during a replacement.',
-      'Smyrna and La Vergne share the same weather as Murfreesboro. Hail events that hit one usually hit the others, and we often inspect several streets in a neighborhood in the same week.',
+      'Smyrna and La Vergne share the same weather as Murfreesboro. Hail events that hit one usually hit the others.',
     ],
     needs: [
       { name: 'Ventilation upgrades', text: 'Older Smyrna roofs frequently have turbine or box vents and little intake. A replacement is the time to add ridge and soffit ventilation.' },
-      { name: 'Repair versus replace', text: 'Many roofs here are on the fence. We give you photos and an honest read so you can decide.' },
+      { name: 'Repair versus replace', text: 'Many roofs here are on the fence. We give you photos and a plain explanation of each option so you can decide.' },
       { name: 'Gutters with the roof', text: 'Adding seamless gutters during a replacement saves a second crew visit.' },
     ],
     nearby: ['la-vergne', 'murfreesboro', 'nashville', 'nolensville'],
@@ -149,7 +149,7 @@ export const locationContent: Record<AreaSlug, LocationContent> = {
     title: 'Roofing Contractor in La Vergne, TN | SHYLD Roofing',
     description:
       'Roof repair, replacement, siding, and gutters for La Vergne homeowners near Percy Priest Lake. Free inspections with photos from a Rutherford County roofing company.',
-    h1: 'Roofing in La Vergne, along the lake and Interstate 24.',
+    h1: 'Roof repair and replacement in La Vergne.',
     intro:
       'La Vergne homes near Percy Priest Lake and along Murfreesboro Road see plenty of wind off the water and the usual Middle Tennessee hail. We inspect, repair, and replace roofs here from our base a few exits down the interstate.',
     local: [
@@ -158,7 +158,7 @@ export const locationContent: Record<AreaSlug, LocationContent> = {
     ],
     needs: [
       { name: 'Wind resistance', text: 'Proper starter strip, six nail patterns where the shingle allows, and sealed ridge caps for homes exposed to wind off the lake.' },
-      { name: 'Full replacements', text: 'Straightforward gable roofs that we can often complete in a single day when the weather cooperates.' },
+      { name: 'Full replacements', text: 'Straightforward gable roofs, the simplest shape to tear off and replace.' },
       { name: 'Siding and gutters', text: 'Older vinyl siding and undersized gutters are common. We can quote them with the roof.' },
     ],
     nearby: ['smyrna', 'murfreesboro', 'nashville', 'mt-juliet'],
@@ -178,13 +178,13 @@ export const locationContent: Record<AreaSlug, LocationContent> = {
     title: 'Roofing Contractor in Nashville, TN | SHYLD Roofing',
     description:
       'Roof replacement, repair, and metal roofing for Nashville and Davidson County homeowners, from Antioch and Donelson to East Nashville. Free inspections with photos.',
-    h1: 'Roofing across Nashville and Davidson County.',
+    h1: 'Roof repair and replacement in Nashville.',
     intro:
       'From the bungalows of East Nashville to the newer neighborhoods in Antioch, Donelson, and Bellevue, Nashville roofs come in every age and shape. We serve the city from our base south of town.',
     local: [
       'Nashville’s older neighborhoods, including East Nashville, Inglewood, and parts of West Nashville, have homes from the 1920s through the 1960s with low slopes, additions, and porch roofs that need careful flashing and sometimes a different material on the low pitched sections. Southeast Nashville, Antioch, and Donelson have larger stocks of homes from the 1980s onward with roofs now at replacement age.',
       'Metal roofing has become popular on Nashville’s renovated homes and new builds, particularly standing seam on modern designs and porch roofs on restored bungalows. We install both.',
-      'Nashville is the far end of our regular range. We serve Davidson County south and east of downtown most easily. Call with your address and we will be honest about scheduling.',
+      'Nashville is the far end of our regular range. We serve Davidson County south and east of downtown most easily. Call with your address and we will tell you what scheduling looks like.',
     ],
     needs: [
       { name: 'Low slope sections', text: 'Porches and additions with pitches too low for shingles need a membrane or metal. We specify the right product for each section.' },
@@ -208,7 +208,7 @@ export const locationContent: Record<AreaSlug, LocationContent> = {
     title: 'Roofing Contractor in Brentwood, TN | SHYLD Roofing',
     description:
       'Roof replacement, repair, and standing seam metal for Brentwood, TN homes. Careful work on large, complex roofs with written proposals and a workmanship warranty.',
-    h1: 'Roofing for Brentwood homes with large, complex roofs.',
+    h1: 'Roof repair and replacement in Brentwood.',
     intro:
       'Brentwood houses tend to be large, with steep pitches, multiple hips, and details that show from the street. The work has to be done carefully and it has to look right. That is the kind of job we like.',
     local: [
@@ -238,9 +238,9 @@ export const locationContent: Record<AreaSlug, LocationContent> = {
     title: 'Roofing Contractor in Nolensville, TN | SHYLD Roofing',
     description:
       'Roof replacement, repair, and metal roofing for Nolensville homeowners in Bent Creek, Burkitt Place, and along Nolensville Road. Free inspections with photos.',
-    h1: 'Roofing in Nolensville, from Bent Creek to Burkitt Place.',
+    h1: 'Roof repair and replacement in Nolensville.',
     intro:
-      'Nolensville has gone from a crossroads to a full town in about fifteen years, and the first wave of roofs from that growth is now due for attention. We are close by and here often.',
+      'Nolensville has gone from a crossroads to a full town in about fifteen years, and the first wave of roofs from that growth is now due for attention.',
     local: [
       'Bent Creek, Burkitt Place, Winterset Woods, Scales Farmstead, and the newer developments along Nolensville Road and Rocky Fork Road were largely built between 2005 and 2020. Those roofs are entering the window where hail, heat, and builder grade materials start to show, and many homeowners are seeing their first repairs.',
       'Historic Nolensville along the old village strip has older homes with metal and shingle roofs that need a different approach, including care with original details.',
@@ -248,7 +248,7 @@ export const locationContent: Record<AreaSlug, LocationContent> = {
     ],
     needs: [
       { name: 'Builder grade roof replacements', text: 'Original three tab or light architectural shingles replaced with a heavier system and better ventilation.' },
-      { name: 'Storm repairs', text: 'Open terrain around the newer subdivisions means wind damage is common. We repair honestly and tell you when a claim is worth pursuing.' },
+      { name: 'Storm repairs', text: 'Open terrain around the newer subdivisions means wind damage is common. We repair the damage and tell you when a claim is worth considering.' },
       { name: 'HOA documentation', text: 'Product and color documentation for neighborhood approvals.' },
     ],
     nearby: ['brentwood', 'franklin', 'smyrna', 'murfreesboro'],
@@ -268,17 +268,17 @@ export const locationContent: Record<AreaSlug, LocationContent> = {
     title: 'Roofing Contractor in Spring Hill, TN | SHYLD Roofing',
     description:
       'Roof repair, replacement, and metal roofing for Spring Hill homeowners on both the Williamson and Maury County sides. Free inspections with photos.',
-    h1: 'Roofing in Spring Hill, on both sides of the county line.',
+    h1: 'Roof repair and replacement in Spring Hill.',
     intro:
       'Spring Hill straddles Williamson and Maury Counties and has grown as fast as anywhere in Tennessee. Whole neighborhoods were roofed within a few years of each other, which means whole neighborhoods reach replacement age together.',
     local: [
       'Neighborhoods along Port Royal Road, Buckner Road, and Main Street, including developments near the Crossings and the GM plant, were largely built in the 2000s and 2010s. Many share the same roof age and the same exposure to storms rolling up from the southwest, so we often inspect several homes on one street.',
       'Because Spring Hill spans two counties, permitting and inspection requirements can differ by address. We sort that out as part of the proposal.',
-      'Spring Hill is at the southern edge of our regular Williamson County range. We serve it regularly and will confirm scheduling when you call.',
+      'Spring Hill is at the southern edge of our regular Williamson County range. Call and we will confirm scheduling for your address.',
     ],
     needs: [
       { name: 'Neighborhood wide replacements', text: 'Homes of the same age with the same builder roof. We inspect each one individually and never assume.' },
-      { name: 'Storm damage', text: 'Open, newly developed land means exposure to wind. Honest documentation you can keep.' },
+      { name: 'Storm damage', text: 'Open, newly developed land means exposure to wind. Photo documentation you can keep.' },
       { name: 'Two county permitting', text: 'We handle the right permit for the right county.' },
     ],
     nearby: ['franklin', 'brentwood', 'nolensville', 'eagleville'],
@@ -298,12 +298,12 @@ export const locationContent: Record<AreaSlug, LocationContent> = {
     title: 'Roofing Contractor in Mt. Juliet, TN | SHYLD Roofing',
     description:
       'Roof replacement, repair, siding, and gutters for Mt. Juliet homeowners near Providence and Old Hickory Lake. Free inspections with photos from a local company.',
-    h1: 'Roofing in Mt. Juliet, from Providence to the lake.',
+    h1: 'Roof repair and replacement in Mt. Juliet.',
     intro:
       'Mt. Juliet grew around Providence and Interstate 40 and now stretches toward Old Hickory Lake and Lebanon. Its roofs are mostly under twenty five years old, which makes the next few years busy ones for inspections and first replacements.',
     local: [
       'Subdivisions around Providence Marketplace, along Lebanon Road, and out Nonaville Road and Benders Ferry Road were built through the 2000s and 2010s. Roofs there are reaching the age where original architectural shingles show granule loss and hail bruising. Older homes near Old Hickory Lake see more wind and often have additions with tricky transitions.',
-      'Mt. Juliet is on the Wilson County side of our range along with Lebanon, and we are in the area regularly.',
+      'Mt. Juliet is on the Wilson County side of our range along with Lebanon.',
     ],
     needs: [
       { name: 'First replacements', text: 'Original roofs from the growth years replaced with heavier shingles and ridge ventilation.' },
@@ -327,7 +327,7 @@ export const locationContent: Record<AreaSlug, LocationContent> = {
     title: 'Roofing Contractor in Shelbyville, TN | SHYLD Roofing',
     description:
       'Roof replacement, repair, and metal roofing for Shelbyville and Bedford County. Metal for farm properties, shingles for town homes, free inspections with photos.',
-    h1: 'Roofing in Shelbyville and Bedford County.',
+    h1: 'Roof repair and replacement in Shelbyville.',
     intro:
       'Shelbyville is horse country and small town Tennessee, with older homes near the square, newer subdivisions on the north side, and plenty of farm properties where metal is the sensible roof. We serve all three.',
     local: [
@@ -337,7 +337,7 @@ export const locationContent: Record<AreaSlug, LocationContent> = {
     needs: [
       { name: 'Farm and outbuilding metal', text: 'Exposed fastener panels for barns and shops, standing seam for homes, formed to length.' },
       { name: 'Older town homes', text: 'Steep roofs with original details that need careful tear off and flashing.' },
-      { name: 'Storm repairs', text: 'Wind and hail damage inspected and repaired, with honest documentation.' },
+      { name: 'Storm repairs', text: 'Wind and hail damage inspected and repaired, with photo documentation.' },
     ],
     nearby: ['murfreesboro', 'christiana', 'eagleville', 'rockvale'],
     faqs: [
@@ -356,12 +356,12 @@ export const locationContent: Record<AreaSlug, LocationContent> = {
     title: 'Roofing Contractor in Eagleville, TN | SHYLD Roofing',
     description:
       'Roof replacement, repair, and metal roofing for Eagleville and southwest Rutherford County. Rural homes and farms, with free inspections from a Murfreesboro company.',
-    h1: 'Roofing in Eagleville and southwest Rutherford County.',
+    h1: 'Roof repair and replacement in Eagleville.',
     intro:
       'Eagleville is small, rural, and a short drive from our base. Most of the work here is on homes with generous roofs, farm buildings, and the occasional storm repair after weather comes over the ridge from the southwest.',
     local: [
       'Eagleville and the surrounding countryside along Highway 41A and toward College Grove and Chapel Hill have homes on acreage, many with metal roofs already and many more considering metal for the next replacement. Long, simple roof runs make standing seam practical here.',
-      'Because storms often enter Rutherford County from this direction, Eagleville sees wind damage before Murfreesboro does. We inspect and repair here regularly.',
+      'Because storms often enter Rutherford County from this direction, Eagleville sees wind damage before Murfreesboro does.',
     ],
     needs: [
       { name: 'Metal on rural homes', text: 'Standing seam or exposed fastener panels on homes and outbuildings with long runs.' },
@@ -372,7 +372,7 @@ export const locationContent: Record<AreaSlug, LocationContent> = {
     faqs: [
       {
         q: 'How far out of Eagleville do you go?',
-        a: '<p>Into College Grove, Chapel Hill, and the surrounding countryside within reason. Call with the address and we will tell you honestly.</p>',
+        a: '<p>Into College Grove, Chapel Hill, and the surrounding countryside within reason. Call with the address and we will tell you whether we can take the job.</p>',
       },
       stormFaq('Eagleville'),
     ],
@@ -385,12 +385,12 @@ export const locationContent: Record<AreaSlug, LocationContent> = {
     title: 'Roofing Contractor in Christiana, TN | SHYLD Roofing',
     description:
       'Roof repair, replacement, and metal roofing for Christiana and south Rutherford County. Minutes from our Murfreesboro base, with free inspections.',
-    h1: 'Roofing in Christiana, just south of Murfreesboro.',
+    h1: 'Roof repair and replacement in Christiana.',
     intro:
-      'Christiana is where Murfreesboro’s subdivisions give way to farms along Highway 231 South. It is one of the closest communities to our base, and we are there often for inspections, repairs, and replacements.',
+      'Christiana is where Murfreesboro’s subdivisions give way to farms along Highway 231 South. It is one of the closest communities to our base.',
     local: [
       'Housing in Christiana ranges from newer subdivisions on the south edge of Murfreesboro, near Epps Mill Road and Barfield Crescent Road, to established homes on acreage along Shelbyville Pike. The subdivision roofs are typical architectural shingles at or near replacement age; the rural homes often have metal or are candidates for it.',
-      'Storms that hit Murfreesboro usually hit Christiana too, and because it is so close to our base we can often get out quickly after weather.',
+      'Storms that hit Murfreesboro usually hit Christiana too.',
     ],
     needs: [
       { name: 'Quick access', text: 'Christiana is one of the easiest places for us to reach for repairs.' },
@@ -414,9 +414,9 @@ export const locationContent: Record<AreaSlug, LocationContent> = {
     title: 'Roofing Contractor in Rockvale, TN | SHYLD Roofing',
     description:
       'Roof replacement, repair, metal roofing, and gutters for Rockvale and west Rutherford County. Rural homes and new subdivisions. Free inspections.',
-    h1: 'Roofing in Rockvale and west Rutherford County.',
+    h1: 'Roof repair and replacement in Rockvale.',
     intro:
-      'Rockvale sits west of Murfreesboro along Highway 99, a mix of new subdivisions and older homes on land. It is close to our base, and its open terrain means we see plenty of wind related repair calls.',
+      'Rockvale sits west of Murfreesboro along Highway 99, a mix of new subdivisions and older homes on land. It is close to our base, and its open terrain leaves roofs exposed to wind.',
     local: [
       'New development along Highway 99 and Franklin Road has brought subdivisions to Rockvale in the last decade, while much of the area remains farms and homes on acreage. New roofs there are still young, but builder grade materials and open exposure mean the first repairs often come earlier than owners expect.',
       'Rockvale is on the way to Eagleville from Murfreesboro, and we frequently combine work in both.',
