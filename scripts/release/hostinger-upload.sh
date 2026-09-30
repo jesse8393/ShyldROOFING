@@ -1,6 +1,8 @@
 #!/bin/bash
 # Upload every file in dist/ into public_html with the Hostinger TUS upload URL.
-# Usage: URL=... AUTH=... REST=... ./r3-upload.sh /home/user/ShyldROOFING/dist
+# Usage: URL=... AUTH=... REST=... scripts/release/hostinger-upload.sh /home/user/ShyldROOFING/dist
+# The three values come from the Hostinger operation hosting_files_generate-upload-url (username u954297995, domain shyldroofing.com).
+# The positional argument is the folder whose contents go into public_html (dist, or the unzipped archive).
 set -u
 DIST=$1; ok=0; fail=0; failed=()
 cd "$DIST"

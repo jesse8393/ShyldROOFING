@@ -110,4 +110,8 @@ Vercel environment variables (403), so this is a manual step in the Vercel dashb
 5. Environment changes apply on the next deployment. Merging PR #3 triggers that deployment.
 
 Order that keeps every send deliverable: Resend domain verified first, then `NOTIFY_EMAIL` set, then PR #3
-merged, then one controlled inquiry, then the website publish.
+merged, then one controlled inquiry.
+
+Superseded on 2026-09-30 for the launch itself: the owner chose to publish the website first with `NOTIFY_EMAIL`
+unchanged (the Parker inbox) and to move the inbox and sender switch to a post launch task. See
+`docs/HANDOFF-PUBLISH.md`.

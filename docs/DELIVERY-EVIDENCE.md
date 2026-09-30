@@ -108,3 +108,19 @@ Resend records. The three preview rows were deleted from the leads table after t
    read the response fields, the leads rows, the Resend records, and the Vercel log line for each.
 4. Keep `SMS_AUTOMATION_ENABLED` unset until steps 1 to 3 pass. Setting it is a Vercel environment change and a
    redeploy, both of which change production.
+
+
+## Pre publish delivery check, 2026-09-30 00:09 UTC
+
+One labelled request straight to the production intake (`request_id` `launch-test-pre-2026-09-30T00:09:09Z`,
+name `LAUNCH TEST pre publish delivery check`, email, city Murfreesboro, notes, consent `no`).
+
+* Response: `dbSaved true, consentStored true, emailSent true, smsSent false, smsSkipped no_consent`.
+* Supabase row `ed3bd132-5ec5-4f84-860d-8fa8236af804` held the name, phone, email, service, city, notes,
+  `sms_consent false`, and the request id. Deleted afterwards; the table holds the two real leads.
+* Resend id `01a0efa4-d2d7-7663-8bf0-34641bdd108c`, status delivered, to `jesse@parkerconstructioncompany.com`.
+* Gmail inbox thread `1a0efa4d6e801737`, received 00:09:12 UTC, showing name, phone links, service, notes, city,
+  and email.
+
+The owner accepted this inbox for launch. The switch to `shyldroofing@gmail.com` and the verified sender follow
+after launch (`docs/HANDOFF-PUBLISH.md`).

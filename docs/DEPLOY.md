@@ -33,10 +33,12 @@ trailing slash removal, the two retired city page redirects, the 404 page, compr
 4. Upload the contents of `dist/` into `public_html`, replacing the existing HTML files, `.htaccess`, `robots.txt`,
    and `sitemap.xml`. Upload the `assets/`, `fonts/`, `brand/`, `og/`, and `js/` folders.
    Either drag the files through hPanel File Manager, use FTP, or zip `dist/` and use hPanel's extract.
-5. Delete the old copies of the site in `public_html`: the `zip/`, `website/`, and `too-late/` folders,
-   the `.bak*` files, `roofing-manchester.html`, `roofing-tullahoma.html`, and `shyld-track.js`.
-   The WordPress files (`wp-*`, `wp-includes/`, `wp-config.php`, `xmlrpc.php`) were already present before this rebuild
-   and are not used by the site. Decide with the owner whether to remove them; they are an attack surface if left.
+5. Delete nothing during the launch. `docs/HANDOFF-PUBLISH.md` holds the authoritative lists: files that must
+   never be deleted (WordPress files, `xmlrpc.php`, `readme.html`, `license.txt`, `google1e3d794f007288d9.html`,
+   `.private/`, `preview/`), files the old pages need until rollback is no longer wanted, and the cleanup that can
+   follow acceptance (`zip/`, `website/`, `too-late/`, `.bak*` files, the retired city pages, and the old assets).
+   The WordPress files were present before this rebuild and are not used by the site. Decide with the owner
+   whether to remove them later; they are an attack surface if left.
 6. Load `https://shyldroofing.com/`, `/roof-repair`, `/roof-repair.html` (expect a redirect), `/roofing-franklin`,
    `/does-not-exist` (expect the 404 page), and `/sitemap.xml`.
 7. Submit a test request through the form with a clearly labelled test name and confirm it appears in the

@@ -36,4 +36,4 @@ New pages:
 | `/service-areas` | Hub for every location page |
 | `/404` (served as `404.html`) | Not found page with links |
 
-Sitemap: `/sitemap.xml` is generated at build time from `src/data/business.ts` and lists 26 URLs with `lastmod` dates taken from `contentDates`.
+Sitemap: `/sitemap.xml` is generated at build time from `src/data/business.ts` and lists 30 URLs (the 26 kept from the old site plus `/projects`, `/about`, `/contact`, and `/service-areas`) with `lastmod` dates taken from `contentDates`.

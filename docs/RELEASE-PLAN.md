@@ -167,7 +167,7 @@ Steps:
    * Text us page, consent checked, labelled name. Expect success; row with `sms_consent true` and
      `sms_consent_version text-us-2026-09-29`; `smsSent false`.
    * Confirm both emails in the inbox, then delete both rows.
-3. Crawl the live site for the 26 sitemap URLs and the redirects (`npm run crawl` against the live host).
+3. Crawl the live site for the 30 sitemap URLs and the redirects (`BASE=https://shyldroofing.com npm run crawl`).
 4. Rollback: restore the previous `public_html` copy per `docs/DEPLOY.md`.
 
 ## Required access and open confirmations
