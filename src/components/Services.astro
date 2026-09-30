@@ -9,7 +9,7 @@ import detail from '../assets/photos/crops/metal-detail.jpg';
     <div class="layout">
       <div class="intro rise">
         <p class="eyebrow">What we do</p>
-        <h2 id="services-heading">Roofing first. The rest of the exterior done with the roof in mind.</h2>
+        <h2 id="services-heading">Roofing first. Same people for siding and gutters.</h2>
         <p class="lede">Most calls start with a leak, a storm, or a roof that is simply old. We tell you what we find, what it means, and what your options cost before anyone picks up a tool.</p>
         <div class="frame photo">
           <Picture src={detail} widths={[480, 720, 960]} sizes="(min-width: 56.25em) 34vw, 100vw" formats={['avif', 'webp']} alt="Close view of standing seam metal roof panels and a chimney with matching metal flashing" loading="lazy" />
@@ -69,9 +69,11 @@ import detail from '../assets/photos/crops/metal-detail.jpg';
   }
   .name {
     grid-area: name;
-    font-family: var(--font-display);
-    font-size: var(--text-h3);
-    line-height: 1.15;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: clamp(1.2rem, 1.1rem + 0.5vw, 1.45rem);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
   }
   .list a:hover .name {
     color: var(--gold-deep);

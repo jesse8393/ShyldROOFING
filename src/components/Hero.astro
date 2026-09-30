@@ -4,11 +4,11 @@ import { business, nav } from '../data/business';
 import wide from '../assets/photos/crops/hero2-wide.jpg';
 import tall from '../assets/photos/crops/hero2-tall.jpg';
 
-const wideAvif = await getImage({ src: wide, widths: [660, 960, 1320], format: 'avif', quality: 58 });
-const wideWebp = await getImage({ src: wide, widths: [660, 960, 1320], format: 'webp', quality: 76 });
-const tallAvif = await getImage({ src: tall, widths: [480, 640, 781], format: 'avif', quality: 55 });
-const tallWebp = await getImage({ src: tall, widths: [480, 640, 781], format: 'webp', quality: 74 });
-const fallback = await getImage({ src: wide, width: 1320, format: 'jpeg', quality: 78 });
+const wideAvif = await getImage({ src: wide, widths: [660, 960, 1320], format: 'avif', quality: 68 });
+const wideWebp = await getImage({ src: wide, widths: [660, 960, 1320], format: 'webp', quality: 82 });
+const tallAvif = await getImage({ src: tall, widths: [480, 640, 781], format: 'avif', quality: 68 });
+const tallWebp = await getImage({ src: tall, widths: [480, 640, 781], format: 'webp', quality: 82 });
+const fallback = await getImage({ src: wide, width: 1320, format: 'jpeg', quality: 84 });
 const alt = 'Aerial view of a white board and batten home with a new charcoal architectural shingle roof, photographed on a SHYLD job';
 ---
 
@@ -22,7 +22,7 @@ const alt = 'Aerial view of a white board and batten home with a new charcoal ar
     <div class="stage">
       <div class="panel">
         <p class="eyebrow">Middle Tennessee roofing</p>
-        <h1 id="hero-heading">Roofing worth <em>coming home to.</em></h1>
+        <h1 id="hero-heading">Roofing worth coming home to.</h1>
         <p class="lede">Roof replacements, repairs, and metal roofing for homeowners across Middle Tennessee. Clear answers before any work begins.</p>
         <div class="actions">
           <a class="btn btn-primary" href={nav.cta.href} data-cta="hero_inspection">Request a Free Inspection</a>

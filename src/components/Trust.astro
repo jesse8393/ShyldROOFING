@@ -1,4 +1,5 @@
 ---
+import { business } from '../data/business';
 const items = [
   {
     name: 'Licensed and insured',
@@ -24,9 +25,9 @@ const items = [
     <div class="section-head rise">
       <div>
         <p class="eyebrow">What you can count on</p>
-        <h2 id="trust-heading">We are a growing local company, so we would rather show our work than talk about it.</h2>
+        <h2 id="trust-heading">Inspected by the owner, warranty in writing.</h2>
       </div>
-      <p class="lede">Public reviews will appear here as customers post them. Until then, this is the standard every job is held to.</p>
+      <p class="lede">That owner is {business.founderFirstName}. Flashing repair or full tear off, every job is held to the same four standards.</p>
     </div>
     <ul class="items rise">
       {

@@ -3,14 +3,18 @@ import InquiryForm from './InquiryForm.astro';
 import { business } from '../data/business';
 
 interface Props {
-  heading?: string;
-  intro?: string;
+  /** Pass null to render the details column without a heading */
+  heading?: string | null;
+  /** Pass null to render the details column without an intro */
+  intro?: string | null;
   service?: string;
   city?: string;
   formHeading?: string;
   id?: string;
   /** Put the form before the contact details on small screens */
   formFirst?: boolean;
+  /** Tighter top padding for pages whose header already introduces the form */
+  compact?: boolean;
 }
 const {
   heading = 'Start with a free inspection.',
@@ -20,16 +24,20 @@ const {
   formHeading,
   id = 'inspection',
   formFirst = false,
+  compact = false,
 } = Astro.props;
+
+const formHeadingId = `${id.replace(/[^a-z0-9-]/gi, '')}-heading`;
+const labelledBy = heading ? 'contact-heading' : formHeadingId;
 ---
 
-<section class="contact section" aria-labelledby="contact-heading">
+<section class:list={['contact', 'section', { compact }]} aria-labelledby={labelledBy}>
   <div class="container">
     <div class="layout">
       <div class="copy rise">
-        <p class="eyebrow">Get in touch</p>
-        <h2 id="contact-heading">{heading}</h2>
-        <p class="lede">{intro}</p>
+        {heading && <p class="eyebrow">Get in touch</p>}
+        {heading && <h2 id="contact-heading">{heading}</h2>}
+        {intro && <p class="lede">{intro}</p>}
         <dl class="rows details">
           <div>
             <dt>Call</dt>
@@ -72,6 +80,18 @@ const {
   }
   .details {
     margin: 2rem 0 0;
+  }
+  .copy .details:first-child {
+    margin-top: 0;
+  }
+  .copy h2 + .details {
+    margin-top: 1.5rem;
+  }
+  .contact.compact .copy h2 {
+    font-size: var(--text-h3);
+  }
+  .contact.compact {
+    padding-block: clamp(1.5rem, 3vw, 2.5rem) var(--section-sm);
   }
   .details > div {
     display: grid;

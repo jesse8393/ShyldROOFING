@@ -13,12 +13,10 @@ import { business } from '../data/business';
   <header class="page-head">
     <div class="container">
       <ol class="crumbs" aria-label="Breadcrumb"><li><a href="/">Home</a></li><li aria-current="page">Contact</li></ol>
-      <p class="eyebrow">Contact</p>
-      <h1>Call, text, or send the form. A person answers either way.</h1>
-      <p class="lede">The fastest route is the phone at <a href={business.phone.tel} data-cta="contact_page_call">{business.phone.display}</a>. The form below reaches the same people and gets a reply during business hours.</p>
+      <h1>Call, text, or send the form.</h1>
     </div>
   </header>
-  <ContactSection heading="Request a free inspection." intro="Tell us about the roof and how to reach you. We will contact you to set a time. If the roof is fine, that is what we will say." formFirst />
+  <ContactSection heading="We answer the phone ourselves." intro={null} formFirst compact />
   <section class="section-sm section-white">
     <div class="container prose">
       <h2>What happens after you send it</h2>
@@ -27,3 +25,9 @@ import { business } from '../data/business';
     </div>
   </section>
 </Base>
+
+<style>
+  .page-head {
+    padding-block: clamp(1.5rem, 4vw, 2.5rem) 1rem;
+  }
+</style>

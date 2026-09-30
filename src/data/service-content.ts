@@ -47,7 +47,7 @@ export const serviceContent: Record<ServiceSlug, ServiceContent> = {
     title: 'Roof Replacement in Middle Tennessee | SHYLD Roofing',
     description:
       'Full tear off roof replacement with shingles or metal, a written proposal that names every layer, and a workmanship warranty. Free inspections.',
-    h1: 'Roof replacement, done once and done in writing.',
+    h1: 'Roof replacement, done once, in writing.',
     intro:
       'When repairs stop making sense, a full replacement is the honest answer. We tear the old roof off to the deck, fix what we find, and install a complete system you can see itemized in your proposal.',
     hero: {
@@ -208,7 +208,7 @@ export const serviceContent: Record<ServiceSlug, ServiceContent> = {
     title: 'Metal Roofing in Middle Tennessee | SHYLD Roofing',
     description:
       'Standing seam and exposed fastener metal roofing across Middle Tennessee. Panels formed to length, and honest advice on whether metal fits your home.',
-    h1: 'Metal roofing for homes that plan to stay a while.',
+    h1: 'Metal roofs for homes you plan to keep.',
     intro:
       'A well installed metal roof outlasts two or three shingle roofs. It costs more up front, sheds rain and hail differently, and changes how a house looks. We help you decide whether it fits your home and budget, then install it properly.',
     hero: {
@@ -284,7 +284,7 @@ export const serviceContent: Record<ServiceSlug, ServiceContent> = {
     title: 'Storm Damage Roof Inspection in Middle Tennessee | SHYLD',
     description:
       'Hail and wind damage roof inspections with photos you can share with your insurer. We meet adjusters on site and repair or replace what the storm damaged.',
-    h1: 'After the storm, get the roof looked at before anyone files anything.',
+    h1: 'See what the storm did before you file.',
     intro:
       'Hail bruises and wind creases are invisible from the driveway. We inspect, photograph, and explain what we find in plain terms. You decide whether to file a claim, and we work with your adjuster if you do.',
     hero: {
@@ -356,7 +356,7 @@ export const serviceContent: Record<ServiceSlug, ServiceContent> = {
     title: 'Siding Installation in Middle Tennessee | SHYLD Roofing',
     description:
       'Siding replacement and installation across Middle Tennessee. Fiber cement, vinyl, and board and batten, with flashing done right where the siding meets the roof.',
-    h1: 'Siding installed by people who also do the roof above it.',
+    h1: 'Siding by the people who do your roof.',
     intro:
       'Most siding failures start where the siding meets something else: a roof, a window, a deck ledger. Because we roof as well as side, those transitions get the same attention as the panels themselves.',
     hero: {

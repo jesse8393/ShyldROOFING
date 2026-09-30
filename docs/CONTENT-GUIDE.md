@@ -16,7 +16,7 @@ Everything editable lives in `src/data`. Layouts and components do not need to c
 
 ## Adding a project
 
-1. Put the photo in `src/assets/photos/` (JPEG, at least 1600px wide, under 1 MB).
+1. Put the photo in `src/assets/photos/` (JPEG, up to 2880px on the long edge at quality 92, under 2 MB).
 2. Add an entry to `src/data/projects.ts` with a slug, title, summary, alt text, service, and one or two paragraphs.
    Describe only what the photo shows. Add the city only when the owner confirms it.
 3. Import the photo in `src/pages/projects.astro` and add it to the `images` map.
@@ -32,12 +32,23 @@ Everything editable lives in `src/data`. Layouts and components do not need to c
 
 ## Writing rules
 
+Typography: Fraunces (`--font-display`) is reserved for h1 and h2 only. Every other heading, title, and label
+uses Plus Jakarta Sans at weight 600 (`--font-body`). Hero and headline text is upright, never italic.
+
 No dashes in visible copy. No fake reviews, counts, years, or awards. No response time promises.
 No insurance deadline statements. Say what SHYLD actually does. Update the matching date in `contentDates`
 when a page changes materially so the sitemap `lastmod` stays honest.
 
 ## Photos
 
-Real job photos only. The hero uses `src/assets/photos/crops/hero-wide.jpg` and `hero-tall.jpg`, produced by
-`node scripts/photo-crops.mjs` from the source aerials. The social share image and icons come from
-`node scripts/brand-assets.mjs`. Astro converts every photo to AVIF and WebP at several widths during the build.
+Real job photos only. Source photos live in `src/assets/photos/` and are stored at up to 2880 px on the long
+edge (never upscaled from a smaller original), JPEG quality 92 with mozjpeg, metadata stripped, under 2 MB each.
+That keeps the repository reasonable while 2x displays get full detail. When a sharper original of an existing
+photo turns up, replace the file under the same name at those settings; never swap in a different photograph.
+
+Crops such as `src/assets/photos/crops/hero-wide.jpg` and `hero-tall.jpg` are produced by
+`node scripts/photo-crops.mjs` from the sources. Each crop rectangle is written against the width the photo had
+when the crop was framed (`ref`), and the script scales the rectangle to the source's real size, so a larger
+replacement source yields the same framing at higher resolution. Rerun the script after replacing any source.
+The social share image and icons come from `node scripts/brand-assets.mjs`. Astro converts every photo to AVIF
+and WebP at several widths during the build and never upscales.

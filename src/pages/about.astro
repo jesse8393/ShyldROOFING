@@ -18,12 +18,12 @@ import siding from '../assets/photos/crops/siding-4x3.jpg';
       <ol class="crumbs" aria-label="Breadcrumb"><li><a href="/">Home</a></li><li aria-current="page">About</li></ol>
       <div class="head-grid">
         <div>
-          <p class="eyebrow">About SHYLD</p>
-          <h1>A small roofing company that would rather be judged by its roofs.</h1>
-          <p class="lede">SHYLD Roofing is owner led and based in {business.address.locality}. {business.founderFirstName} handles inspections and proposals personally, which is why the answers you get are specific to your roof rather than a script.</p>
+          <p class="eyebrow">About</p>
+          <h1>Meet {business.founderFirstName} and SHYLD.</h1>
+          <p class="lede">{business.founderFirstName}, the owner, inspects your roof and writes your proposal himself, then backs the work with a written workmanship warranty. Every answer is about your roof, not a script.</p>
         </div>
         <div class="frame photo">
-          <Picture src={metal} widths={[640, 960, 1280]} sizes="(min-width: 62.5em) 50vw, 100vw" formats={['avif', 'webp']} alt="Aerial view of a standing seam metal roof installed by SHYLD Roofing on a steep pitched home" loading="eager" fetchpriority="high" />
+          <Picture src={metal} widths={[640, 960, 1280, 1600]} sizes="(min-width: 62.5em) 50vw, 100vw" formats={['avif', 'webp']} alt="Aerial view of a standing seam metal roof installed by SHYLD Roofing on a steep pitched home" loading="eager" fetchpriority="high" />
         </div>
       </div>
     </div>
@@ -75,7 +75,7 @@ import siding from '../assets/photos/crops/siding-4x3.jpg';
             <li>Promise what your insurance carrier will approve.</li>
             <li>Waive or absorb deductibles. It is illegal in Tennessee.</li>
             <li>Quote a firm price over the phone without seeing the roof.</li>
-            <li>Invent reviews, years in business, or roof counts to look bigger than we are.</li>
+            <li>Invent reviews, years in business, or roof counts.</li>
             <li>Pressure you to sign on the day of the inspection.</li>
           </ul>
         </div>
@@ -120,7 +120,10 @@ import siding from '../assets/photos/crops/siding-4x3.jpg';
     .head-grid {
       grid-template-columns: minmax(0, 6fr) minmax(0, 6fr);
       gap: clamp(2rem, 5vw, 5rem);
-      align-items: center;
+      align-items: start;
+    }
+    .head-grid > div:first-child {
+      padding-top: clamp(1rem, 3vw, 2.5rem);
     }
     .photo {
       aspect-ratio: 5 / 4;

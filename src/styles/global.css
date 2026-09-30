@@ -16,14 +16,6 @@
   src: url('/fonts/fraunces-500.woff2') format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
-@font-face {
-  font-family: 'Fraunces';
-  font-style: italic;
-  font-weight: 400;
-  font-display: swap;
-  src: url('/fonts/fraunces-400-italic.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
 
 :root {
   --paper: #f7f4ee;
@@ -49,9 +41,9 @@
   --text-base: 1rem;
   --text-md: clamp(1.05rem, 1rem + 0.25vw, 1.15rem);
   --text-lg: clamp(1.15rem, 1.05rem + 0.5vw, 1.4rem);
-  --text-h3: clamp(1.35rem, 1.2rem + 0.7vw, 1.75rem);
-  --text-h2: clamp(1.9rem, 1.5rem + 1.9vw, 3.1rem);
-  --text-h1: clamp(2.3rem, 1.7rem + 3vw, 4.4rem);
+  --text-h3: clamp(1.25rem, 1.15rem + 0.5vw, 1.55rem);
+  --text-h2: clamp(1.8rem, 1.45rem + 1.7vw, 2.8rem);
+  --text-h1: clamp(2.25rem, 1.65rem + 2.7vw, 4rem);
   --leading-tight: 1.06;
   --leading-body: 1.6;
   --measure: 64ch;
@@ -122,12 +114,16 @@ h2,
 h3,
 h4 {
   margin: 0;
-  font-family: var(--font-display);
-  font-weight: 500;
   line-height: var(--leading-tight);
-  letter-spacing: -0.012em;
   color: var(--ink);
   text-wrap: balance;
+}
+/* Fraunces is reserved for major headings. Everything below h2 is Jakarta 600. */
+h1,
+h2 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: -0.012em;
 }
 h1 {
   font-size: var(--text-h1);
@@ -136,8 +132,11 @@ h2 {
   font-size: var(--text-h2);
 }
 h3 {
+  font-family: var(--font-body);
+  font-weight: 600;
   font-size: var(--text-h3);
-  letter-spacing: -0.005em;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
 }
 h4 {
   font-family: var(--font-body);
@@ -152,11 +151,6 @@ ol {
 }
 p + p {
   margin-top: 1em;
-}
-em {
-  font-family: var(--font-display);
-  font-style: italic;
-  font-weight: 400;
 }
 a {
   color: inherit;
@@ -250,9 +244,11 @@ button {
 @media (min-width: 55em) {
   .section-head {
     grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+    align-items: start;
   }
+  /* Lede top sits level with the h2, below the eyebrow (eyebrow line plus its 1rem gap) */
   .section-head > p {
-    padding-bottom: 0.35rem;
+    margin-top: 2.35rem;
   }
 }
 
@@ -389,14 +385,15 @@ button {
 }
 .prose h2 {
   margin: 2.25em 0 0.6em;
-  font-size: var(--text-h3);
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 1.25rem + 0.7vw, 1.85rem);
 }
 .prose h3 {
   margin: 1.75em 0 0.5em;
   font-family: var(--font-body);
   font-weight: 600;
   font-size: var(--text-md);
-  letter-spacing: 0;
+  letter-spacing: -0.01em;
 }
 .prose h2:first-child {
   margin-top: 0;
