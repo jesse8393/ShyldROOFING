@@ -137,6 +137,6 @@ export const contentDates: Record<string, string> = {
   '/roof-replacement-cost-middle-tennessee': '2026-09-30',
   '/roof-storm-damage-insurance-tennessee': '2026-09-30',
   '/text-us': '2026-09-29',
-  '/privacy': '2026-04-27',
-  '/terms': '2026-04-27',
+  '/privacy': '2026-09-30',
+  '/terms': '2026-09-30',
 };

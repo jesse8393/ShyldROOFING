@@ -38,7 +38,7 @@ yard protection and daily cleanup, tear off to the deck, the will and will not p
 
 1. **Legal name.** The footer, About page and structured data name Parker HVAC LLC, with a note that a change to
    Shyld Roofing LLC has been filed. The Text Us page and the SMS program text name Shyld Roofing LLC.
-2. **Phone number.** Privacy and Terms list (615) 827-9460. Every other page lists (615) 295 8974.
+2. **Phone number resolved.** Owner confirmed the former GHL number is inactive on September 30, 2026. Privacy and Terms now use (615) 295 8974, matching the shared business data, other pages, call links and structured data. Legal page update dates and sitemap dates were refreshed. Production still needs this preview uploaded.
 3. **Street address.** Privacy and Terms list 725 Laurel Lane, Murfreesboro. No other page shows a street address.
 4. **Text Us page.** It describes promotional, transactional and alert programs, and its success message promises a
    text reply. SMS automation is off. The page and its carrier disclosures are unchanged.
@@ -46,7 +46,7 @@ yard protection and daily cleanup, tear off to the deck, the will and will not p
 ## Outstanding decisions
 
 1. Which legal name the site should show everywhere.
-2. Which phone number is monitored, and whether Privacy and Terms should change to match.
+2. Phone number already resolved: (615) 295 8974 throughout this preview. Do not request reconfirmation.
 3. Whether 725 Laurel Lane should appear on the site.
 4. License number and insurance carrier, to restore the licensed and insured claim.
 5. Which city experience claims above are true, to restore them.
@@ -60,3 +60,9 @@ yard protection and daily cleanup, tear off to the deck, the will and will not p
 - Two or three documented project stories: city, materials, condition found, work done, result.
 - Price examples from real SHYLD jobs with scope, date and exclusions, approved for publishing.
 - Google Business Profile link once reviews exist.
+
+## Resumed completion
+
+Phone cleanup and current verification are recorded in `qa/preview-phone-cleanup/README.md`.
+Build this branch fresh for publication. Do not reuse the older `site-97b286c.zip` or its rollback procedure.
+Back up the currently served site before replacing files; preserve WordPress and the Google verification file.
