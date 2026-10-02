@@ -1,7 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import { business, intake, formServiceOptions } from '../data/business';
-const legal = 'Shyld Roofing LLC';
+const legal = business.legalName;
 ---
 
 <Base
@@ -94,7 +94,7 @@ const legal = 'Shyld Roofing LLC';
           </p>
           <input type="hidden" name="source" value="shyldroofing.com/text-us" />
           <input type="hidden" name="form_id" value="sms-signup" />
-          <input type="hidden" name="sms_consent_version" value={`text-us-${intake.consentVersion}`} />
+          <input type="hidden" name="sms_consent_version" value="text-us-2026-10-02" />
 
           <div class="submit-row">
             <button class="btn btn-primary" type="submit" data-submit><span data-submit-label>Submit and sign up</span></button>

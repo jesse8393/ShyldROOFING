@@ -86,8 +86,7 @@ import siding from '../assets/photos/crops/siding-4x3.jpg';
     <div class="container two">
       <div class="col-head rise"><h2>The business</h2></div>
       <dl class="rows facts rise">
-        <div><dt>Trade name</dt><dd>SHYLD Roofing</dd></div>
-        <div><dt>Legal entity</dt><dd>{business.legalNote}</dd></div>
+        <div><dt>Legal entity</dt><dd>{business.legalName}</dd></div>
         <div><dt>Based in</dt><dd>{business.address.locality}, Tennessee {business.address.postalCode}</dd></div>
         <div><dt>Phone</dt><dd><a href={business.phone.tel}>{business.phone.display}</a></dd></div>
         <div><dt>Email</dt><dd><a href={`mailto:${business.email}`}>{business.email}</a></dd></div>

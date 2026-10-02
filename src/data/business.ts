@@ -9,9 +9,7 @@
 export const business = {
   name: 'SHYLD Roofing',
   shortName: 'SHYLD',
-  legalName: 'Parker HVAC LLC',
-  legalNote:
-    'SHYLD Roofing is the trade name of Parker HVAC LLC, a Tennessee limited liability company. A name change to Shyld Roofing LLC has been filed with the Tennessee Secretary of State.',
+  legalName: 'SHYLD Roofing LLC',
   url: 'https://shyldroofing.com',
   phone: {
     display: '(615) 295 8974',
@@ -131,12 +129,12 @@ export const contentDates: Record<string, string> = {
   '/siding': '2026-09-30',
   '/gutters': '2026-09-30',
   '/projects': '2026-09-30',
-  '/about': '2026-09-30',
+  '/about': '2026-10-02',
   '/contact': '2026-09-30',
   '/service-areas': '2026-09-30',
   '/roof-replacement-cost-middle-tennessee': '2026-09-30',
   '/roof-storm-damage-insurance-tennessee': '2026-09-30',
-  '/text-us': '2026-09-29',
-  '/privacy': '2026-09-30',
-  '/terms': '2026-09-30',
+  '/text-us': '2026-10-02',
+  '/privacy': '2026-10-02',
+  '/terms': '2026-10-02',
 };
