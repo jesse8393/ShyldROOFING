@@ -5,7 +5,7 @@ Nothing here was invented to fill a section.
 
 | Fact | What the site does today | What is needed |
 | --- | --- | --- |
-| Legal entity name | Privacy and terms say Parker HVAC LLC with a name change to Shyld Roofing LLC in process. The text sign up page and its schema say Shyld Roofing LLC, matching the live page updated in June 2026. | Confirm which name is current with the Secretary of State and the A2P registration, then make all three agree. |
+| Legal entity name | Resolved October 2, 2026: owner confirmed SHYLD Roofing LLC is registered. The site uses SHYLD Roofing LLC everywhere; Parker HVAC LLC and trade name wording are removed. | Nothing. State of organization, license number and insurance carrier remain unconfirmed and are not shown. |
 | Street address in legal pages | `725 Laurel Lane, Murfreesboro` appears in the privacy policy and terms contact blocks, carried over unchanged. It is not shown anywhere else and not in schema. | Confirm the owner wants a residential address published. If not, replace with city and state only in `src/data/legal/*.html`. |
 | Public phone resolved | Owner confirmed the former GHL number is inactive on September 30, 2026. All preview pages now use `(615) 295 8974`, including Privacy and Terms. | Publish the refreshed preview. No GHL reconnection or SMS activation. |
 | Public email | `shyldroofing@gmail.com` everywhere. `info@shyldroofing.com` from the old service pages was dropped because nothing verified it is monitored. | Confirm, or set up and verify the custom domain address and switch `business.email`. |

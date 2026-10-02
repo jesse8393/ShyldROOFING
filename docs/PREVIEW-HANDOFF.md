@@ -36,8 +36,9 @@ yard protection and daily cleanup, tear off to the deck, the will and will not p
 
 ## Conflicts flagged, left unchanged
 
-1. **Legal name.** The footer, About page and structured data name Parker HVAC LLC, with a note that a change to
-   Shyld Roofing LLC has been filed. The Text Us page and the SMS program text name Shyld Roofing LLC.
+1. **Legal name resolved.** Owner confirmed SHYLD Roofing LLC is the registered entity on October 2, 2026. Every page,
+   Privacy, Terms, Text Us consent text and structured data now use SHYLD Roofing LLC (commit e4ad409, published).
+   Registration does not establish contractor licensing; no state of organization, license or insurance was added.
 2. **Phone number resolved.** Owner confirmed the former GHL number is inactive on September 30, 2026. Privacy and Terms now use (615) 295 8974, matching the shared business data, other pages, call links and structured data. Legal page update dates and sitemap dates were refreshed. Production still needs this preview uploaded.
 3. **Street address.** Privacy and Terms list 725 Laurel Lane, Murfreesboro. No other page shows a street address.
 4. **Text Us page.** It describes promotional, transactional and alert programs, and its success message promises a
@@ -45,7 +46,7 @@ yard protection and daily cleanup, tear off to the deck, the will and will not p
 
 ## Outstanding decisions
 
-1. Which legal name the site should show everywhere.
+1. Legal name resolved: SHYLD Roofing LLC. Do not request reconfirmation.
 2. Phone number already resolved: (615) 295 8974 throughout this preview. Do not request reconfirmation.
 3. Whether 725 Laurel Lane should appear on the site.
 4. License number and insurance carrier, to restore the licensed and insured claim.

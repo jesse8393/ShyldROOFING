@@ -1,0 +1,12 @@
+checked 2026-10-02T02:07:32Z
+live vs build sha256: match=294 mismatch=0
+pages checked: 31 (30 sitemap URLs + 404), non-200: 0
+outdated entity references (parker|hvac|trade name|name change, case insensitive): 0
+pages showing SHYLD Roofing LLC: 31 of 31
+structured data: "legalName":"SHYLD Roofing LLC", alternateName present: 0
+about legal entity: Legal entity  SHYLD Roofing LLC
+privacy opening: <p>SHYLD Roofing LLC (SHYLD Roofing, we, us, or our)
+terms parties: services offered by SHYLD Roofing LLC 
+text-us consent version: value="text-us-2026-10-02"
+retired phone hits: 0
+redirect /about.html: 301 https://shyldroofing.com/about, missing page: 404, google file: 200, wp-login: 200, robots: 200
