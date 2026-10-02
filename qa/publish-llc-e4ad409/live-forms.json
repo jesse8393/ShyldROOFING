@@ -1,0 +1,44 @@
+[
+  {
+    "path": "/contact",
+    "consent": false,
+    "responses": [
+      {
+        "ok": true,
+        "leadId": true,
+        "duplicate": false,
+        "dbSaved": true,
+        "consentStored": true,
+        "schemaWarning": null,
+        "emailSent": true,
+        "emailSkipped": null,
+        "smsSent": false,
+        "smsSkipped": "no_consent",
+        "message": "Lead saved. We will reach out shortly."
+      }
+    ],
+    "statusText": "",
+    "successShown": true
+  },
+  {
+    "path": "/text-us",
+    "consent": true,
+    "responses": [
+      {
+        "ok": true,
+        "leadId": true,
+        "duplicate": false,
+        "dbSaved": true,
+        "consentStored": true,
+        "schemaWarning": null,
+        "emailSent": true,
+        "emailSkipped": null,
+        "smsSent": false,
+        "smsSkipped": "automation_disabled",
+        "message": "Lead saved. We will reach out shortly."
+      }
+    ],
+    "statusText": "",
+    "successShown": true
+  }
+]

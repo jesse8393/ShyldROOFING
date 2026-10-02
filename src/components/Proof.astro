@@ -1,0 +1,137 @@
+---
+import { Picture } from 'astro:assets';
+import shingles from '../assets/photos/home-charcoal-shingles-aerial.jpg';
+import siding from '../assets/photos/standing-seam-metal-aerial.jpg';
+import gutters from '../assets/photos/farmhouse-replacement-in-progress.jpg';
+import { projects } from '../data/projects';
+const feature = projects.find((p) => p.slug === 'charcoal-shingles-board-and-batten-home')!;
+const sidingP = projects.find((p) => p.slug === 'standing-seam-metal-roof')!;
+const guttersP = projects.find((p) => p.slug === 'farmhouse-roof-replacement-in-progress')!;
+---
+
+<section class="proof section" aria-labelledby="proof-heading">
+  <div class="container">
+    <div class="section-head rise">
+      <div>
+        <p class="eyebrow">Recent work</p>
+        <h2 id="proof-heading">Roofing projects, photographed onsite.</h2>
+      </div>
+      <p class="lede">Photos from SHYLD jobs, showing finished roofs and work in progress. <a class="arrow-link" href="/projects" data-track="project">See all projects <svg aria-hidden="true" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a></p>
+    </div>
+
+    <div class="grid-proof">
+      <a class="card feature rise" href={`/projects#${feature.slug}`} data-track="project">
+        <span class="frame">
+          <Picture src={shingles} widths={[640, 960, 1320]} sizes="(min-width: 62.5em) 62vw, 100vw" formats={['avif', 'webp']} alt={feature.alt} loading="lazy" />
+        </span>
+        <span class="meta">
+          <span class="name">{feature.title}</span>
+          <span class="spec">{feature.summary}</span>
+        </span>
+      </a>
+      <div class="side">
+      <a class="card rise" href={`/projects#${sidingP.slug}`} data-track="project">
+        <span class="frame">
+          <Picture src={siding} widths={[480, 720, 960]} sizes="(min-width: 62.5em) 34vw, 100vw" formats={['avif', 'webp']} alt={sidingP.alt} loading="lazy" />
+        </span>
+        <span class="meta">
+          <span class="name">{sidingP.title}</span>
+          <span class="spec">{sidingP.summary}</span>
+        </span>
+      </a>
+      <a class="card rise" href={`/projects#${guttersP.slug}`} data-track="project">
+        <span class="frame">
+          <Picture src={gutters} widths={[480, 720, 960]} sizes="(min-width: 62.5em) 34vw, 100vw" formats={['avif', 'webp']} alt={guttersP.alt} loading="lazy" />
+        </span>
+        <span class="meta">
+          <span class="name">{guttersP.title}</span>
+          <span class="spec">{guttersP.summary}</span>
+        </span>
+      </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .grid-proof {
+    display: grid;
+    gap: 1.5rem;
+  }
+  .side {
+    display: grid;
+    gap: 1.5rem;
+  }
+  .card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    text-decoration: none;
+    color: inherit;
+  }
+  .card .frame {
+    position: relative;
+    display: block;
+    aspect-ratio: 4 / 3;
+  }
+  .card :global(picture),
+  .card :global(img) {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .card :global(img) {
+    transition: transform 900ms var(--ease-out);
+  }
+  .card:hover :global(img) {
+    transform: scale(1.025);
+  }
+  .meta {
+    display: grid;
+    gap: 0.15rem;
+  }
+  .name {
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: var(--text-md);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
+  .card:hover .name {
+    color: var(--gold-deep);
+  }
+  .spec {
+    font-size: var(--text-sm);
+    color: var(--muted);
+  }
+  @media (min-width: 40em) and (max-width: 62.4375em) {
+    .side {
+      grid-template-columns: 1fr 1fr;
+    }
+    .feature .frame {
+      aspect-ratio: 16 / 9;
+    }
+  }
+  @media (min-width: 62.5em) {
+    .grid-proof {
+      grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+      gap: 1.75rem;
+      align-items: stretch;
+    }
+    .feature .frame {
+      flex: 1;
+      aspect-ratio: auto;
+      min-height: 0;
+    }
+    .side {
+      grid-template-rows: 1fr 1fr;
+    }
+    .side .card .frame {
+      flex: 1;
+      aspect-ratio: 16 / 10;
+      min-height: 0;
+    }
+  }
+</style>

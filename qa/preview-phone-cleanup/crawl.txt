@@ -1,0 +1,9 @@
+/sitemap.xml -> 200
+/robots.txt -> 200
+/does-not-exist-xyz -> 404
+/roof-repair.html -> 301 /roof-repair
+/roof-repair/ -> 301 /roof-repair
+/index.html -> 301 /
+
+Crawled 30 pages, checked 245 assets.
+No problems found.

@@ -1,0 +1,134 @@
+---
+import InquiryForm from './InquiryForm.astro';
+import { business } from '../data/business';
+
+interface Props {
+  /** Pass null to render the details column without a heading */
+  heading?: string | null;
+  /** Pass null to render the details column without an intro */
+  intro?: string | null;
+  service?: string;
+  city?: string;
+  formHeading?: string;
+  id?: string;
+  /** Put the form before the contact details on small screens */
+  formFirst?: boolean;
+  /** Tighter top padding for pages whose header already introduces the form */
+  compact?: boolean;
+}
+const {
+  heading = 'Start with a free inspection.',
+  intro = 'A short form is all it takes. We will call or text to set a time, look at the roof, and tell you what we see.',
+  service,
+  city,
+  formHeading,
+  id = 'inspection',
+  formFirst = false,
+  compact = false,
+} = Astro.props;
+
+const formHeadingId = `${id.replace(/[^a-z0-9-]/gi, '')}-heading`;
+const labelledBy = heading ? 'contact-heading' : formHeadingId;
+---
+
+<section class:list={['contact', 'section', { compact }]} aria-labelledby={labelledBy}>
+  <div class="container">
+    <div class="layout">
+      <div class="copy rise">
+        {heading && <p class="eyebrow">Get in touch</p>}
+        {heading && <h2 id="contact-heading">{heading}</h2>}
+        {intro && <p class="lede">{intro}</p>}
+        <dl class="rows details">
+          <div>
+            <dt>Call</dt>
+            <dd><a href={business.phone.tel} data-cta="contact_call">{business.phone.display}</a></dd>
+          </div>
+          <div>
+            <dt>Text</dt>
+            <dd><a href={business.phone.sms} data-cta="contact_text">{business.phone.display}</a></dd>
+          </div>
+          <div>
+            <dt>Email</dt>
+            <dd><a href={`mailto:${business.email}`}>{business.email}</a></dd>
+          </div>
+          <div>
+            <dt>Hours</dt>
+            <dd>
+              {business.hours.map((h) => <span>{h.days}, {h.open} to {h.close}</span>)}
+            </dd>
+          </div>
+          <div>
+            <dt>Based in</dt>
+            <dd>{business.address.locality}, Tennessee. Serving Middle Tennessee.</dd>
+          </div>
+        </dl>
+      </div>
+      <div class:list={['form', 'rise', { 'form-first': formFirst }]}>
+        <InquiryForm id={id} service={service} city={city} heading={formHeading} />
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .layout {
+    display: grid;
+    gap: 2.5rem;
+  }
+  .copy .lede {
+    margin-top: 1.25rem;
+  }
+  .details {
+    margin: 2rem 0 0;
+  }
+  .copy .details:first-child {
+    margin-top: 0;
+  }
+  .copy h2 + .details {
+    margin-top: 1.5rem;
+  }
+  .contact.compact .copy h2 {
+    font-size: var(--text-h3);
+  }
+  .contact.compact {
+    padding-block: clamp(1.5rem, 3vw, 2.5rem) var(--section-sm);
+  }
+  .details > div {
+    display: grid;
+    grid-template-columns: 6rem 1fr;
+    gap: 1rem;
+    align-items: baseline;
+  }
+  dt {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--muted);
+  }
+  dd {
+    margin: 0;
+    display: grid;
+    gap: 0.15rem;
+  }
+  dd a {
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--ink);
+    border-bottom: 1.5px solid var(--gold);
+    width: fit-content;
+  }
+  dd a:hover {
+    color: var(--gold-deep);
+  }
+  @media (max-width: 59.9375em) {
+    .form-first {
+      order: -1;
+    }
+  }
+  @media (min-width: 60em) {
+    .layout {
+      grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+      gap: clamp(2.5rem, 6vw, 5rem);
+      align-items: start;
+    }
+  }
+</style>

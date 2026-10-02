@@ -1,0 +1,18 @@
+axe /: no violations
+axe /roof-replacement: no violations
+axe /roofing-franklin: no violations
+axe /projects: no violations
+axe /about: no violations
+axe /contact: no violations
+axe /text-us: no violations
+axe /privacy: no violations
+axe /service-areas: no violations
+axe /roof-replacement-cost-middle-tennessee: no violations
+axe /404: no violations
+overflow check done for 360, 390, 430, 768, 1024, 1440
+200% zoom (720 CSS px at 2x) checked for every route
+mobile menu keyboard: opens, moves focus, closes on Escape, restores focus
+reduced motion: 0 hidden and 0 animating .rise elements (expect 0)
+no JavaScript: 0 hidden elements (expect 0), form visible true
+
+All accessibility and responsive checks passed

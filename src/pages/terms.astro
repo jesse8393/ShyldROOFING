@@ -1,0 +1,29 @@
+---
+import Base from '../layouts/Base.astro';
+import body from '../data/legal/terms.html?raw';
+---
+
+<Base title="Terms of Service | SHYLD Roofing" description="Terms governing use of shyldroofing.com and SHYLD Roofing services, including the SMS text message program, consent, opt out, and support contact information." path="/terms" crumbs={[{ name: 'Terms of service', path: '/terms' }]} hideMobileBar>
+  <header class="page-head">
+    <div class="container">
+      <ol class="crumbs" aria-label="Breadcrumb"><li><a href="/">Home</a></li><li aria-current="page">Terms of service</li></ol>
+      <p class="eyebrow">Legal</p>
+      <h1>Terms of Service</h1>
+      <p class="muted">Last updated October 2, 2026</p>
+    </div>
+  </header>
+  <section class="section-sm section-white">
+    <div class="container">
+      <div class="prose legal" set:html={body} />
+    </div>
+  </section>
+</Base>
+
+<style is:global>
+  .legal h2 {
+    margin-top: 2em;
+  }
+  .legal .contact {
+    line-height: 1.8;
+  }
+</style>

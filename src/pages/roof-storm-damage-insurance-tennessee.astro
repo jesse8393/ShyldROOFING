@@ -1,0 +1,78 @@
+---
+import Base from '../layouts/Base.astro';
+import ContactSection from '../components/ContactSection.astro';
+import { business } from '../data/business';
+const path = '/roof-storm-damage-insurance-tennessee';
+const schema = [
+  {
+    '@type': 'Article',
+    '@id': `${business.url}${path}#article`,
+    headline: 'Roof storm damage and insurance claims in Tennessee',
+    description: 'How a roof insurance claim works in Tennessee, what to do first after hail or wind, and the mistakes that cost homeowners money.',
+    author: { '@id': `${business.url}/#business` },
+    publisher: { '@id': `${business.url}/#business` },
+    datePublished: '2026-06-08',
+    dateModified: '2026-09-29',
+    mainEntityOfPage: `${business.url}${path}`,
+  },
+];
+---
+
+<Base
+  title="Roof Storm Damage and Insurance Claims in Tennessee | SHYLD Roofing"
+  description="How a roof insurance claim works in Tennessee, what to do first after hail or wind, what a contractor can and cannot do, and the mistakes that cost homeowners money."
+  path={path}
+  schema={schema}
+  crumbs={[{ name: 'Storm damage and insurance claims', path }]}
+>
+  <article>
+    <header class="page-head">
+      <div class="container">
+        <ol class="crumbs" aria-label="Breadcrumb"><li><a href="/">Home</a></li><li aria-current="page">Storm damage and insurance</li></ol>
+        <p class="eyebrow">Homeowner guide</p>
+        <h1>Roof storm damage and insurance claims in Tennessee.</h1>
+        <p class="lede">Middle Tennessee sits in the path of spring and summer storms that roll up from the southwest. Hail and straight line wind damage roofs here every year, and most of it is invisible from the ground. Here is how a claim actually works and how to avoid the common mistakes.</p>
+      </div>
+    </header>
+    <section class="section-sm section-white">
+      <div class="container prose">
+        <h2>First, get the roof looked at</h2>
+        <p>Before you call your insurer, get an inspection from a roofer who knows what storm damage looks like. Hail leaves bruises and knocks granules loose. Wind lifts and creases shingles along a line. A good inspector photographs all of it, and those photos become the backbone of a claim.</p>
+        <p>Filing first and hoping the adjuster finds something is how legitimate claims get denied. It is also how homeowners end up with a claim on their record for a roof that turned out to be fine.</p>
+
+        <h2>Then decide whether to file</h2>
+        <p>Not every storm hit deserves a claim. A few creased shingles on one slope may be a small repair that costs less than your deductible. Widespread hail bruising usually is a claim. We tell you which one you have, and the decision to file is yours.</p>
+        <p>Check your policy for its filing window and how it handles roof age. Many policies now pay depreciated value on older roofs rather than full replacement cost. Your agent can explain yours; we cannot.</p>
+
+        <h2>The adjuster meeting</h2>
+        <p>When you file, your carrier sends an adjuster. Have your roofer there. Walking the roof together means damage does not get missed and the scope reflects what is actually up there. We attend adjuster meetings for the homeowners we inspect.</p>
+
+        <h2>What you pay</h2>
+        <p>If the claim is approved, the carrier pays the approved scope minus your deductible. The deductible is yours to pay. If a contractor offers to waive, absorb, or rebate it, walk away. That is insurance fraud under Tennessee law and it puts you at risk, not just the contractor.</p>
+
+        <h2>What a roofer can and cannot do</h2>
+        <ul>
+          <li><strong>Can:</strong> inspect, photograph, document, meet the adjuster, explain the scope, and do the work to the approved scope.</li>
+          <li><strong>Cannot:</strong> promise approval, negotiate the claim on your behalf as a public adjuster, or decide what your policy covers.</li>
+        </ul>
+        <p>Be cautious of anyone who says they will handle the whole claim for you. Tennessee limits what contractors may do in that role.</p>
+
+        <h2>Choosing a contractor after a storm</h2>
+        <p>After a large hail event, many crews canvass neighborhoods and ask homeowners to sign on the spot. Before you sign anything, ask where the contractor is based, ask for proof of insurance, and take time to compare written proposals. A contractor you can reach next year matters if a leak appears later.</p>
+
+        <h2>What to do this week if a storm hit</h2>
+        <ol>
+          <li>Walk the yard. Note shingle pieces, granules in gutters, and dents in soft metals like vents and downspouts.</li>
+          <li>Photograph anything you see from the ground, with the date.</li>
+          <li>Request an inspection. Get the photos and a written summary.</li>
+          <li>Read your policy or call your agent about the filing window and roof coverage.</li>
+          <li>If you file, schedule the adjuster and have your roofer meet them.</li>
+        </ol>
+
+        <h2>Inspections after storms</h2>
+        <p>Our <a href="/storm-restoration">storm damage assessment</a> is free and documented, and it separates storm damage from ordinary wear. Request one below or call <a href={business.phone.tel}>{business.phone.display}</a>.</p>
+      </div>
+    </section>
+    <ContactSection heading="Storm came through? Start with photos." intro="We inspect, document, and tell you plainly whether a claim makes sense. You keep the photos either way." service="Storm Damage Assessment" />
+  </article>
+</Base>

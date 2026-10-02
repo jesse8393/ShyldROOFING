@@ -1,0 +1,31 @@
+{
+  "name": "shyld-roofing-site",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "description": "SHYLD Roofing marketing website. Static Astro build deployed to Hostinger public_html.",
+  "engines": {
+    "node": ">=22.19"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "node scripts/serve.mjs",
+    "check": "astro check",
+    "crawl": "node scripts/crawl.mjs",
+    "lighthouse": "node scripts/lighthouse.mjs",
+    "screenshots": "node scripts/screenshots.mjs",
+    "test:form": "node scripts/form-tests.mjs"
+  },
+  "dependencies": {
+    "astro": "7.3.5",
+    "sharp": "0.35.5"
+  },
+  "devDependencies": {
+    "@astrojs/check": "0.9.10",
+    "axe-core": "4.10.3",
+    "lighthouse": "13.5.0",
+    "playwright": "1.56.1",
+    "typescript": "5.9.3"
+  }
+}

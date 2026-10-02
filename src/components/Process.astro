@@ -1,0 +1,88 @@
+---
+const steps = [
+  {
+    label: 'First',
+    name: 'The inspection',
+    text: 'We get on the roof, look in the attic when we can, and photograph what we find. You see the photos and hear a plain explanation. If the roof is fine, we say so.',
+  },
+  {
+    label: 'Then',
+    name: 'A written proposal',
+    text: 'Materials by name, the scope of work, what is excluded, the price, and the warranty terms. In writing, so you can compare it to anyone else’s.',
+  },
+  {
+    label: 'Next',
+    name: 'Scheduling and the work',
+    text: 'We agree on dates and what to expect each day. Landscaping and walkways are covered, materials are staged out of the way, and the site is cleaned up daily.',
+  },
+  {
+    label: 'Last',
+    name: 'The final walkthrough',
+    text: 'We walk the finished job with you, sweep for nails again, and hand over your warranty paperwork and completion photos.',
+  },
+];
+---
+
+<section class="process section" aria-labelledby="process-heading">
+  <div class="container">
+    <div class="section-head rise">
+      <div>
+        <p class="eyebrow">Working with SHYLD</p>
+        <h2 id="process-heading">From your call to a finished roof.</h2>
+      </div>
+      <p class="lede">A roof inspection with photos, a written proposal you can read line by line, and a crew that protects your yard and cleans up each day.</p>
+    </div>
+    <ol class="steps rise">
+      {
+        steps.map((s) => (
+          <li>
+            <span class="label">{s.label}</span>
+            <h3>{s.name}</h3>
+            <p>{s.text}</p>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</section>
+
+<style>
+  .steps {
+    display: grid;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .steps li {
+    position: relative;
+    padding-top: 1.25rem;
+    border-top: 2px solid var(--line);
+  }
+  .label {
+    display: block;
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--gold-deep);
+    margin-bottom: 0.5rem;
+  }
+  .steps h3 {
+    font-size: var(--text-h3);
+  }
+  .steps p {
+    margin-top: 0.7rem;
+    color: var(--ink-soft);
+    max-width: 38ch;
+  }
+  @media (min-width: 45em) {
+    .steps {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 2.5rem 2rem;
+    }
+  }
+  @media (min-width: 68.75em) {
+    .steps {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+  }
+</style>

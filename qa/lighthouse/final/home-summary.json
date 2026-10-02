@@ -1,0 +1,46 @@
+{
+  "date": "2026-09-29T01:57:15.850Z",
+  "base": "http://localhost:4321",
+  "results": [
+    {
+      "route": "/",
+      "preset": "mobile",
+      "runs": 3,
+      "lighthouse": "13.5.0",
+      "median": {
+        "performance": 99,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "medianMetrics": {
+        "lcp_ms": 1959,
+        "cls": 0,
+        "tbt_ms": 0,
+        "fcp_ms": 1254,
+        "speed_index_ms": 1254,
+        "transfer_kb": 202
+      }
+    },
+    {
+      "route": "/",
+      "preset": "desktop",
+      "runs": 3,
+      "lighthouse": "13.5.0",
+      "median": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "medianMetrics": {
+        "lcp_ms": 511,
+        "cls": 0,
+        "tbt_ms": 0,
+        "fcp_ms": 316,
+        "speed_index_ms": 342,
+        "transfer_kb": 209
+      }
+    }
+  ]
+}

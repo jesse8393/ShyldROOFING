@@ -1,0 +1,34 @@
+/roof-replacement mobile run 1: perf 100 a11y 100 bp 100 seo 100 | LCP 1660ms CLS 0.000 TBT 0ms bytes 117KB | failing: largest-contentful-paint (99), forced-reflow-insight (0), image-delivery-insight (0), network-dependency-tree-insight (0)
+/roof-replacement desktop run 1: perf 100 a11y 100 bp 100 seo 100 | LCP 470ms CLS 0.000 TBT 0ms bytes 117KB | failing: forced-reflow-insight (0), network-dependency-tree-insight (0)
+/roofing-franklin mobile run 1: perf 100 a11y 100 bp 100 seo 100 | LCP 1818ms CLS 0.000 TBT 0ms bytes 116KB | failing: largest-contentful-paint (98), forced-reflow-insight (0), image-delivery-insight (0), network-dependency-tree-insight (0)
+/roofing-franklin desktop run 1: perf 100 a11y 100 bp 100 seo 100 | LCP 431ms CLS 0.000 TBT 0ms bytes 128KB | failing: forced-reflow-insight (0), network-dependency-tree-insight (0)
+/projects mobile run 1: perf 100 a11y 100 bp 100 seo 100 | LCP 1810ms CLS 0.000 TBT 0ms bytes 160KB | failing: largest-contentful-paint (98), image-delivery-insight (0), lcp-discovery-insight (0), network-dependency-tree-insight (0)
+/projects desktop run 1: perf 100 a11y 100 bp 100 seo 100 | LCP 429ms CLS 0.000 TBT 0ms bytes 218KB | failing: forced-reflow-insight (0), image-delivery-insight (50), lcp-discovery-insight (0), network-dependency-tree-insight (0)
+/about mobile run 1: perf 100 a11y 100 bp 100 seo 100 | LCP 1664ms CLS 0.000 TBT 0ms bytes 105KB | failing: largest-contentful-paint (99), forced-reflow-insight (0), image-delivery-insight (0), network-dependency-tree-insight (0)
+/about desktop run 1: perf 100 a11y 100 bp 100 seo 100 | LCP 409ms CLS 0.000 TBT 0ms bytes 121KB | failing: forced-reflow-insight (0), network-dependency-tree-insight (0)
+/contact mobile run 1: perf 100 a11y 100 bp 100 seo 100 | LCP 1326ms CLS 0.000 TBT 0ms bytes 59KB | failing: forced-reflow-insight (0), network-dependency-tree-insight (0)
+/contact desktop run 1: perf 100 a11y 100 bp 100 seo 100 | LCP 343ms CLS 0.000 TBT 0ms bytes 60KB | failing: forced-reflow-insight (0), network-dependency-tree-insight (0)
+/text-us mobile run 1: perf 100 a11y 100 bp 100 seo 100 | LCP 1361ms CLS 0.000 TBT 0ms bytes 59KB | failing: forced-reflow-insight (0), network-dependency-tree-insight (0)
+/text-us desktop run 1: perf 100 a11y 100 bp 100 seo 100 | LCP 346ms CLS 0.000 TBT 0ms bytes 59KB | failing: network-dependency-tree-insight (0)
+/roof-replacement-cost-middle-tennessee mobile run 1: perf 100 a11y 100 bp 100 seo 100 | LCP 1314ms CLS 0.000 TBT 0ms bytes 60KB | failing: forced-reflow-insight (0), network-dependency-tree-insight (0)
+/roof-replacement-cost-middle-tennessee desktop run 1: perf 100 a11y 100 bp 100 seo 100 | LCP 358ms CLS 0.000 TBT 0ms bytes 60KB | failing: forced-reflow-insight (0), network-dependency-tree-insight (0)
+/privacy mobile run 1: perf 100 a11y 100 bp 100 seo 100 | LCP 1272ms CLS 0.000 TBT 0ms bytes 56KB | failing: network-dependency-tree-insight (0)
+/privacy desktop run 1: perf 100 a11y 100 bp 100 seo 100 | LCP 328ms CLS 0.000 TBT 0ms bytes 56KB | failing: network-dependency-tree-insight (0)
+
+Medians:
+/roof-replacement mobile: perf 100 a11y 100 bp 100 seo 100 | LCP 1660ms CLS 0 TBT 0ms 117KB
+/roof-replacement desktop: perf 100 a11y 100 bp 100 seo 100 | LCP 470ms CLS 0 TBT 0ms 117KB
+/roofing-franklin mobile: perf 100 a11y 100 bp 100 seo 100 | LCP 1818ms CLS 0 TBT 0ms 116KB
+/roofing-franklin desktop: perf 100 a11y 100 bp 100 seo 100 | LCP 431ms CLS 0 TBT 0ms 128KB
+/projects mobile: perf 100 a11y 100 bp 100 seo 100 | LCP 1810ms CLS 0 TBT 0ms 160KB
+/projects desktop: perf 100 a11y 100 bp 100 seo 100 | LCP 429ms CLS 0 TBT 0ms 218KB
+/about mobile: perf 100 a11y 100 bp 100 seo 100 | LCP 1664ms CLS 0 TBT 0ms 105KB
+/about desktop: perf 100 a11y 100 bp 100 seo 100 | LCP 409ms CLS 0 TBT 0ms 121KB
+/contact mobile: perf 100 a11y 100 bp 100 seo 100 | LCP 1326ms CLS 0 TBT 0ms 59KB
+/contact desktop: perf 100 a11y 100 bp 100 seo 100 | LCP 343ms CLS 0 TBT 0ms 60KB
+/text-us mobile: perf 100 a11y 100 bp 100 seo 100 | LCP 1361ms CLS 0 TBT 0ms 59KB
+/text-us desktop: perf 100 a11y 100 bp 100 seo 100 | LCP 346ms CLS 0 TBT 0ms 59KB
+/roof-replacement-cost-middle-tennessee mobile: perf 100 a11y 100 bp 100 seo 100 | LCP 1314ms CLS 0 TBT 0ms 60KB
+/roof-replacement-cost-middle-tennessee desktop: perf 100 a11y 100 bp 100 seo 100 | LCP 358ms CLS 0 TBT 0ms 60KB
+/privacy mobile: perf 100 a11y 100 bp 100 seo 100 | LCP 1272ms CLS 0 TBT 0ms 56KB
+/privacy desktop: perf 100 a11y 100 bp 100 seo 100 | LCP 328ms CLS 0 TBT 0ms 56KB

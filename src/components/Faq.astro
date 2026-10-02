@@ -1,0 +1,52 @@
+---
+interface Props {
+  heading?: string;
+  intro?: string;
+  items: { q: string; a: string }[];
+  id?: string;
+}
+const { heading = 'Questions homeowners ask', intro, items, id = 'faq' } = Astro.props;
+---
+
+<section class="faq-section section section-white" id={id} aria-labelledby={`${id}-heading`}>
+  <div class="container">
+    <div class="layout">
+      <div class="copy rise">
+        <p class="eyebrow">Good questions</p>
+        <h2 id={`${id}-heading`}>{heading}</h2>
+        {intro && <p class="lede">{intro}</p>}
+      </div>
+      <div class="faq rise">
+        {
+          items.map((item) => (
+            <details>
+              <summary>{item.q}</summary>
+              <div class="answer" set:html={item.a} />
+            </details>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .layout {
+    display: grid;
+    gap: 2rem;
+  }
+  .copy .lede {
+    margin-top: 1.25rem;
+  }
+  @media (min-width: 56.25em) {
+    .layout {
+      grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+      gap: clamp(2.5rem, 6vw, 6rem);
+      align-items: start;
+    }
+    .copy {
+      position: sticky;
+      top: calc(var(--header-h) + 2rem);
+    }
+  }
+</style>

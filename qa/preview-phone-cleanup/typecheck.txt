@@ -1,0 +1,27 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> shyld-roofing-site@2.0.0 check
+> astro check
+
+20:51:32 [types] Generated 48ms
+20:51:32 [check] Getting diagnostics for Astro files in /workspace/scratch/c334e6574ade/shyld-finish...
+src/data/service-content.ts:4:1 - warning ts(6133): 'shingles' is declared but its value is never read.
+
+4 import shingles from '../assets/photos/shingle-replacement-aerial.jpg';
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+scripts/form-tests.mjs:125:101 - warning ts(6133): 'posts' is declared but its value is never read.
+
+125 await scenario('timeout is not shown as success and retry reuses the same request id', async (page, posts) => {
+                                                                                                        ~~~~~
+
+scripts/lighthouse.mjs:57:1 - warning ts(80007): 'await' has no effect on the type of this expression.
+
+57 await chrome.kill();
+   ~~~~~~~~~~~~~~~~~~~
+
+Result (54 files): 
+- 0 errors
+- 0 warnings
+- 3 hints
+

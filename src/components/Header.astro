@@ -1,0 +1,307 @@
+---
+import { business, nav } from '../data/business';
+const current = Astro.url.pathname.replace(/\.html$/, '');
+---
+
+<header class="site-header" data-header>
+  <div class="container bar">
+    <a class="brand" href="/" aria-label="SHYLD Roofing home">
+      <img src="/brand/shyld-primary-black.svg" alt="" width="220" height="44" decoding="async" />
+    </a>
+
+    <nav class="primary" aria-label="Primary">
+      <ul>
+        {
+          nav.primary.map((item) => (
+            <li>
+              <a
+                href={item.href}
+                aria-current={item.href === current ? 'page' : undefined}
+                data-track="nav"
+              >
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <div class="actions">
+      <a class="phone" href={business.phone.tel} data-cta="header_call" aria-label={`Call ${business.phone.display}`}>
+        <svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>
+        <span>{business.phone.display}</span>
+      </a>
+      <a class="btn btn-primary cta" href={nav.cta.href} data-cta="header_inspection">{nav.cta.label}</a>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-menu" data-menu-btn>
+        <span class="visually-hidden">Menu</span>
+        <span class="lines" aria-hidden="true"><i></i><i></i></span>
+      </button>
+    </div>
+  </div>
+
+  <div class="mobile-menu" id="mobile-menu" hidden data-menu>
+    <nav aria-label="Mobile">
+      <ul>
+        {
+          nav.primary.map((item) => (
+            <li>
+              <a href={item.href} aria-current={item.href === current ? 'page' : undefined}>
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
+        <li><a href="/service-areas">Service areas</a></li>
+      </ul>
+      <div class="mobile-actions">
+        <a class="btn btn-primary" href={nav.cta.href} data-cta="menu_inspection">{nav.cta.label}</a>
+        <a class="btn btn-secondary" href={business.phone.tel} data-cta="menu_call">Call {business.phone.display}</a>
+        <a class="btn btn-quiet" href={business.phone.sms} data-cta="menu_text">Text {business.phone.display}</a>
+      </div>
+      <p class="hours">
+        {business.hours.map((h) => <span>{h.days} {h.open} to {h.close}</span>)}
+      </p>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(247, 244, 238, 0.92);
+    backdrop-filter: saturate(1.2) blur(10px);
+    -webkit-backdrop-filter: saturate(1.2) blur(10px);
+    border-bottom: 1px solid transparent;
+    transition: border-color var(--dur-base) var(--ease-out);
+  }
+  .site-header.is-stuck {
+    border-bottom-color: var(--line);
+  }
+  .bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    min-height: var(--header-h);
+  }
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    flex: 0 0 auto;
+  }
+  .brand img {
+    width: auto;
+    height: 40px;
+  }
+  .primary {
+    display: none;
+  }
+  .primary ul,
+  .mobile-menu ul {
+    display: flex;
+    gap: 0.25rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .primary a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.75rem;
+    padding: 0.4rem 0.85rem;
+    border-radius: var(--radius-sm);
+    font-weight: 500;
+    text-decoration: none;
+    color: var(--ink);
+  }
+  .primary a:hover,
+  .primary a[aria-current='page'] {
+    color: var(--gold-deep);
+    background: rgba(201, 147, 62, 0.09);
+  }
+  .actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .phone {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    min-height: 2.75rem;
+    padding: 0.4rem 0.6rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--ink);
+    white-space: nowrap;
+    border-radius: var(--radius-sm);
+  }
+  .phone span {
+    display: none;
+  }
+  .phone:hover {
+    color: var(--gold-deep);
+  }
+  .cta {
+    display: none;
+  }
+  .menu-btn {
+    display: inline-grid;
+    place-items: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border: 1.5px solid var(--line-strong);
+    border-radius: var(--radius-control);
+    background: var(--white);
+    cursor: pointer;
+  }
+  .lines {
+    display: grid;
+    gap: 5px;
+    width: 18px;
+  }
+  .lines i {
+    display: block;
+    height: 2px;
+    background: var(--ink);
+    border-radius: 2px;
+    transition: transform var(--dur-base) var(--ease-out);
+  }
+  .menu-btn[aria-expanded='true'] .lines i:first-child {
+    transform: translateY(3.5px) rotate(45deg);
+  }
+  .menu-btn[aria-expanded='true'] .lines i:last-child {
+    transform: translateY(-3.5px) rotate(-45deg);
+  }
+  .mobile-menu {
+    position: absolute;
+    inset: 100% 0 auto 0;
+    max-height: calc(100dvh - var(--header-h));
+    overflow-y: auto;
+    padding: 0.5rem var(--gutter) 1.5rem;
+    background: var(--paper);
+    border-bottom: 1px solid var(--line);
+    box-shadow: var(--shadow-soft);
+  }
+  .mobile-menu[hidden] {
+    display: none;
+  }
+  .mobile-menu ul {
+    flex-direction: column;
+    gap: 0;
+    border-top: 1px solid var(--line);
+  }
+  .mobile-menu li a {
+    display: flex;
+    align-items: center;
+    min-height: 3.25rem;
+    padding: 0.5rem 0.25rem;
+    font-size: var(--text-lg);
+    font-family: var(--font-body);
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1px solid var(--line);
+  }
+  .mobile-actions {
+    display: grid;
+    gap: 0.6rem;
+    margin-top: 1.25rem;
+  }
+  .hours {
+    margin-top: 1rem;
+    font-size: var(--text-sm);
+    color: var(--muted);
+    display: grid;
+    gap: 0.2rem;
+  }
+  @media (min-width: 37.5em) and (max-width: 62.4375em), (min-width: 75em) {
+    .phone span {
+      display: inline;
+    }
+  }
+  @media (min-width: 62.5em) {
+    .primary {
+      display: block;
+    }
+    .cta {
+      display: inline-flex;
+      min-height: 2.9rem;
+      padding-block: 0.6rem;
+      white-space: nowrap;
+    }
+    .phone span {
+      display: none;
+    }
+    .menu-btn,
+    .mobile-menu {
+      display: none;
+    }
+    .brand img {
+      height: 44px;
+    }
+  }
+</style>
+
+<script>
+  const header = document.querySelector<HTMLElement>('[data-header]');
+  const btn = document.querySelector<HTMLButtonElement>('[data-menu-btn]');
+  const menu = document.querySelector<HTMLElement>('[data-menu]');
+
+  if (header) {
+    const update = () => header.classList.toggle('is-stuck', window.scrollY > 8);
+    update();
+    window.addEventListener('scroll', update, { passive: true });
+  }
+
+  if (btn && menu) {
+    const focusables = () =>
+      Array.from(menu.querySelectorAll<HTMLElement>('a, button')).filter((el) => !el.hidden);
+
+    const close = (restoreFocus = true) => {
+      menu.hidden = true;
+      btn.setAttribute('aria-expanded', 'false');
+      document.body.style.removeProperty('overflow');
+      if (restoreFocus) btn.focus();
+    };
+    const open = () => {
+      menu.hidden = false;
+      btn.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+      focusables()[0]?.focus();
+    };
+
+    btn.addEventListener('click', () => (menu.hidden ? open() : close()));
+
+    document.addEventListener('keydown', (e) => {
+      if (menu.hidden) return;
+      if (e.key === 'Escape') {
+        close();
+        return;
+      }
+      if (e.key === 'Tab') {
+        const items = [btn, ...focusables()];
+        const first = items[0];
+        const last = items[items.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
+    });
+
+    menu.addEventListener('click', (e) => {
+      if ((e.target as HTMLElement).closest('a')) close(false);
+    });
+
+    const mq = window.matchMedia('(min-width: 62.5em)');
+    mq.addEventListener('change', () => {
+      if (mq.matches && !menu.hidden) close(false);
+    });
+  }
+</script>
