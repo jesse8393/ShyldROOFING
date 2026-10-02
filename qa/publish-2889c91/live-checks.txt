@@ -1,0 +1,37 @@
+checked 2026-10-02T00:13:03Z
+sitemap URLs:
+  30 URLs, non-200: 0
+  / 200 h1: Roofing worth coming home to.
+  /about 200 h1: Meet Jesse and SHYLD.
+  /contact 200 h1: Call, text, or send the form.
+  /roof-replacement 200 h1: Roof replacement. Clear written proposals.
+  /roof-repair 200 h1: Roof repairs that find the real problem.
+  /metal-roofing 200 h1: Metal roofs for homes you plan to keep.
+  /storm-restoration 200 h1: See what the storm did before you file.
+  /siding 200 h1: Siding by the people who do your roof.
+  /gutters 200 h1: Gutters that move water where it should go.
+  /roofing-franklin 200 h1: Roof repair and replacement in Franklin.
+  /roofing-murfreesboro 200 h1: Roof repair and replacement in Murfreesboro.
+  /privacy 200 h1: Privacy Policy
+  /terms 200 h1: Terms of Service
+  /text-us 200 h1: Text with SHYLD Roofing.
+  /projects 200 h1: Photographed on the job, described as it was.
+  /service-areas 200 h1: Middle Tennessee, county by county.
+  /roof-replacement-cost-middle-tennessee 200 h1: What drives roof replacement cost in Middle Tennessee.
+redirects:
+  /roof-repair.html -> 301 https://shyldroofing.com/roof-repair
+  /roof-repair/ -> 301 https://shyldroofing.com/roof-repair
+  /index.html -> 301 https://shyldroofing.com/
+  /roofing-manchester -> 301 https://shyldroofing.com/service-areas
+  /roofing-tullahoma -> 301 https://shyldroofing.com/service-areas
+  http://www -> https://shyldroofing.com/
+missing page: 404
+robots: 200 sitemap line: Sitemap: https://shyldroofing.com/sitemap.xml
+google file: 200 [] body: google-site-verification: google1e3d794f007288d9.html
+wp-login.php: 200
+retired number on live pages:
+  total hits: 0
+phone shown in structured data: "telephone":"+16152958974"
+privacy contact: Phone: <a href="tel:+16152958974">(615) 295 8974
+terms contact: Phone (calls and texts): <a href="tel:+16152958974">(615) 295 8974
+fraunces on live home: 0
