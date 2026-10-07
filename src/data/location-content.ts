@@ -29,7 +29,7 @@ export const locationContent: Record<AreaSlug, LocationContent> = {
     county: 'Williamson County',
     title: 'Roofing Contractor in Franklin, TN | SHYLD Roofing',
     description:
-      'Roof replacement, repair, and metal roofing for Franklin, TN homeowners in Westhaven, Fieldstone Farms, Cool Springs, and the historic district. Free inspections.',
+      'Roof replacement, repair, and metal roofing for Franklin, TN homes in Westhaven, Fieldstone Farms, Cool Springs, and downtown. Free inspections.',
     h1: 'Roof repair and replacement in Franklin.',
     intro:
       'Franklin homes ask more of a roofer. Steep pitches, dormers, standing seam accents, and neighborhoods with review committees that care how a roof looks.',
@@ -89,7 +89,7 @@ export const locationContent: Record<AreaSlug, LocationContent> = {
     county: 'Rutherford County',
     title: 'Roofing Contractor in Murfreesboro, TN | SHYLD Roofing',
     description:
-      'SHYLD Roofing is based in Murfreesboro. Roof replacement, repair, metal roofing, siding, and gutters for Rutherford County homeowners. Free inspections with photos.',
+      'Murfreesboro based roofer. Roof replacement, repair, metal roofing, siding, and gutters for Rutherford County homes. Free inspections with photos.',
     h1: 'Roof repair and replacement in Murfreesboro.',
     intro:
       'Our home base. From the historic homes near the square and MTSU to the subdivisions off Veterans Parkway, Blackman, and Barfield, we know these roofs because we drive past them every day.',
@@ -148,7 +148,7 @@ export const locationContent: Record<AreaSlug, LocationContent> = {
     county: 'Rutherford County',
     title: 'Roofing Contractor in La Vergne, TN | SHYLD Roofing',
     description:
-      'Roof repair, replacement, siding, and gutters for La Vergne homeowners near Percy Priest Lake. Free inspections with photos from a Rutherford County roofing company.',
+      'Roof repair, replacement, siding, and gutters for La Vergne homes near Percy Priest Lake. Free inspections with photos from a Rutherford County roofer.',
     h1: 'Roof repair and replacement in La Vergne.',
     intro:
       'La Vergne homes near Percy Priest Lake and along Murfreesboro Road see plenty of wind off the water and the usual Middle Tennessee hail. We inspect, repair, and replace roofs here from our base a few exits down the interstate.',
@@ -177,7 +177,7 @@ export const locationContent: Record<AreaSlug, LocationContent> = {
     county: 'Davidson County',
     title: 'Roofing Contractor in Nashville, TN | SHYLD Roofing',
     description:
-      'Roof replacement, repair, and metal roofing for Nashville and Davidson County homeowners, from Antioch and Donelson to East Nashville. Free inspections with photos.',
+      'Roof replacement, repair, and metal roofing for Nashville homes, from Antioch and Donelson to East Nashville. Free inspections with photos.',
     h1: 'Roof repair and replacement in Nashville.',
     intro:
       'From the bungalows of East Nashville to the newer neighborhoods in Antioch, Donelson, and Bellevue, Nashville roofs come in every age and shape. We serve the city from our base south of town.',
@@ -207,7 +207,7 @@ export const locationContent: Record<AreaSlug, LocationContent> = {
     county: 'Williamson County',
     title: 'Roofing Contractor in Brentwood, TN | SHYLD Roofing',
     description:
-      'Roof replacement, repair, and standing seam metal for Brentwood, TN homes. Careful work on large, complex roofs with written proposals and a workmanship warranty.',
+      'Roof replacement, repair, and standing seam metal for Brentwood, TN homes. Careful work on large, complex roofs, with written proposals and a warranty.',
     h1: 'Roof repair and replacement in Brentwood.',
     intro:
       'Brentwood houses tend to be large, with steep pitches, multiple hips, and details that show from the street. The work has to be done carefully and it has to look right. That is the kind of job we like.',
@@ -237,7 +237,7 @@ export const locationContent: Record<AreaSlug, LocationContent> = {
     county: 'Williamson County',
     title: 'Roofing Contractor in Nolensville, TN | SHYLD Roofing',
     description:
-      'Roof replacement, repair, and metal roofing for Nolensville homeowners in Bent Creek, Burkitt Place, and along Nolensville Road. Free inspections with photos.',
+      'Roof replacement, repair, and metal roofing for Nolensville homes in Bent Creek, Burkitt Place, and along Nolensville Road. Free inspections.',
     h1: 'Roof repair and replacement in Nolensville.',
     intro:
       'Nolensville has gone from a crossroads to a full town in about fifteen years, and the first wave of roofs from that growth is now due for attention.',
@@ -297,7 +297,7 @@ export const locationContent: Record<AreaSlug, LocationContent> = {
     county: 'Wilson County',
     title: 'Roofing Contractor in Mt. Juliet, TN | SHYLD Roofing',
     description:
-      'Roof replacement, repair, siding, and gutters for Mt. Juliet homeowners near Providence and Old Hickory Lake. Free inspections with photos from a local company.',
+      'Roof replacement, repair, siding, and gutters for Mt. Juliet homes near Providence and Old Hickory Lake. Free inspections with photos.',
     h1: 'Roof repair and replacement in Mt. Juliet.',
     intro:
       'Mt. Juliet grew around Providence and Interstate 40 and now stretches toward Old Hickory Lake and Lebanon. Its roofs are mostly under twenty five years old, which makes the next few years busy ones for inspections and first replacements.',
@@ -326,7 +326,7 @@ export const locationContent: Record<AreaSlug, LocationContent> = {
     county: 'Bedford County',
     title: 'Roofing Contractor in Shelbyville, TN | SHYLD Roofing',
     description:
-      'Roof replacement, repair, and metal roofing for Shelbyville and Bedford County. Metal for farm properties, shingles for town homes, free inspections with photos.',
+      'Roof replacement, repair, and metal roofing for Shelbyville and Bedford County. Metal for farms, shingles for town homes, free inspections.',
     h1: 'Roof repair and replacement in Shelbyville.',
     intro:
       'Shelbyville is horse country and small town Tennessee, with older homes near the square, newer subdivisions on the north side, and plenty of farm properties where metal is the sensible roof. We serve all three.',
@@ -355,7 +355,7 @@ export const locationContent: Record<AreaSlug, LocationContent> = {
     county: 'Rutherford County',
     title: 'Roofing Contractor in Eagleville, TN | SHYLD Roofing',
     description:
-      'Roof replacement, repair, and metal roofing for Eagleville and southwest Rutherford County. Rural homes and farms, with free inspections from a Murfreesboro company.',
+      'Roof replacement, repair, and metal roofing for Eagleville and southwest Rutherford County homes and farms. Free inspections with photos.',
     h1: 'Roof repair and replacement in Eagleville.',
     intro:
       'Eagleville is small, rural, and a short drive from our base. Most of the work here is on homes with generous roofs, farm buildings, and the occasional storm repair after weather comes over the ridge from the southwest.',

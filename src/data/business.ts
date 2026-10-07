@@ -131,7 +131,7 @@ export const contentDates: Record<string, string> = {
   '/projects': '2026-09-30',
   '/about': '2026-10-02',
   '/contact': '2026-09-30',
-  '/service-areas': '2026-09-30',
+  '/service-areas': '2026-10-07',
   '/roof-replacement-cost-middle-tennessee': '2026-09-30',
   '/roof-storm-damage-insurance-tennessee': '2026-09-30',
   '/text-us': '2026-10-02',

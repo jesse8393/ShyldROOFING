@@ -2,12 +2,13 @@
 import Base from '../layouts/Base.astro';
 import ContactSection from '../components/ContactSection.astro';
 import { areas, business } from '../data/business';
+import { locationContent } from '../data/location-content';
 const counties = [...new Set(areas.map((a) => a.county))];
 ---
 
 <Base
   title="Service Areas | SHYLD Roofing, Middle Tennessee"
-  description="SHYLD Roofing serves Franklin, Lebanon, Murfreesboro, Nashville, Brentwood, Nolensville, Spring Hill, Mt. Juliet, Shelbyville, and nearby towns. See every area."
+  description="SHYLD Roofing serves 14 Middle Tennessee towns, from Murfreesboro and Smyrna to Franklin, Nashville, Lebanon, and Shelbyville. See every area we cover."
   path="/service-areas"
   crumbs={[{ name: 'Service areas', path: '/service-areas' }]}
 >
@@ -27,7 +28,10 @@ const counties = [...new Set(areas.map((a) => a.county))];
             <h2>{county}</h2>
             <ul>
               {areas.filter((a) => a.county === county).map((a) => (
-                <li><a href={`/roofing-${a.slug}`}>{a.name}</a></li>
+                <li>
+                  <h3><a href={`/roofing-${a.slug}`}>Roofing in {a.name}</a></h3>
+                  <p>{locationContent[a.slug].intro}</p>
+                </li>
               ))}
             </ul>
           </div>
@@ -52,23 +56,21 @@ const counties = [...new Set(areas.map((a) => a.county))];
     margin: 0;
     padding: 0;
     list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.6rem;
+    display: grid;
+    gap: 1.25rem;
   }
-  .county a {
-    display: inline-flex;
-    align-items: center;
-    min-height: 2.75rem;
-    padding: 0.4rem 1.1rem;
-    border: 1px solid var(--line-strong);
-    border-radius: 999px;
-    background: var(--paper);
-    text-decoration: none;
-    font-weight: 500;
+  .county h3 {
+    font-size: var(--text-h4, 1.125rem);
+    margin: 0 0 0.35rem;
   }
-  .county a:hover {
-    border-color: var(--gold);
+  .county h3 a {
+    text-decoration-color: var(--gold);
+    text-underline-offset: 0.2em;
+  }
+  .county p {
+    margin: 0;
+    max-width: 62ch;
+    color: var(--ink-soft, inherit);
   }
   @media (min-width: 45em) {
     .county {

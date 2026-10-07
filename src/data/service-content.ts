@@ -355,7 +355,7 @@ export const serviceContent: Record<ServiceSlug, ServiceContent> = {
     name: 'Siding',
     title: 'Siding Installation in Middle Tennessee | SHYLD Roofing',
     description:
-      'Siding replacement and installation across Middle Tennessee. Fiber cement, vinyl, and board and batten, with flashing done right where the siding meets the roof.',
+      'Siding replacement across Middle Tennessee: fiber cement, vinyl, and board and batten, with flashing done right where the siding meets the roof.',
     h1: 'Siding by the people who do your roof.',
     intro:
       'Most siding failures start where the siding meets something else: a roof, a window, a deck ledger. Because we roof as well as side, those transitions get the same attention as the panels themselves.',
