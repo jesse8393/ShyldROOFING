@@ -1,0 +1,41 @@
+---
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import Proof from '../components/Proof.astro';
+import Services from '../components/Services.astro';
+import RoofLayers from '../components/RoofLayers.astro';
+import Process from '../components/Process.astro';
+import Trust from '../components/Trust.astro';
+import Areas from '../components/Areas.astro';
+import Faq from '../components/Faq.astro';
+import ContactSection from '../components/ContactSection.astro';
+import { homeFaqs } from '../data/faqs';
+import { business } from '../data/business';
+
+const schema = [
+  {
+    '@type': 'WebSite',
+    '@id': `${business.url}/#website`,
+    url: `${business.url}/`,
+    name: business.name,
+    publisher: { '@id': `${business.url}/#business` },
+  },
+];
+---
+
+<Base
+  title="SHYLD Roofing | Roofing Contractor in Middle Tennessee"
+  description="Roof replacement, repair, and metal roofing across Middle Tennessee. Free inspections with photos, written proposals, and a workmanship warranty."
+  path="/"
+  schema={schema}
+>
+  <Hero />
+  <Proof />
+  <Services />
+  <RoofLayers />
+  <Process />
+  <Trust />
+  <Areas />
+  <Faq items={homeFaqs} intro="Straight answers to the questions we hear most on inspections." />
+  <ContactSection />
+</Base>

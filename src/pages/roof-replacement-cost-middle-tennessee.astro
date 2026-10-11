@@ -1,0 +1,81 @@
+---
+import Base from '../layouts/Base.astro';
+import ContactSection from '../components/ContactSection.astro';
+import { business } from '../data/business';
+const path = '/roof-replacement-cost-middle-tennessee';
+const schema = [
+  {
+    '@type': 'Article',
+    '@id': `${business.url}${path}#article`,
+    headline: 'What a roof replacement costs in Middle Tennessee',
+    description: 'The factors that set the price of a new roof in Middle Tennessee, how hidden decking damage is handled, and how to compare written proposals.',
+    author: { '@id': `${business.url}/#business` },
+    publisher: { '@id': `${business.url}/#business` },
+    datePublished: '2026-06-08',
+    dateModified: '2026-09-30',
+    mainEntityOfPage: `${business.url}${path}`,
+  },
+];
+---
+
+<Base
+  title="What a Roof Replacement Costs in Middle Tennessee | SHYLD Roofing"
+  description="What sets the price of a new roof in Middle Tennessee, how hidden decking damage is handled, and how to compare written proposals."
+  path={path}
+  schema={schema}
+  crumbs={[{ name: 'Roof replacement cost in Middle Tennessee', path }]}
+>
+  <article>
+    <header class="page-head">
+      <div class="container">
+        <ol class="crumbs" aria-label="Breadcrumb"><li><a href="/">Home</a></li><li aria-current="page">Roof replacement cost</li></ol>
+        <p class="eyebrow">Homeowner guide</p>
+        <h1>What drives roof replacement cost in Middle Tennessee.</h1>
+        <p class="lede">This guide explains the factors that set the price of a new roof, how damage hidden under the old shingles is handled, and what a written proposal should show so you can compare them.</p>
+      </div>
+    </header>
+    <section class="section-sm section-white">
+      <div class="container prose">
+        <h2>Why this page has no price table</h2>
+        <p>We have not yet published price examples from our own jobs. Until we do, this page explains the factors that set a price rather than quoting ranges that may not fit your house. A free inspection gives you measurements, photos, and a written price for your roof.</p>
+
+        <h2>What sets the price</h2>
+        <h3>Roof area</h3>
+        <p>Roofing is measured in squares. A square is one hundred square feet of roof surface. More squares means more material and more labor. Roof area is larger than the footprint of the house because of pitch and overhangs, which is one reason satellite estimates run low.</p>
+        <h3>Pitch and complexity</h3>
+        <p>Steep roofs are slower and need more safety equipment. Valleys, dormers, hips, and chimneys each add flashing work and cut waste. Two roofs with the same area can differ a great deal in price because of shape alone.</p>
+        <h3>Material</h3>
+        <p>Architectural asphalt shingles are the most economical durable choice. Heavier designer shingles cost more. Standing seam metal costs meaningfully more than shingles but lasts far longer. Our <a href="/metal-roofing">metal roofing page</a> covers when that trade is worth it.</p>
+        <h3>Tear off</h3>
+        <p>Every existing layer has to come off. A roof with two old layers costs more to remove and dispose of than a roof with one. We always tear off to the deck; installing over old shingles hides problems and shortens the life of the new roof.</p>
+        <h3>Decking</h3>
+        <p>Rotten or delaminated sheathing has to be replaced, and some of it cannot be seen until the old roof is off. Our proposals list a per sheet price for decking in advance, and we photograph any sheet we replace, so you know how that cost is calculated before work starts.</p>
+        <h3>Everything under the shingles</h3>
+        <p>Ice and water barrier, synthetic underlayment, starter strip, drip edge, ridge vent, pipe boots, and flashing. These parts protect the places where water gets in first, so check that a proposal names each one and the product used.</p>
+
+        <h2>Why a price starts with an inspection</h2>
+        <p>Roof area, pitch, the number of existing layers, and the condition of the flashing all change the price, and most of them can only be measured on the roof. An inspection takes about an hour and produces the measurements and photos a written price is based on.</p>
+
+        <h2>Hidden damage and changes to the scope</h2>
+        <p>Some problems only show once the old shingles are off, such as soft decking or rotted fascia behind a gutter. A clear proposal says in advance how those items are priced. Before any work beyond the written scope is done, ask that the change and its price be approved by you in writing.</p>
+
+        <h2>How to compare two proposals</h2>
+        <ul>
+          <li>Check that both list the same shingle line and weight, not just a brand name.</li>
+          <li>Look for ice and water barrier, synthetic underlayment, drip edge, and ridge vent by name.</li>
+          <li>Find the per sheet decking price. If it is missing, ask.</li>
+          <li>Read the workmanship warranty term and who backs it. A manufacturer warranty is not the same thing.</li>
+          <li>Confirm that tear off, disposal, permit, and cleanup are included.</li>
+          <li>Ask for proof of insurance. Then ask again on the day the crew arrives.</li>
+        </ul>
+
+        <h2>Paying for it</h2>
+        <p>If a storm damaged the roof, your homeowners policy may cover a replacement minus your deductible. Read our <a href="/roof-storm-damage-insurance-tennessee">guide to storm damage and insurance claims in Tennessee</a> before filing. Financing may be available for qualified homeowners; ask during your inspection and we will explain what is currently offered.</p>
+
+        <h2>Get a written price</h2>
+        <p>A free inspection produces measurements, photos, and a written proposal you can compare with anyone else&rsquo;s. Request one below or call <a href={business.phone.tel}>{business.phone.display}</a>.</p>
+      </div>
+    </section>
+    <ContactSection heading="Get a written number for your roof." intro="An inspection takes about an hour. The proposal that follows is yours to keep and compare." service="Roof Replacement" />
+  </article>
+</Base>

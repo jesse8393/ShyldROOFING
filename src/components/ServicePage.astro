@@ -1,0 +1,421 @@
+---
+import { Picture } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import Faq from './Faq.astro';
+import ContactSection from './ContactSection.astro';
+import { business, services } from '../data/business';
+import { projects } from '../data/projects';
+import type { ServiceContent } from '../data/service-content';
+
+interface Props {
+  content: ServiceContent;
+}
+const { content: c } = Astro.props;
+const path = `/${c.slug}`;
+const project = c.projectSlug ? projects.find((p) => p.slug === c.projectSlug) : undefined;
+const others = services.filter((s) => s.slug !== c.slug);
+
+const schema = [
+  {
+    '@type': 'Service',
+    '@id': `${business.url}${path}#service`,
+    name: c.name,
+    serviceType: c.name,
+    description: c.description,
+    url: `${business.url}${path}`,
+    provider: { '@id': `${business.url}/#business` },
+    areaServed: { '@type': 'State', name: 'Tennessee' },
+  },
+];
+---
+
+<Base title={c.title} description={c.description} path={path} schema={schema} crumbs={[{ name: c.name, path }]} ogImage={undefined}>
+  <article>
+    <header class="page-head">
+      <div class="container">
+        <ol class="crumbs" aria-label="Breadcrumb">
+          <li><a href="/">Home</a></li>
+          <li><a href="/#services">Services</a></li>
+          <li aria-current="page">{c.name}</li>
+        </ol>
+        <div class="head-grid">
+          <div>
+            <p class="eyebrow">{c.name}</p>
+            <h1>{c.h1}</h1>
+            <p class="lede">{c.intro}</p>
+            <div class="actions">
+              <a class="btn btn-primary" href="#inspection" data-cta="service_inspection">Request a Free Inspection</a>
+              <a class="btn btn-secondary" href={business.phone.tel} data-cta="service_call">Call {business.phone.display}</a>
+            </div>
+          </div>
+          <figure class="hero-photo">
+            <div class="frame">
+              <Picture src={c.hero.image} widths={[640, 960, 1280, 1600]} sizes="(min-width: 62.5em) 55vw, 100vw" formats={['avif', 'webp']} alt={c.hero.alt} loading="eager" fetchpriority="high" />
+            </div>
+            <figcaption class="caption">{c.hero.caption}</figcaption>
+          </figure>
+        </div>
+      </div>
+    </header>
+
+    <section class="section-sm section-white" aria-labelledby="fit-heading">
+      <div class="container two">
+        <div class="col-head rise">
+          <h2 id="fit-heading">{c.fit.heading}</h2>
+        </div>
+        <ul class="checks rise">
+          {c.fit.items.map((i) => <li>{i}</li>)}
+        </ul>
+      </div>
+    </section>
+
+    <section class="section-sm" aria-labelledby="inspect-heading">
+      <div class="container two">
+        <div class="col-head rise">
+          <p class="eyebrow">The inspection</p>
+          <h2 id="inspect-heading">What we look at before quoting</h2>
+        </div>
+        <ol class="numbered rise">
+          {c.inspection.map((i) => <li>{i}</li>)}
+        </ol>
+      </div>
+    </section>
+
+    <section class="section-sm section-white" aria-labelledby="options-heading">
+      <div class="container">
+        <div class="section-head rise">
+          <div>
+            <p class="eyebrow">Your options</p>
+            <h2 id="options-heading">Choices we walk through with you</h2>
+          </div>
+        </div>
+        <div class="cards rise">
+          {
+            c.options.map((o) => (
+              <div class="card">
+                <h3>{o.name}</h3>
+                <p>{o.text}</p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section class="section-sm section-ink" aria-labelledby="sequence-heading">
+      <div class="container">
+        <div class="section-head rise">
+          <div>
+            <p class="eyebrow">How the work goes</p>
+            <h2 id="sequence-heading">The sequence on site</h2>
+          </div>
+          {
+            c.detail && (
+              <div class="frame detail">
+                <Picture src={c.detail.image} widths={[480, 720, 960]} sizes="(min-width: 55em) 40vw, 100vw" formats={['avif', 'webp']} alt={c.detail.alt} loading="lazy" />
+              </div>
+            )
+          }
+        </div>
+        <ol class="sequence rise">
+          {
+            c.sequence.map((s) => (
+              <li>
+                <h3>{s.name}</h3>
+                <p>{s.text}</p>
+              </li>
+            ))
+          }
+        </ol>
+      </div>
+    </section>
+
+    <section class="section-sm" aria-labelledby="scope-heading">
+      <div class="container two">
+        <div class="col-head rise">
+          <p class="eyebrow">Scope and warranty</p>
+          <h2 id="scope-heading">What is not in a standard scope</h2>
+          <p class="muted scope-note">Anything here can be quoted separately. We would rather list it than surprise you.</p>
+        </div>
+        <div class="rise">
+          <ul class="plain">
+            {c.exclusions.map((e) => <li>{e}</li>)}
+          </ul>
+          <div class="warranty">
+            <h3>Warranty</h3>
+            <p>{c.warranty}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {
+      project && (
+        <section class="section-sm section-white" aria-labelledby="project-heading">
+          <div class="container two">
+            <div class="col-head rise">
+              <p class="eyebrow">From the job</p>
+              <h2 id="project-heading">{project.title}</h2>
+              <p class="muted scope-note">{project.summary}</p>
+              <a class="arrow-link" href={`/projects#${project.slug}`} data-track="project">See the project <svg aria-hidden="true" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+            </div>
+            <div class="prose rise">
+              {project.body.map((p) => <p>{p}</p>)}
+            </div>
+          </div>
+        </section>
+      )
+    }
+
+    <Faq items={c.faqs} heading={`${c.name} questions`} id="faq" />
+
+    <section class="section-sm" aria-labelledby="related-heading">
+      <div class="container two">
+        <div class="col-head rise">
+          <h2 id="related-heading">Related</h2>
+        </div>
+        <div class="rise">
+          <ul class="links">
+            {c.related.map((r) => <li><a href={r.href}>{r.label}</a></li>)}
+          </ul>
+          <p class="muted other-label">Other services</p>
+          <ul class="links small">
+            {others.map((o) => <li><a href={`/${o.slug}`} data-track="service">{o.name}</a></li>)}
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <ContactSection
+      heading={`Ask about ${c.name.toLowerCase()}.`}
+      intro="Send a few details and we will call or text to set up a free inspection. No obligation, and no sales pitch on the roof."
+      service={c.formService}
+    />
+  </article>
+</Base>
+
+<style>
+  .head-grid {
+    display: grid;
+    gap: 2rem;
+  }
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1.75rem;
+  }
+  .hero-photo {
+    margin: 0;
+  }
+  .hero-photo .frame {
+    aspect-ratio: 4 / 3;
+  }
+  @media (min-width: 62.5em) {
+    .head-grid {
+      grid-template-columns: minmax(0, 6fr) minmax(0, 6fr);
+      gap: clamp(2rem, 5vw, 5rem);
+      align-items: center;
+    }
+    .hero-photo .frame {
+      aspect-ratio: 5 / 4;
+    }
+  }
+  .two {
+    display: grid;
+    gap: 1.5rem 3rem;
+  }
+  @media (min-width: 55em) {
+    .two {
+      grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+    }
+  }
+  .col-head h2 {
+    font-size: var(--text-h2);
+  }
+  .scope-note {
+    margin-top: 0.9rem;
+    max-width: 34ch;
+  }
+  .col-head .arrow-link {
+    margin-top: 1rem;
+  }
+  .checks,
+  .numbered,
+  .plain {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 0.75rem;
+    max-width: var(--measure);
+    color: var(--ink-soft);
+    font-size: var(--text-md);
+  }
+  .checks li,
+  .plain li {
+    position: relative;
+    padding-left: 1.75rem;
+  }
+  .checks li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 0.9rem;
+    height: 0.45rem;
+    border-left: 2px solid var(--gold-deep);
+    border-bottom: 2px solid var(--gold-deep);
+    transform: rotate(-45deg);
+  }
+  .plain li::before {
+    content: '';
+    position: absolute;
+    left: 0.4rem;
+    top: 0.65em;
+    width: 0.4rem;
+    height: 0.4rem;
+    border-radius: 50%;
+    background: var(--line-strong);
+  }
+  .numbered {
+    counter-reset: step;
+  }
+  .numbered li {
+    counter-increment: step;
+    position: relative;
+    padding-left: 2.6rem;
+  }
+  .numbered li::before {
+    content: counter(step);
+    position: absolute;
+    left: 0;
+    top: 0.05em;
+    width: 1.8rem;
+    height: 1.8rem;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--gold-tint);
+    color: var(--gold-deep);
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 0.85rem;
+  }
+  .cards {
+    display: grid;
+    gap: 1.25rem;
+  }
+  .card {
+    padding: 1.75rem;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-media);
+  }
+  .card h3 {
+    font-size: var(--text-lg);
+  }
+  .card p {
+    margin-top: 0.6rem;
+    color: var(--ink-soft);
+  }
+  @media (min-width: 45em) {
+    .cards {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+  .detail {
+    aspect-ratio: 16 / 10;
+    max-width: 28.75em;
+    justify-self: end;
+  }
+  .detail :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .sequence {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 1.25rem;
+    counter-reset: seq;
+  }
+  .sequence li {
+    counter-increment: seq;
+    padding: 1.5rem 0 0;
+    border-top: 1px solid var(--on-ink-line);
+  }
+  .sequence li::before {
+    content: counter(seq, decimal-leading-zero);
+    display: block;
+    font-family: var(--font-body);
+    font-weight: 600;
+    color: var(--gold);
+    font-size: var(--text-sm);
+    letter-spacing: 0.08em;
+    margin-bottom: 0.5rem;
+  }
+  .sequence h3 {
+    font-size: var(--text-lg);
+  }
+  .sequence p {
+    margin-top: 0.5rem;
+    color: var(--on-ink-muted);
+    max-width: 40ch;
+  }
+  @media (min-width: 45em) {
+    .sequence {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 2rem;
+    }
+  }
+  @media (min-width: 68.75em) {
+    .sequence {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+  .warranty {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--gold);
+    border-radius: var(--radius-sm) var(--radius-media) var(--radius-media) var(--radius-sm);
+    max-width: var(--measure);
+  }
+  .warranty h3 {
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: var(--text-md);
+  }
+  .warranty p {
+    margin-top: 0.5rem;
+    color: var(--ink-soft);
+  }
+  .links {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 0.4rem;
+  }
+  .links a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.5rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1.5px solid var(--gold);
+  }
+  .links.small a {
+    font-weight: 500;
+    border-bottom-color: var(--line-strong);
+  }
+  .other-label {
+    margin-top: 1.75rem;
+    font-size: var(--text-sm);
+    font-weight: 600;
+  }
+</style>

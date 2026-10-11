@@ -1,0 +1,339 @@
+---
+import { business, intake, formServiceOptions } from '../data/business';
+
+interface Props {
+  id?: string;
+  heading?: string;
+  intro?: string;
+  /** Preselect a service option, must match one of formServiceOptions */
+  service?: string;
+  /** Prefill the city field */
+  city?: string;
+  /** Visual treatment: card sits on paper (default) or on ink section */
+  tone?: 'paper' | 'ink';
+}
+
+const {
+  id = 'inspection',
+  heading = 'Request a free inspection.',
+  intro = 'Tell us how to reach you and what you have noticed on the roof, even if it is only a stain on the ceiling.',
+  service = '',
+  city = '',
+  tone = 'paper',
+} = Astro.props;
+
+const uid = id.replace(/[^a-z0-9-]/gi, '');
+const f = (name: string) => `${uid}-${name}`;
+---
+
+<div class:list={['inquiry', `tone-${tone}`]} id={id} data-hide-mobile-bar>
+  <form
+    class="inquiry-form"
+    method="post"
+    action={intake.endpoint}
+    novalidate
+    data-inquiry-form
+    data-form-id={uid}
+    aria-labelledby={f('heading')}
+    aria-describedby={f('intro')}
+  >
+    <div class="head">
+      <h2 id={f('heading')}>{heading}</h2>
+      <p id={f('intro')} class="intro">{intro}</p>
+    </div>
+
+    <div class="error-summary" role="alert" tabindex="-1" hidden data-error-summary>
+      <p><strong>Please check the highlighted fields.</strong></p>
+      <ul data-error-list></ul>
+    </div>
+
+    <div class="fields">
+      <div class="field">
+        <label for={f('name')}>Your name <span class="req">required</span></label>
+        <input id={f('name')} name="full_name" type="text" autocomplete="name" required maxlength="120" data-error-msg="Enter your name so we know who to ask for." />
+        <p class="hint" id={f('name-err')} hidden></p>
+      </div>
+
+      <div class="field">
+        <label for={f('phone')}>Phone number <span class="req">required</span></label>
+        <input id={f('phone')} name="phone" type="tel" inputmode="tel" autocomplete="tel" required maxlength="24" data-error-msg="Enter a 10 digit phone number so we can reach you." />
+        <p class="hint" id={f('phone-err')} hidden></p>
+      </div>
+
+      <div class="field">
+        <label for={f('service')}>What do you need help with? <span class="req">required</span></label>
+        <select id={f('service')} name="service" required data-error-msg="Choose the option closest to what you need.">
+          <option value="" selected disabled>Choose one</option>
+          {formServiceOptions.map((o) => <option value={o} selected={o === service ? true : undefined}>{o}</option>)}
+        </select>
+        <p class="hint" id={f('service-err')} hidden></p>
+      </div>
+
+      <div class="field">
+        <label for={f('city')}>City <span class="opt">optional</span></label>
+        <input id={f('city')} name="city" type="text" autocomplete="address-level2" maxlength="80" value={city} />
+      </div>
+
+      <div class="field">
+        <label for={f('email')}>Email <span class="opt">optional</span></label>
+        <input id={f('email')} name="email" type="email" autocomplete="email" maxlength="160" data-error-msg="That email address does not look complete." />
+        <p class="hint" id={f('email-err')} hidden></p>
+      </div>
+
+      <div class="field wide">
+        <label for={f('notes')}>Anything we should know? <span class="opt">optional</span></label>
+        <textarea id={f('notes')} name="notes" rows="3" maxlength="600" placeholder="Leak near the chimney, hail last week, roof age if you know it"></textarea>
+      </div>
+    </div>
+
+    <div class="consent">
+      <input id={f('consent')} name="sms_consent" type="checkbox" value="yes" />
+      <label for={f('consent')}>
+        <strong>Text updates.</strong> {intake.consentText} See our <a href="/privacy">privacy policy</a> and <a href="/terms">terms</a>. Requesting an inspection does not require this box.
+      </label>
+    </div>
+
+    <p class="trap" aria-hidden="true">
+      <label for={f('website')}>Leave this field empty</label>
+      <input id={f('website')} name="website_url" type="text" tabindex="-1" autocomplete="off" />
+    </p>
+
+    <input type="hidden" name="source" value="shyldroofing.com form" />
+    <input type="hidden" name="form_id" value={uid} />
+    <input type="hidden" name="sms_consent_version" value={intake.consentVersion} />
+
+    <div class="submit-row">
+      <button class="btn btn-primary" type="submit" data-submit>
+        <span data-submit-label>Send my request</span>
+      </button>
+      <p class="fine">Prefer to talk? Call <a href={business.phone.tel} data-cta="form_call">{business.phone.display}</a> or <a href={business.phone.sms} data-cta="form_text">text us</a>.</p>
+    </div>
+
+    <p class="status" role="status" aria-live="polite" data-status></p>
+  </form>
+
+  <div class="success" hidden tabindex="-1" data-success>
+    <svg aria-hidden="true" viewBox="0 0 48 48" width="44" height="44"><circle cx="24" cy="24" r="22" fill="none" stroke="currentColor" stroke-width="2"/><path d="M15 25l6 6 12-13" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <h2>Thanks. Your inspection request reached SHYLD.</h2>
+    <p>We&rsquo;ll contact you about scheduling. This is a request, not a booked appointment yet. If anything is urgent, call <a href={business.phone.tel}>{business.phone.display}</a>.</p>
+  </div>
+
+  <noscript>
+    <p class="noscript">Submitting this form without JavaScript sends your request directly to our intake service. You will see a plain confirmation page rather than this form. You can also call <a href={business.phone.tel}>{business.phone.display}</a>.</p>
+  </noscript>
+</div>
+
+<style>
+  .inquiry {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-media);
+    padding: clamp(1.25rem, 4vw, 2.5rem);
+    box-shadow: var(--shadow-card);
+    color: var(--ink);
+    scroll-margin-top: calc(var(--header-h) + 1rem);
+  }
+  .tone-ink {
+    border-color: transparent;
+  }
+  .head h2 {
+    font-size: var(--text-h3);
+  }
+  .intro {
+    margin-top: 0.5rem;
+    color: var(--muted);
+  }
+  .fields {
+    display: grid;
+    gap: 1.1rem;
+    margin-top: 1.5rem;
+  }
+  @media (min-width: 40em) {
+    .fields {
+      grid-template-columns: 1fr 1fr;
+    }
+    .wide {
+      grid-column: 1 / -1;
+    }
+  }
+  .field {
+    display: grid;
+    gap: 0.4rem;
+  }
+  label {
+    font-weight: 600;
+    font-size: var(--text-sm);
+  }
+  .req,
+  .opt {
+    font-weight: 500;
+    color: var(--muted);
+  }
+  .req::before,
+  .opt::before {
+    content: '\00b7';
+    margin: 0 0.35rem;
+  }
+  input:not([type='checkbox']),
+  select,
+  textarea {
+    width: 100%;
+    min-height: 3.25rem;
+    padding: 0.75rem 0.9rem;
+    font: inherit;
+    color: var(--ink);
+    background: var(--paper);
+    border: 1.5px solid var(--line-strong);
+    border-radius: var(--radius-control);
+    transition: border-color var(--dur-fast) var(--ease-out), background-color var(--dur-fast) var(--ease-out);
+  }
+  textarea {
+    resize: vertical;
+    min-height: 5.5rem;
+  }
+  select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%23171817' stroke-width='1.8'%3E%3Cpath d='M4 6l4 4 4-4'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.9rem center;
+    padding-right: 2.5rem;
+  }
+  input:focus,
+  select:focus,
+  textarea:focus {
+    outline: none;
+    border-color: var(--ink);
+    background: var(--white);
+    box-shadow: 0 0 0 3px rgba(201, 147, 62, 0.3);
+  }
+  .field.is-invalid input,
+  .field.is-invalid select {
+    border-color: var(--danger);
+  }
+  .hint {
+    font-size: var(--text-sm);
+    color: var(--danger);
+  }
+  .error-summary {
+    margin-top: 1.25rem;
+    padding: 0.9rem 1rem;
+    border: 1.5px solid var(--danger);
+    border-radius: var(--radius-control);
+    background: #fdf3f1;
+    color: var(--ink);
+  }
+  .error-summary ul {
+    margin: 0.4rem 0 0;
+    padding-left: 1.2rem;
+  }
+  .error-summary a {
+    color: var(--danger);
+  }
+  .consent {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.75rem;
+    margin-top: 1.25rem;
+    padding: 0.9rem 1rem;
+    background: var(--paper);
+    border-radius: var(--radius-control);
+    font-size: var(--text-sm);
+    color: var(--muted);
+    line-height: 1.5;
+  }
+  .consent input {
+    width: 1.35rem;
+    height: 1.35rem;
+    margin: 0.1rem 0 0;
+    accent-color: var(--gold-deep);
+  }
+  .consent label {
+    font-weight: 400;
+  }
+  .consent strong {
+    color: var(--ink);
+  }
+  .consent a {
+    color: var(--ink);
+  }
+  .trap {
+    position: absolute;
+    left: -10000px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+  .submit-row {
+    display: grid;
+    gap: 0.9rem;
+    margin-top: 1.5rem;
+    align-items: center;
+  }
+  @media (min-width: 40em) {
+    .submit-row {
+      grid-template-columns: auto 1fr;
+    }
+  }
+  .submit-row .btn {
+    width: 100%;
+  }
+  @media (min-width: 40em) {
+    .submit-row .btn {
+      width: auto;
+      min-width: 14rem;
+    }
+  }
+  .fine {
+    font-size: var(--text-sm);
+    color: var(--muted);
+  }
+  .fine a {
+    color: var(--ink);
+    font-weight: 600;
+  }
+  .status:empty {
+    display: none;
+  }
+  .status {
+    margin-top: 1rem;
+    padding: 0.9rem 1rem;
+    border-radius: var(--radius-control);
+    background: var(--paper);
+    border: 1.5px solid var(--line-strong);
+    font-size: var(--text-sm);
+  }
+  .status.is-error {
+    border-color: var(--danger);
+    background: #fdf3f1;
+  }
+  .status a {
+    font-weight: 600;
+  }
+  .success {
+    color: var(--ink);
+    text-align: left;
+  }
+  .success[hidden] {
+    display: none;
+  }
+  .success svg {
+    color: var(--success);
+    margin-bottom: 1rem;
+  }
+  .success h2 {
+    font-size: var(--text-h3);
+  }
+  .success p {
+    margin-top: 0.75rem;
+    color: var(--muted);
+  }
+  .noscript {
+    margin-top: 1rem;
+    font-size: var(--text-sm);
+    color: var(--muted);
+  }
+</style>
+
+<script>
+  import '../scripts/inquiry-form';
+</script>

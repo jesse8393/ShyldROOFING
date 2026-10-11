@@ -1,0 +1,7 @@
+top of page                                {"hiddenClass":false,"inert":false,"ariaHidden":null,"active":"BODY"}
+form in view                               {"hiddenClass":true,"inert":true,"ariaHidden":"true","active":"BODY"}
+bar links reached by Tab while hidden      0
+back at top                                {"hiddenClass":false,"inert":false,"ariaHidden":null,"active":"A"}
+bar link reachable by Tab when visible     "mobile_sticky_call"
+form in view while a bar link has focus    {"hiddenClass":false,"inert":false,"ariaHidden":null,"active":"mobile_sticky_call"}
+after focus leaves the bar                 {"hiddenClass":true,"inert":true,"ariaHidden":"true","active":"A"}

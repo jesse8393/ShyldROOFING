@@ -1,0 +1,57 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> shyld-roofing-site@2.0.0 build
+> astro build
+
+20:52:21 [types] Generated 40ms
+20:52:21 [build] output: "static"
+20:52:21 [build] mode: "static"
+20:52:21 [build] directory: /workspace/scratch/c334e6574ade/shyld-finish/dist/
+20:52:21 [build] Collecting build info...
+20:52:21 [build] ✓ Completed in 96ms.
+20:52:21 [build] Building static entrypoints...
+20:52:21 [vite] ✓ built in 332ms
+20:52:21 [vite] ✓ built in 29ms
+20:52:21 [build] Rearranging server assets...
+
+ generating static routes 
+20:52:21   ├─ /404.html (+10ms) 
+20:52:21   ├─ /about.html (+8ms) 
+20:52:21   ├─ /contact.html (+3ms) 
+20:52:21   ├─ /gutters.html (+5ms) 
+20:52:21   ├─ /metal-roofing.html (+4ms) 
+20:52:21   ├─ /privacy.html (+2ms) 
+20:52:21   ├─ /projects.html (+9ms) 
+20:52:21   ├─ /roof-repair.html (+3ms) 
+20:52:21   ├─ /roof-replacement.html (+3ms) 
+20:52:21   ├─ /roof-replacement-cost-middle-tennessee.html (+2ms) 
+20:52:21   ├─ /roof-storm-damage-insurance-tennessee.html (+2ms) 
+20:52:21   ├─ /service-areas.html (+2ms) 
+20:52:21   ├─ /siding.html (+13ms) 
+20:52:21   ├─ /sitemap.xml (+2ms) 
+20:52:21   ├─ /storm-restoration.html (+3ms) 
+20:52:21   ├─ /terms.html (+1ms) 
+20:52:21   ├─ /text-us.html (+1ms) 
+20:52:21   ├─ /roofing-franklin.html (+3ms) 
+20:52:21   ├─ /roofing-lebanon.html (+1ms) 
+20:52:21   ├─ /roofing-murfreesboro.html (+1ms) 
+20:52:21   ├─ /roofing-smyrna.html (+1ms) 
+20:52:21   ├─ /roofing-la-vergne.html (+3ms) 
+20:52:21   ├─ /roofing-nashville.html (+2ms) 
+20:52:21   ├─ /roofing-brentwood.html (+1ms) 
+20:52:21   ├─ /roofing-nolensville.html (+2ms) 
+20:52:21   ├─ /roofing-spring-hill.html (+2ms) 
+20:52:21   ├─ /roofing-mt-juliet.html (+1ms) 
+20:52:21   ├─ /roofing-shelbyville.html (+1ms) 
+20:52:21   ├─ /roofing-eagleville.html (+1ms) 
+20:52:21   ├─ /roofing-christiana.html (+2ms) 
+20:52:21   ├─ /roofing-rockvale.html (+1ms) 
+20:52:21   ├─ /index.html (+5ms) 
+20:52:21 ✓ Completed in 122ms.
+
+ generating optimized images 
+20:52:21 ✓ Completed in 24ms.
+
+20:52:21 [build] ✓ Completed in 555ms.
+20:52:21 [build] 31 page(s) built in 658ms
+20:52:21 [build] Complete!

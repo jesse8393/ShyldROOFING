@@ -1,0 +1,5 @@
+390 {"frame":"355x355","source":"389x389","src":"hero2-tall.QB4_Yu1z_Z1xGRmi.avif","visibleWidth":"100%","visibleHeight":"100%","scaleFromSource":"0.91"}
+900 {"frame":"457x365","source":"738x415","src":"home-charcoal-shingles-aerial.BrNSg0bb_Z","visibleWidth":"70%","visibleHeight":"100%","scaleFromSource":"0.88"}
+1024 {"frame":"520x416","source":"839x472","src":"home-charcoal-shingles-aerial.BrNSg0bb_Z","visibleWidth":"70%","visibleHeight":"100%","scaleFromSource":"0.88"}
+1280 {"frame":"650x520","source":"1049x590","src":"home-charcoal-shingles-aerial.BrNSg0bb_Z","visibleWidth":"70%","visibleHeight":"100%","scaleFromSource":"0.88"}
+1440 {"frame":"690x552","source":"990x557","src":"home-charcoal-shingles-aerial.BrNSg0bb_Z","visibleWidth":"70%","visibleHeight":"100%","scaleFromSource":"0.99"}

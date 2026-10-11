@@ -1,0 +1,10 @@
+/ mobile run 1: perf 99 a11y 100 bp 100 seo 100 | LCP 2038ms CLS 0.000 TBT 0ms bytes 202KB | failing: first-contentful-paint (98), largest-contentful-paint (97), speed-index (98), interactive (99), forced-reflow-insight (0), image-delivery-insight (0), network-dependency-tree-insight (0)
+/ mobile run 2: perf 99 a11y 100 bp 100 seo 100 | LCP 1958ms CLS 0.000 TBT 0ms bytes 202KB | failing: first-contentful-paint (99), largest-contentful-paint (97), interactive (99), mainthread-work-breakdown (50), bootup-time (50), forced-reflow-insight (0), image-delivery-insight (0), network-dependency-tree-insight (0)
+/ mobile run 3: perf 99 a11y 100 bp 100 seo 100 | LCP 1959ms CLS 0.000 TBT 0ms bytes 202KB | failing: first-contentful-paint (98), largest-contentful-paint (97), interactive (99), forced-reflow-insight (0), image-delivery-insight (0), network-dependency-tree-insight (0)
+/ desktop run 1: perf 100 a11y 100 bp 100 seo 100 | LCP 510ms CLS 0.000 TBT 0ms bytes 209KB | failing: forced-reflow-insight (0), network-dependency-tree-insight (0)
+/ desktop run 2: perf 100 a11y 100 bp 100 seo 100 | LCP 511ms CLS 0.000 TBT 0ms bytes 209KB | failing: forced-reflow-insight (0), network-dependency-tree-insight (0)
+/ desktop run 3: perf 100 a11y 100 bp 100 seo 100 | LCP 513ms CLS 0.000 TBT 0ms bytes 209KB | failing: network-dependency-tree-insight (0)
+
+Medians:
+/ mobile: perf 99 a11y 100 bp 100 seo 100 | LCP 1959ms CLS 0 TBT 0ms 202KB
+/ desktop: perf 100 a11y 100 bp 100 seo 100 | LCP 511ms CLS 0 TBT 0ms 209KB

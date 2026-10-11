@@ -1,0 +1,346 @@
+---
+import Base from '../layouts/Base.astro';
+import { business, intake, formServiceOptions } from '../data/business';
+const legal = business.legalName;
+---
+
+<Base
+  title="Text Message Sign Up | SHYLD Roofing"
+  description="Opt in to text messages from SHYLD Roofing about your inquiry and appointments, with a separate choice for promotional texts. Reply STOP to opt out."
+  path="/text-us"
+  crumbs={[{ name: 'Text message sign up', path: '/text-us' }]}
+  hideMobileBar
+>
+  <header class="page-head">
+    <div class="container">
+      <ol class="crumbs" aria-label="Breadcrumb"><li><a href="/">Home</a></li><li aria-current="page">Text message sign up</li></ol>
+      <p class="eyebrow">Text messaging</p>
+      <h1>Text with SHYLD Roofing.</h1>
+      <p class="lede">Submit your information below to receive text messages from SHYLD Roofing about your inquiry. You may also separately opt in to receive promotional offers. Neither box is required to request an inspection.</p>
+    </div>
+  </header>
+
+  <section class="section-sm section-white">
+    <div class="container layout">
+      <div class="inquiry" id="sms-signup" data-hide-mobile-bar>
+        <form class="inquiry-form" method="post" action={intake.endpoint} novalidate data-inquiry-form data-form-id="sms-signup" aria-labelledby="sms-heading">
+          <h2 id="sms-heading">{legal} SMS opt in form</h2>
+          <p class="intro"><strong>Business name:</strong> {legal}. <strong>Message types:</strong> promotional, transactional, alerts.</p>
+          <p class="intro">By submitting this form and checking a consent box below, I consent to receive SMS text messages from <strong>{legal}</strong>. The text messages I will receive from {legal} will be of the following message types: <strong>promotional messages, transactional messages, and alerts</strong>.</p>
+          <ul class="types">
+            <li><strong>Transactional messages:</strong> appointment confirmations, appointment reminders, project status updates, follow ups, review requests.</li>
+            <li><strong>Promotional messages:</strong> seasonal offers, neighborhood inspection campaigns, service announcements, marketing.</li>
+            <li><strong>Alerts:</strong> storm response notifications, urgent project alerts, weather related service alerts.</li>
+          </ul>
+          <p class="fine"><strong>Message and data rates may apply. Message frequency varies.</strong> Reply <strong>HELP</strong> for help. Reply <strong>STOP</strong> to opt out. See our <a href="/privacy">Privacy Policy</a> and <a href="/terms">Terms of Service</a>.</p>
+
+          <div class="error-summary" role="alert" tabindex="-1" hidden data-error-summary>
+            <p><strong>Please check the highlighted fields.</strong></p>
+            <ul data-error-list></ul>
+          </div>
+
+          <div class="fields">
+            <div class="field">
+              <label for="su-name">Full name <span class="req">required</span></label>
+              <input id="su-name" name="full_name" type="text" autocomplete="name" required maxlength="120" data-error-msg="Enter your name." />
+              <p class="hint" id="su-name-err" hidden></p>
+            </div>
+            <div class="field">
+              <label for="su-phone">Mobile phone number <span class="req">required</span></label>
+              <input id="su-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required maxlength="24" data-error-msg="Enter a 10 digit mobile number." />
+              <p class="hint" id="su-phone-err" hidden></p>
+            </div>
+            <div class="field">
+              <label for="su-email">Email <span class="opt">optional</span></label>
+              <input id="su-email" name="email" type="email" autocomplete="email" maxlength="160" data-error-msg="That email address does not look complete." />
+              <p class="hint" id="su-email-err" hidden></p>
+            </div>
+            <div class="field">
+              <label for="su-city">City <span class="opt">optional</span></label>
+              <input id="su-city" name="city" type="text" autocomplete="address-level2" maxlength="80" />
+            </div>
+            <div class="field wide">
+              <label for="su-service">What do you need? <span class="req">required</span></label>
+              <select id="su-service" name="service" required data-error-msg="Choose the option closest to what you need.">
+                <option value="" selected disabled>Choose one</option>
+                {formServiceOptions.map((o) => <option value={o}>{o}</option>)}
+              </select>
+              <p class="hint" id="su-service-err" hidden></p>
+            </div>
+            <div class="field wide">
+              <label for="su-notes">Anything else? <span class="opt">optional</span></label>
+              <textarea id="su-notes" name="notes" rows="3" maxlength="600"></textarea>
+            </div>
+          </div>
+
+          <fieldset class="consents">
+            <legend>SMS message type disclosure. Choose your preferences.</legend>
+            <p class="fine">Two distinct SMS message types. Each requires its own opt in. Both checkboxes are unchecked by default and both are optional.</p>
+            <div class="consent">
+              <input id="su-consent-care" name="sms_consent" type="checkbox" value="yes" aria-describedby="su-care-desc" />
+              <label for="su-consent-care">I consent to receive SMS text messages from <strong>{legal}</strong>. Specifically, I am opting in to <strong>transactional messages</strong> and <strong>alerts</strong> about my inquiry: appointment confirmations, appointment reminders, project follow ups, review requests, and urgent service alerts. Message and data rates may apply. Message frequency varies. Reply STOP to opt out at any time. Reply HELP for help.</label>
+            </div>
+            <p id="su-care-desc" class="fine">Business name: {legal}. Message types: transactional, alerts. Unchecked by default. Optional.</p>
+            <div class="consent">
+              <input id="su-consent-promo" name="sms_consent_promotional" type="checkbox" value="yes" aria-describedby="su-promo-desc" />
+              <label for="su-consent-promo">I consent to receive SMS text messages from <strong>{legal}</strong>. Specifically, I am opting in to <strong>promotional messages</strong>: seasonal offers, neighborhood inspection campaigns, service announcements, and marketing communications. Message and data rates may apply. Message frequency varies. Reply STOP to opt out at any time. Reply HELP for help.</label>
+            </div>
+            <p id="su-promo-desc" class="fine">Business name: {legal}. Message type: promotional. Unchecked by default. Optional and not required.</p>
+          </fieldset>
+
+          <p class="trap" aria-hidden="true">
+            <label for="su-website">Leave this field empty</label>
+            <input id="su-website" name="website_url" type="text" tabindex="-1" autocomplete="off" />
+          </p>
+          <input type="hidden" name="source" value="shyldroofing.com/text-us" />
+          <input type="hidden" name="form_id" value="sms-signup" />
+          <input type="hidden" name="sms_consent_version" value="text-us-2026-10-02" />
+
+          <div class="submit-row">
+            <button class="btn btn-primary" type="submit" data-submit><span data-submit-label>Submit and sign up</span></button>
+            <p class="fine">Prefer to talk? Call or text <a href={business.phone.tel}>{business.phone.display}</a>.</p>
+          </div>
+          <p class="status" role="status" aria-live="polite" data-status></p>
+        </form>
+
+        <div class="success" hidden tabindex="-1" data-success>
+          <svg aria-hidden="true" viewBox="0 0 48 48" width="44" height="44"><circle cx="24" cy="24" r="22" fill="none" stroke="currentColor" stroke-width="2"/><path d="M15 25l6 6 12-13" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <h2>Thanks. Your request reached SHYLD.</h2>
+          <p>We will reply during business hours. If you opted in to texts, that is how you will hear from us. Reply STOP at any time to opt out.</p>
+        </div>
+      </div>
+
+      <section class="disclosures prose" aria-labelledby="disclosures-heading">
+        <h2 id="disclosures-heading">SMS messaging program disclosures</h2>
+        <h3>Program operator</h3>
+        <p>This SMS messaging program is operated by SHYLD Roofing ({legal}, {business.address.locality}, TN {business.address.postalCode}). Text and call number: <a href={business.phone.tel}>{business.phone.display}</a>. Email: <a href={`mailto:${business.email}`}>{business.email}</a>.</p>
+        <h3>Business name in consent text</h3>
+        <p>The form explicitly identifies SHYLD Roofing as the business sending messages. Both consent checkboxes name the sender.</p>
+        <h3>Consent is explicit and not pre checked</h3>
+        <p>Both consent checkboxes are unchecked by default. You must affirmatively check a box to opt in. Checking a box is optional and not required to use this site or receive a quote.</p>
+        <h3>Message types disclosed</h3>
+        <p>Two message types are clearly distinguished: customer care messages tied to your inquiry, and promotional or marketing messages. Each requires its own opt in.</p>
+        <h3>Message frequency</h3>
+        <p>Message frequency varies based on your project and preferences. During an active project you may receive up to several messages per week. Outside of active engagements, frequency is typically much lower.</p>
+        <h3>Message and data rates</h3>
+        <p>Message and data rates may apply. Standard text messaging fees are billed by your wireless carrier, not by SHYLD Roofing.</p>
+        <h3>Opt out instructions</h3>
+        <p>Reply STOP at any time to opt out of all non transactional text messages from SHYLD Roofing. Reply HELP for help or to reach a person. You may also opt out by emailing <a href={`mailto:${business.email}`}>{business.email}</a> with STOP in the subject line.</p>
+        <h3>Carrier liability</h3>
+        <p>Wireless carriers, including AT&amp;T, T-Mobile, Verizon, and others, are not liable for delayed or undelivered messages.</p>
+        <h3>Privacy and data sharing</h3>
+        <p>Mobile information and SMS opt in consent will not be shared with third parties or affiliates for marketing or promotional purposes. See our <a href="/privacy">Privacy Policy</a> and <a href="/terms">Terms of Service</a> for full details.</p>
+        <h3>Age requirement</h3>
+        <p>You must be at least 18 years of age to opt in to this SMS messaging program.</p>
+      </section>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .layout {
+    display: grid;
+    gap: 3rem;
+  }
+  @media (min-width: 62.5em) {
+    .layout {
+      grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+      gap: clamp(2rem, 5vw, 5rem);
+      align-items: start;
+    }
+  }
+  .inquiry {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-media);
+    padding: clamp(1.25rem, 4vw, 2.5rem);
+  }
+  .inquiry h2 {
+    font-size: var(--text-h3);
+  }
+  .intro {
+    margin-top: 0.75rem;
+    color: var(--ink-soft);
+  }
+  .types {
+    margin: 0.75rem 0 0;
+    padding-left: 1.2rem;
+    color: var(--ink-soft);
+    display: grid;
+    gap: 0.35rem;
+  }
+  .fine {
+    margin-top: 0.75rem;
+    font-size: var(--text-sm);
+    color: var(--muted);
+  }
+  .fine a {
+    color: var(--ink);
+  }
+  .fields {
+    display: grid;
+    gap: 1.1rem;
+    margin-top: 1.5rem;
+  }
+  @media (min-width: 40em) {
+    .fields {
+      grid-template-columns: 1fr 1fr;
+    }
+    .wide {
+      grid-column: 1 / -1;
+    }
+  }
+  .field {
+    display: grid;
+    gap: 0.4rem;
+  }
+  label {
+    font-weight: 600;
+    font-size: var(--text-sm);
+  }
+  .req,
+  .opt {
+    font-weight: 500;
+    color: var(--muted);
+  }
+  .req::before,
+  .opt::before {
+    content: '\00b7';
+    margin: 0 0.35rem;
+  }
+  input:not([type='checkbox']),
+  select,
+  textarea {
+    width: 100%;
+    min-height: 3.25rem;
+    padding: 0.75rem 0.9rem;
+    font: inherit;
+    color: var(--ink);
+    background: var(--white);
+    border: 1.5px solid var(--line-strong);
+    border-radius: var(--radius-control);
+  }
+  select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%23171817' stroke-width='1.8'%3E%3Cpath d='M4 6l4 4 4-4'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.9rem center;
+    padding-right: 2.5rem;
+  }
+  input:focus,
+  select:focus,
+  textarea:focus {
+    outline: none;
+    border-color: var(--ink);
+    box-shadow: 0 0 0 3px rgba(201, 147, 62, 0.3);
+  }
+  .field.is-invalid input,
+  .field.is-invalid select {
+    border-color: var(--danger);
+  }
+  .hint {
+    font-size: var(--text-sm);
+    color: var(--danger);
+  }
+  .error-summary {
+    margin-top: 1.25rem;
+    padding: 0.9rem 1rem;
+    border: 1.5px solid var(--danger);
+    border-radius: var(--radius-control);
+    background: #fdf3f1;
+  }
+  .error-summary ul {
+    margin: 0.4rem 0 0;
+    padding-left: 1.2rem;
+  }
+  .consents {
+    margin: 1.5rem 0 0;
+    padding: 1.25rem;
+    border: 1px solid var(--line-strong);
+    border-radius: var(--radius-control);
+    background: var(--white);
+  }
+  .consents legend {
+    padding: 0 0.5rem;
+    font-weight: 600;
+  }
+  .consents .fine {
+    margin-top: 0.5rem;
+  }
+  .consent {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.75rem;
+    margin-top: 1rem;
+    font-size: var(--text-sm);
+    color: var(--ink-soft);
+    line-height: 1.5;
+  }
+  .consent input {
+    width: 1.35rem;
+    height: 1.35rem;
+    margin: 0.1rem 0 0;
+    accent-color: var(--gold-deep);
+  }
+  .consent label {
+    font-weight: 400;
+  }
+  .trap {
+    position: absolute;
+    left: -10000px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+  .submit-row {
+    display: grid;
+    gap: 0.9rem;
+    margin-top: 1.5rem;
+    align-items: center;
+  }
+  @media (min-width: 40em) {
+    .submit-row {
+      grid-template-columns: auto 1fr;
+    }
+  }
+  .status:empty {
+    display: none;
+  }
+  .status {
+    margin-top: 1rem;
+    padding: 0.9rem 1rem;
+    border-radius: var(--radius-control);
+    background: var(--white);
+    border: 1.5px solid var(--line-strong);
+    font-size: var(--text-sm);
+  }
+  .status.is-error {
+    border-color: var(--danger);
+    background: #fdf3f1;
+  }
+  .success[hidden] {
+    display: none;
+  }
+  .success svg {
+    color: var(--success);
+    margin-bottom: 1rem;
+  }
+  .success h2 {
+    font-size: var(--text-h3);
+  }
+  .success p {
+    margin-top: 0.75rem;
+    color: var(--muted);
+  }
+  .disclosures h2 {
+    font-size: var(--text-h3);
+    margin: 0 0 0.5em;
+  }
+  .disclosures h3 {
+    margin-top: 1.4em;
+  }
+</style>
+
+<script>
+  import '../scripts/inquiry-form';
+</script>

@@ -1,0 +1,207 @@
+---
+import { getImage } from 'astro:assets';
+import { business, nav } from '../data/business';
+import wide from '../assets/photos/crops/hero2-wide.jpg';
+import tall from '../assets/photos/crops/hero2-tall.jpg';
+import full from '../assets/photos/home-charcoal-shingles-aerial.jpg';
+
+// Hero composition. 'split' puts the copy beside the photo; 'overlay' keeps a smaller card over the photo.
+const layout = (process.env.HERO_LAYOUT || 'split') === 'overlay' ? 'overlay' : 'split';
+const desk = layout === 'split' ? full : wide;
+// The split frame is 5:4 and the photo is about 16:9, so object-fit cover needs roughly 1.4 times the frame width.
+const deskSizes = layout === 'split' ? '(min-width: 82.5em) 990px, 82vw' : '(min-width: 82.5em) 1240px, 100vw';
+
+const wideAvif = await getImage({ src: desk, widths: [660, 960, 1320], format: 'avif', quality: 68 });
+const wideWebp = await getImage({ src: desk, widths: [660, 960, 1320], format: 'webp', quality: 82 });
+const tallAvif = await getImage({ src: tall, widths: [480, 640, 781], format: 'avif', quality: 68 });
+const tallWebp = await getImage({ src: tall, widths: [480, 640, 781], format: 'webp', quality: 82 });
+const fallback = await getImage({ src: desk, width: 1320, format: 'jpeg', quality: 84 });
+const alt = 'Aerial view of a white board and batten home with a new charcoal architectural shingle roof, photographed on a SHYLD job';
+---
+
+<Fragment slot="head">
+  <link rel="preload" as="image" type="image/avif" fetchpriority="high" media="(max-width: 56.1875em)" imagesrcset={tallAvif.srcSet.attribute} imagesizes="100vw" />
+  <link rel="preload" as="image" type="image/avif" fetchpriority="high" media="(min-width: 56.25em)" imagesrcset={wideAvif.srcSet.attribute} imagesizes={deskSizes} />
+</Fragment>
+
+<section class:list={['hero', `hero--${layout}`]} aria-labelledby="hero-heading">
+  <div class="container">
+    <div class="stage">
+      <div class="panel">
+        <p class="eyebrow">Middle Tennessee roofing</p>
+        <h1 id="hero-heading">Roofing worth coming home to.</h1>
+        <p class="lede">Roof replacements, repairs, and metal roofing for homeowners across Middle Tennessee. Clear answers before any work begins.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href={nav.cta.href} data-cta="hero_inspection">Request a Free Inspection</a>
+          <a class="btn btn-secondary" href={business.phone.tel} data-cta="hero_call">Call SHYLD Roofing</a>
+        </div>
+        <p class="phone-line">
+          Call or text <a href={business.phone.tel}>{business.phone.display}</a>, Monday to Saturday.
+        </p>
+      </div>
+
+      <figure class="photo frame">
+        <picture>
+          <source media="(max-width: 56.1875em)" type="image/avif" srcset={tallAvif.srcSet.attribute} sizes="100vw" />
+          <source media="(max-width: 56.1875em)" type="image/webp" srcset={tallWebp.srcSet.attribute} sizes="100vw" />
+          <source type="image/avif" srcset={wideAvif.srcSet.attribute} sizes={deskSizes} />
+          <source type="image/webp" srcset={wideWebp.srcSet.attribute} sizes={deskSizes} />
+          <img
+            src={fallback.src}
+            width={desk.width}
+            height={desk.height}
+            alt={alt}
+            fetchpriority="high"
+            decoding="async"
+            loading="eager"
+          />
+        </picture>
+        <figcaption class="tag">Shingle replacement, aerial photo from a SHYLD job</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    padding-block: clamp(1rem, 3vw, 2.5rem) 0;
+  }
+  .stage {
+    display: grid;
+    gap: 1.25rem;
+  }
+  .panel {
+    order: 1;
+    padding: clamp(0.5rem, 3vw, 2.75rem) 0 0.5rem;
+  }
+  .photo {
+    order: 2;
+    margin: 0;
+    aspect-ratio: 1 / 1;
+  }
+  .photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 50%;
+  }
+  .tag {
+    position: absolute;
+    left: 1rem;
+    bottom: 1rem;
+    padding: 0.45rem 0.75rem;
+    border-radius: 999px;
+    background: rgba(23, 24, 23, 0.7);
+    color: var(--on-ink);
+    font-size: 0.8rem;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+  }
+  h1 {
+    max-width: 14ch;
+  }
+  .lede {
+    margin-top: 1.25rem;
+    max-width: 44ch;
+  }
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1.75rem;
+  }
+  .phone-line {
+    margin-top: 1.1rem;
+    font-size: var(--text-sm);
+    color: var(--muted);
+  }
+  .phone-line a {
+    color: var(--ink);
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1.5px solid var(--gold);
+  }
+  @media (max-width: 29.9375em) {
+    .actions .btn {
+      width: 100%;
+    }
+  }
+  @media (min-width: 56.25em) {
+    .photo {
+      box-shadow: var(--shadow-soft);
+    }
+    .photo img {
+      object-position: 50% 40%;
+    }
+    .tag {
+      left: auto;
+      right: 1rem;
+      bottom: 1rem;
+      text-align: right;
+    }
+
+    /* Side by side: copy on the page, photo uncovered. */
+    .hero--split {
+      padding-block: clamp(1.5rem, 3vw, 3rem) clamp(2.5rem, 5vw, 4rem);
+    }
+    .hero--split .stage {
+      grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+      gap: clamp(2rem, 4vw, 4rem);
+      align-items: center;
+    }
+    .hero--split .panel {
+      order: 1;
+      padding: 0;
+    }
+    .hero--split .photo {
+      order: 2;
+      aspect-ratio: 5 / 4;
+      max-height: 640px;
+      width: 100%;
+    }
+    .hero--split .photo img {
+      object-position: 55% 45%;
+    }
+    .hero--split .tag {
+      left: 1rem;
+      right: auto;
+      text-align: left;
+    }
+
+    /* Smaller card over the photo, kept to the lower left corner. */
+    .hero--overlay {
+      padding-bottom: 2.5rem;
+    }
+    .hero--overlay .stage {
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr;
+    }
+    .hero--overlay .panel,
+    .hero--overlay .photo {
+      grid-area: 1 / 1;
+    }
+    .hero--overlay .photo {
+      aspect-ratio: 16 / 7;
+      min-height: 520px;
+      max-height: 720px;
+    }
+    .hero--overlay .panel {
+      position: relative;
+      z-index: 2;
+      align-self: end;
+      justify-self: start;
+      width: min(430px, 38%);
+      margin: 0 0 -2.5rem clamp(1rem, 2.5vw, 2rem);
+      padding: clamp(1.25rem, 2vw, 1.75rem);
+      background: var(--white);
+      border-radius: var(--radius-media);
+      box-shadow: var(--shadow-soft);
+    }
+    .hero--overlay .lede {
+      font-size: var(--text-md);
+    }
+    .hero--overlay .phone-line {
+      display: none;
+    }
+  }
+</style>
