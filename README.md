@@ -11,6 +11,12 @@ Archives for publishing the rebuilt shyldroofing.com and for rolling it back. In
   `robots.txt`, `sitemap.xml`, the Google verification file, `shyld-track.js`, the 28 old pages, and their images.
   Extract into `public_html` to restore the previous site, then remove the files that exist only in the new site
   (listed in the handoff).
+* `live-site-mirror-2026-11-26.zip`: a byte for byte download of every file the live site served on 2026-11-26
+  (60 sitemap pages plus `404.html`, `robots.txt`, `sitemap.xml`, `favicon.ico`, `site.webmanifest`, and all 248
+  referenced assets, 311 files). Saved because the build that was published on 2026-10-09 (60 city pages, Google tag
+  `G-ME6GFQ4683`) is not on any branch of this repository; the newest branch, `claude/jakarta-preview`, builds 30 pages.
+  The server `.htaccess` and the Google verification file could not be downloaded (403) and are not in this archive.
+  Paths inside the archive mirror `public_html`, with clean URLs saved as `<slug>.html`.
 * `CHECKSUMS.txt`: sha256 for every archive.
 
 This branch holds only these files. It is not meant to be merged.
